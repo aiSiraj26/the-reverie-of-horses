@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Steeds of the Spheres — Divine Celestial Horses Across Civilizations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --parchment: #f5efe0;
+    --parchment-dark: #ebe2cc;
+    --ink: #2a1810;
+    --ink-soft: #4a3424;
+    --gold: #b8860b;
+    --gold-bright: #d4a017;
+    --gold-soft: #c9a961;
+    --border: #8b6f47;
+    --muted: #7a6b4f;
+    --highlight: #fff8e1;
+    --shadow: rgba(60, 40, 20, 0.15);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--parchment);
+    background-image:
+      radial-gradient(ellipse at top left, rgba(184, 134, 11, 0.06), transparent 60%),
+      radial-gradient(ellipse at bottom right, rgba(139, 111, 71, 0.08), transparent 60%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='5'/%3E%3CfeColorMatrix values='0 0 0 0 0.6 0 0 0 0 0.45 0 0 0 0 0.25 0 0 0 0.04 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+    color: var(--ink);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 19px;
+    line-height: 1.75;
+    min-height: 100vh;
+  }
+
+  /* ========== HEADER ========== */
+  .hero {
+    text-align: center;
+    padding: 6rem 2rem 4rem;
+    border-bottom: 1px double var(--border);
+    position: relative;
+    background-image:
+      radial-gradient(ellipse at center top, rgba(184, 134, 11, 0.12), transparent 70%);
+  }
+  .hero::before, .hero::after {
+    content: "❦";
+    color: var(--gold);
+    font-size: 1.5rem;
+    display: block;
+    margin: 0 auto;
+    opacity: 0.7;
+  }
+  .hero::before { margin-bottom: 2rem; }
+  .hero::after { margin-top: 2rem; }
+
+  .hero .eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: 0.08em;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+  }
+  .hero .subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    color: var(--ink-soft);
+    max-width: 700px;
+    margin: 0 auto;
+    font-weight: 400;
+  }
+  .hero .byline {
+    margin-top: 2rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  /* ========== CONTAINER ========== */
+  .container {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+
+  /* ========== INTRODUCTION ========== */
+  .intro {
+    margin-bottom: 4rem;
+  }
+  .intro h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.6rem;
+    text-align: center;
+    color: var(--ink);
+    letter-spacing: 0.15em;
+    margin-bottom: 2rem;
+    font-weight: 500;
+  }
+  .intro p {
+    margin-bottom: 1.4rem;
+    text-align: justify;
+    hyphens: auto;
+  }
+  .intro p:first-of-type::first-letter {
+    font-family: 'Cinzel', serif;
+    float: left;
+    font-size: 4.5rem;
+    line-height: 0.9;
+    padding: 0.4rem 0.7rem 0 0;
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  /* ========== ORNAMENTAL DIVIDER ========== */
+  .divider {
+    text-align: center;
+    margin: 4rem 0;
+    color: var(--gold-soft);
+    font-size: 1.2rem;
+    letter-spacing: 1em;
+    padding-left: 1em;
+  }
+  .divider-line {
+    display: flex;
+    align-items: center;
+    margin: 3rem 0;
+    color: var(--gold);
+  }
+  .divider-line::before, .divider-line::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-soft), transparent);
+  }
+  .divider-line span {
+    padding: 0 1.5rem;
+    font-size: 1.3rem;
+  }
+
+  /* ========== TABLE OF CONTENTS ========== */
+  .toc {
+    background: var(--parchment-dark);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 2.5rem;
+    margin: 3rem 0;
+    box-shadow: 0 2px 8px var(--shadow);
+    position: relative;
+  }
+  .toc::before {
+    content: "";
+    position: absolute;
+    top: 8px; left: 8px; right: 8px; bottom: 8px;
+    border: 1px solid var(--gold-soft);
+    pointer-events: none;
+  }
+  .toc h3 {
+    font-family: 'Cinzel', serif;
+    text-align: center;
+    color: var(--gold);
+    letter-spacing: 0.3em;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .toc ol {
+    list-style: none;
+    counter-reset: toc;
+    columns: 2;
+    column-gap: 2rem;
+  }
+  .toc ol li {
+    counter-increment: toc;
+    padding: 0.4rem 0;
+    border-bottom: 1px dotted var(--gold-soft);
+    break-inside: avoid;
+  }
+  .toc ol li::before {
+    content: counter(toc, upper-roman) ". ";
+    color: var(--gold);
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    margin-right: 0.5em;
+  }
+  .toc a {
+    color: var(--ink);
+    text-decoration: none;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    transition: color 0.2s;
+  }
+  .toc a:hover {
+    color: var(--gold);
+    font-style: italic;
+  }
+  .toc a .culture {
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-style: italic;
+  }
+
+  @media (max-width: 600px) {
+    .toc ol { columns: 1; }
+  }
+
+  /* ========== HORSE EXHIBIT ========== */
+  .exhibit {
+    margin: 5rem 0;
+    scroll-margin-top: 2rem;
+  }
+  .exhibit-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--gold-soft);
+    position: relative;
+  }
+  .exhibit-numeral {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    letter-spacing: 0.4em;
+    font-size: 0.75rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+  .exhibit h2 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    color: var(--ink);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.5rem;
+  }
+  .exhibit .native-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+  .exhibit .epithet {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--muted);
+    font-size: 1.05rem;
+    font-style: italic;
+  }
+  .exhibit .meta {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .exhibit .meta span {
+    border-left: 1px solid var(--gold-soft);
+    padding-left: 1rem;
+  }
+  .exhibit .meta span:first-child {
+    border-left: none;
+    padding-left: 0;
+  }
+
+  .exhibit-body h3 {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--gold);
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin: 2rem 0 1rem;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    letter-spacing: 0.25em;
+  }
+  .exhibit-body p {
+    margin-bottom: 1.3rem;
+    text-align: justify;
+    hyphens: auto;
+  }
+  .exhibit-body p:first-child::first-letter {
+    font-family: 'Cinzel', serif;
+    float: left;
+    font-size: 3.8rem;
+    line-height: 0.9;
+    padding: 0.3rem 0.6rem 0 0;
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  .pullquote {
+    margin: 2rem 2rem;
+    padding: 1.5rem 2rem;
+    border-left: 3px solid var(--gold);
+    background: rgba(184, 134, 11, 0.05);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .pullquote cite {
+    display: block;
+    margin-top: 0.7rem;
+    font-style: normal;
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .sources {
+    margin-top: 2rem;
+    padding: 1.2rem 1.5rem;
+    background: rgba(139, 111, 71, 0.07);
+    border-top: 1px solid var(--gold-soft);
+    border-bottom: 1px solid var(--gold-soft);
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+  .sources strong {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+
+  /* ========== COMPARISON TABLE ========== */
+  .comparison {
+    margin: 5rem 0;
+    overflow-x: auto;
+  }
+  .comparison h2 {
+    font-family: 'Cinzel', serif;
+    text-align: center;
+    font-size: 1.8rem;
+    letter-spacing: 0.15em;
+    color: var(--ink);
+    margin-bottom: 2rem;
+    font-weight: 500;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    border: 1px solid var(--border);
+  }
+  th {
+    background: var(--parchment-dark);
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    padding: 1rem 0.8rem;
+    text-align: left;
+    border-bottom: 2px solid var(--gold);
+    font-weight: 500;
+  }
+  td {
+    padding: 0.9rem 0.8rem;
+    border-bottom: 1px dotted var(--gold-soft);
+    vertical-align: top;
+  }
+  td:first-child {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    color: var(--gold);
+    font-size: 1.05rem;
+  }
+  tr:hover td {
+    background: rgba(184, 134, 11, 0.04);
+  }
+
+  /* ========== CLOSING ========== */
+  .closing {
+    margin: 5rem 0 3rem;
+    padding: 3rem;
+    text-align: center;
+    border-top: 1px double var(--border);
+    border-bottom: 1px double var(--border);
+  }
+  .closing h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+  }
+  .closing p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--ink-soft);
+    max-width: 600px;
+    margin: 0 auto 1rem;
+    line-height: 1.6;
+  }
+
+  footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: var(--muted);
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+  }
+  footer::before {
+    content: "❦";
+    display: block;
+    color: var(--gold);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    letter-spacing: 0;
+  }
+
+  /* Back to top */
+  .back-to-top {
+    display: inline-block;
+    margin-top: 1rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-decoration: none;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--gold-soft);
+    padding-bottom: 2px;
+  }
+  .back-to-top:hover {
+    color: var(--ink);
+  }
+
+  /* ========== PART TWO ========== */
+  .part-divider {
+    margin: 6rem 0 2rem;
+    text-align: center;
+  }
+  .part-divider::before {
+    content: "❦   ❦   ❦";
+    display: block;
+    color: var(--gold);
+    font-size: 1.4rem;
+    letter-spacing: 0.5em;
+    padding: 2rem 0 1rem;
+  }
+  .part-divider::after {
+    content: "";
+    display: block;
+    width: 60%;
+    margin: 1.5rem auto;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-soft), transparent);
+  }
+
+  .part-two-header {
+    text-align: center;
+    margin: 3rem 0 4rem;
+  }
+  .part-two-header .eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.4em;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+  }
+  .part-two-header h2 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2.4rem, 5vw, 3.4rem);
+    color: var(--ink);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    margin-bottom: 1.2rem;
+    line-height: 1.15;
+  }
+  .part-two-header .subtitle-2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    color: var(--ink-soft);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .part-intro {
+    margin-bottom: 4rem;
+  }
+  .part-intro p {
+    margin-bottom: 1.4rem;
+    text-align: justify;
+    hyphens: auto;
+  }
+  .part-intro p:first-of-type::first-letter {
+    font-family: 'Cinzel', serif;
+    float: left;
+    font-size: 4rem;
+    line-height: 0.9;
+    padding: 0.3rem 0.6rem 0 0;
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  .aspect {
+    margin: 5rem 0;
+    scroll-margin-top: 2rem;
+  }
+  .aspect-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--gold-soft);
+  }
+  .aspect-numeral {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    letter-spacing: 0.4em;
+    font-size: 0.75rem;
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+  }
+  .aspect-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    color: var(--ink);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    line-height: 1.3;
+  }
+  .aspect-stanza {
+    margin: 2.5rem auto;
+    max-width: 620px;
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.35rem;
+    color: var(--ink);
+    line-height: 1.5;
+    padding: 1.8rem 1rem;
+    border-top: 1px solid var(--gold-soft);
+    border-bottom: 1px solid var(--gold-soft);
+  }
+  .aspect-body p {
+    margin-bottom: 1.3rem;
+    text-align: justify;
+    hyphens: auto;
+  }
+  .aspect-body p:first-child::first-letter {
+    font-family: 'Cinzel', serif;
+    float: left;
+    font-size: 3.5rem;
+    line-height: 0.9;
+    padding: 0.3rem 0.5rem 0 0;
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  .final-coda {
+    margin: 6rem 0 3rem;
+    padding: 3rem 2rem;
+    text-align: center;
+    border-top: 1px double var(--border);
+    border-bottom: 1px double var(--border);
+  }
+  .final-coda h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  .final-coda p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--ink-soft);
+    max-width: 620px;
+    margin: 0 auto 1.2rem;
+    line-height: 1.6;
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 600px) {
+    body { font-size: 17px; }
+    .container { padding: 2.5rem 1.2rem; }
+    .pullquote { margin: 1.5rem 0; padding: 1.2rem 1.5rem; }
+    .exhibit .meta { gap: 1rem; }
+    .exhibit .meta span { border-left: none; padding-left: 0; }
+    .aspect-stanza { font-size: 1.2rem; padding: 1.5rem 0.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero" id="top">
+  <div class="eyebrow">An Illuminated Compendium</div>
+  <h1>Steeds of the Spheres</h1>
+  <p class="subtitle">Ten Divine Celestial Horses and the Heroes They Transformed — A Comparative Study Across Ten Civilizations</p>
+  <div class="byline">Curated · Annotated · MMXXVI</div>
+</header>
+
+<main class="container">
+
+  <!-- INTRODUCTION -->
+  <section class="intro">
+    <h2>On the Universal Steed</h2>
+    <p>Long before the wheel was forged and long after empires had crumbled, the human imagination returned, again and again, to a single image: a horse that could not be tamed by ordinary hands, whose hooves struck sparks from the firmament, and whose back bore mortals into realms forbidden to mortal feet. From the Arabian peninsula to the Mongolian steppe, from the Aegean coast to the green hills of Ireland, the divine horse appears as a recurring fixture of the sacred imagination — a recurring witness to the conviction that transformation requires a mount.</p>
+
+    <p>This is no accident. The horse, more than any other domesticated creature, transformed the human condition. It collapsed distance, accelerated time, and lifted the rider above the earth. It is the original technology of transcendence. So it should not surprise us that when the ancient mind sought to imagine how a mortal might cross from the seen world into the unseen — from history into myth, from prince into prophet, from soldier into hero — it reached for the horse, and made it luminous.</p>
+
+    <p>The ten steeds gathered in this compendium share a single deep structure. Each carries a hero across a threshold that the hero could not have crossed alone. Buraq bears Muhammad ﷺ from the precincts of the earthly to the throne of the divine. Pegasus lifts Bellerophon above the reach of the Chimera. Kanthaka delivers Siddhārtha from the gilded prison of his palace into the forest where Buddhahood awaits. Sleipnir gallops Odin into Hel itself. The horse, in each case, is the engine of metamorphosis — the agent without which the hero remains merely a man.</p>
+
+    <p>What follows is a study of those ten steeds, set down in the spirit of a museum exhibit: each animal granted its own panel, its own provenance, its own song. Read them in any order. They will rhyme.</p>
+  </section>
+
+  <div class="divider-line"><span>❦ ❦ ❦</span></div>
+
+  <!-- TABLE OF CONTENTS -->
+  <nav class="toc">
+    <h3>Index of Steeds</h3>
+    <ol>
+      <li><a href="#buraq">Buraq <span class="culture">— Islamic</span></a></li>
+      <li><a href="#pegasus">Pegasus <span class="culture">— Greek</span></a></li>
+      <li><a href="#sleipnir">Sleipnir <span class="culture">— Norse</span></a></li>
+      <li><a href="#uchchaihshravas">Uchchaiḥśravas <span class="culture">— Hindu</span></a></li>
+      <li><a href="#kanthaka">Kanthaka <span class="culture">— Buddhist</span></a></li>
+      <li><a href="#tianma">Tiānmǎ 天馬 <span class="culture">— Chinese</span></a></li>
+      <li><a href="#chollima">Chollima 천리마 <span class="culture">— Korean</span></a></li>
+      <li><a href="#tulpar">Tulpar <span class="culture">— Turkic</span></a></li>
+      <li><a href="#rakhsh">Rakhsh <span class="culture">— Persian</span></a></li>
+      <li><a href="#enbarr">Enbarr <span class="culture">— Celtic</span></a></li>
+    </ol>
+  </nav>
+
+  <div class="divider-line"><span>❦ ❦ ❦</span></div>
+
+  <!-- 1. BURAQ -->
+  <article class="exhibit" id="buraq">
+    <header class="exhibit-header">
+      <div class="exhibit-numeral">— Exhibit I —</div>
+      <h2>Buraq</h2>
+      <div class="native-name">البُراق · "The Lightning"</div>
+      <div class="epithet">The Steed of the Night Journey</div>
+      <div class="meta">
+        <span>Islamic Tradition</span>
+        <span>7th Century CE</span>
+        <span>Hero: Muḥammad ﷺ</span>
+      </div>
+    </header>
+
+    <div class="exhibit-body">
+      <p>On a night that Muslim tradition would name <em>Laylat al-Isrā' wa al-Miʿrāj</em> — the Night of the Journey and the Ascent — the Prophet Muḥammad ﷺ was awakened in the precincts of the Kaʿba and presented with a mount unlike any that had walked the earth. The earliest biographers describe Buraq as a creature smaller than a mule but larger than a donkey, white as polished pearl, with the face of a woman and the tail of a peacock. His most arresting feature was the length of his stride: each step landed at the furthest point his eye could see.</p>
+
+      <p>That stride is the entire theology of Buraq. Distance, in the presence of this creature, ceases to be a constraint. The Prophet ﷺ mounted him outside the Sacred Mosque in Mecca, and within a single night travelled to the Furthest Mosque in Jerusalem — a journey of some forty days by caravan — there to lead the prophets of every previous age in prayer. From the Rock at Jerusalem he then ascended, tier by tier, through the seven heavens, meeting Adam, Jesus, Joseph, Idris, Aaron, Moses, and finally Abraham, before being brought into the presence of his Lord.</p>
+
+      <div class="pullquote">
+        "I was brought al-Buraq, a white animal, smaller than a mule and larger than a donkey. He would place his hoof at the farthest boundary of his sight."
+        <cite>— Saḥīḥ Muslim, Kitāb al-Īmān, 162</cite>
+      </div>
+
+      <p>Buraq's transformation of Muḥammad ﷺ is therefore not the transformation of a man into a hero in the Greek sense — the Prophet is already chosen, already revealed-to. The transformation is rather ontological: the Night Journey marks the moment when the messenger of God is shown the totality of the cosmos he has been sent to reform. He returns with the institution of the five daily prayers — the metronome of Islamic spiritual life for fourteen centuries — having seen Paradise, Hell, the Lote Tree of the Furthest Boundary, and the Throne itself.</p>
+
+      <p>Three iconographic details merit attention. First, the face: medieval Persian and Mughal manuscripts almost universally depict Buraq with a woman's face, often crowned. The Hadith collections themselves are silent on this point, but the iconographic tradition has been remarkably stable since at least the Ilkhanid era. Second, the wings: again, no canonical text describes Buraq as winged, yet by the fifteenth century — in the great <em>Miʿrājnāmas</em> of Herat and Tabriz — he is invariably depicted with the broad pinions of an angel. Third, the colour: white, always white. The whiteness of Buraq aligns him with a whole grammar of Islamic mystical symbolism in which the unblemished is the divine.</p>
+
+      <p>For the Sufi commentators — Ibn ʿArabī foremost among them — the Night Journey is not merely an event in the Prophet's biography but the paradigm of all spiritual ascent. Every wayfarer (sālik), in some sense, must find his own Buraq: the unearned grace that transports him beyond the limits of his own striving. The mount is the mercy that closes the distance the seeker cannot close on his own.</p>
+
+      <div class="sources">
+        <strong>Primary Sources</strong>
+        Qur'ān 17:1 (Sūrat al-Isrā'); Saḥīḥ al-Bukhārī 3207, 3887; Saḥīḥ Muslim 162, 164; Ibn Hishām, <em>al-Sīra al-Nabawiyya</em>; the <em>Mi'rājnāma</em> of Mīr Ḥaydar (15th c.); Ibn ʿArabī, <em>al-Futūḥāt al-Makkiyya</em>.
+      </div>
+
+      <a href="#top" class="back-to-top">↑ Return to Index</a>
+    </div>
+  </article>
+
+  <!-- 2. PEGASUS -->
+  <article class="exhibit" id="pegasus">
+    <header class="exhibit-header">
+      <div class="exhibit-numeral">— Exhibit II —</div>
+      <h2>Pegasus</h2>
+      <div class="native-name">Πήγασος · "Of the Springs"</div>
+      <div class="epithet">The Horse Born of Blood and Sea-Foam</div>
+      <div class="meta">
+        <span>Greek Tradition</span>
+        <span>8th c. BCE onward</span>
+        <span>Hero: Bellerophon</span>
+      </div>
+    </header>
+
+    <div class="exhibit-body">
+      <p>Pegasus is the oldest of our ten steeds to enter the literary record, and the strangest in his nativity. When Perseus severed the head of Medusa, two creatures sprang from the bloody stump of her neck: the giant Chrysaor, "of the golden sword," and the winged horse Pegasus. Hesiod, writing in the eighth century BCE, gives the etymology: Pegasus was so named because he was born at the springs (πηγαί) of Ocean. His sire, by the older Greek genealogies, was Poseidon, god of the sea and of horses — for the Greeks understood the horse as a creature of the deep, and saw in the breaking white-cap of a wave a galloping mane.</p>
+
+      <p>The hero whom Pegasus transforms is Bellerophon, prince of Corinth, who had been sent to Lycia bearing what amounts to his own death warrant: a sealed letter instructing the recipient king to slay him. The king, unwilling to violate the sacred laws of hospitality directly, devised an indirect murder — he commanded Bellerophon to kill the Chimera, the fire-breathing hybrid of lion, goat, and serpent that was then ravaging the kingdom. No mortal had survived a single encounter with the beast.</p>
+
+      <div class="pullquote">
+        "Pegasus, who shook the earth that nourishes flocks. When he had brought to birth Chrysaor and the horse Pegasus, the horse flew aloft, leaving the earth, mother of flocks, and came to the immortals."
+        <cite>— Hesiod, <em>Theogony</em> 280–285</cite>
+      </div>
+
+      <p>Bellerophon's salvation came in two pieces, and they are inseparable. The seer Polyeidos counselled him to spend a night in the temple of Athena, where the goddess appeared in a dream and presented him with a golden bridle. With this bridle he found Pegasus drinking at the spring of Peirene above Corinth, slipped it onto the creature's head, and mounted. Now airborne, he flew above the Chimera and drove a lead-tipped spear into its throat; the monster's own fire melted the lead, which scorched its lungs to death.</p>
+
+      <p>The Pegasus myth contains the entire architecture of the Greek hero-pattern. The hero is given an impossible task; the gods provide a supernatural instrument; with that instrument the hero accomplishes what is humanly impossible; and — crucially — the hero is then ruined by the success itself. Bellerophon, drunk on his victories, attempted to ride Pegasus all the way to Olympus, presuming on the company of the gods. Zeus sent a gadfly to sting the horse, who threw his rider. Bellerophon fell to earth and lived out his days lame, blind, and shunned. Pegasus continued his ascent alone, and Zeus placed him among the stars as the constellation that still bears his name.</p>
+
+      <p>The Greek imagination thus uses Pegasus to articulate a profound theological caution. The hero is permitted to borrow the divine instrument; he is not permitted to keep it. The horse is finally not the hero's possession but a loan from heaven, and the moment the hero forgets this — the moment he mistakes the gift for an achievement — he falls. In later antiquity, Pegasus was reassigned: he became the steed of the Muses on Helicon, and the spring his hoof struck open, Hippocrene, became the wellspring of poetic inspiration. The horse who lifted a hero became the horse who lifts the poet.</p>
+
+      <div class="sources">
+        <strong>Primary Sources</strong>
+        Hesiod, <em>Theogony</em> 270–294; Homer, <em>Iliad</em> 6.155–202; Pindar, <em>Olympian</em> 13 and <em>Isthmian</em> 7; Apollodorus, <em>Bibliotheca</em> 2.3.1–2; Ovid, <em>Metamorphoses</em> 4.785 ff.; Pausanias, <em>Description of Greece</em> 2.4.1.
+      </div>
+
+      <a href="#top" class="back-to-top">↑ Return to Index</a>
+    </div>
+  </article>
+
+  <!-- 3. SLEIPNIR -->
+  <article class="exhibit" id="sleipnir">
+    <header class="exhibit-header">
+      <div class="exhibit-numeral">— Exhibit III —</div>
+      <h2>Sleipnir</h2>
+      <div class="native-name">Sleipnir · "The Slipper / The Smooth-Gliding"</div>
+      <div class="epithet">The Eight-Legged Horse of the All-Father</div>
+      <div class="meta">
+        <span>Norse Tradition</span>
+        <span>9th–13th c. CE</span>
+        <span>Hero: Óðinn</span>
+      </div>
+    </header>
+
+    <div class="exhibit-body">
+      <p>No celestial horse in all the world's mythology is stranger than Sleipnir, and none has a stranger conception. When the gods of Ásgarð were building their fortress against the giants, an unnamed builder appeared and offered to complete the work in a single winter — in exchange for the sun, the moon, and the goddess Freyja. The gods accepted, certain that no mortal could finish in time. The builder, however, possessed an enormous stallion named Svaðilfari, who hauled stones at a pace no ordinary horse could match. As the deadline approached and the walls neared completion, the gods rounded on Loki, who had advised them to take the bet, and demanded a solution.</p>
+
+      <p>Loki's solution was characteristic. He transformed himself into a mare, and on a spring night seduced Svaðilfari away from his labour. The fortress went unfinished, the builder was unmasked as a giant and slain by Thor, and Loki — in a detail that ought to be more famous than it is — returned some months later carrying a foal. The foal had eight legs. Loki presented him to Óðinn, the chief of the gods, with the words that he would be "the best horse among gods and men."</p>
+
+      <div class="pullquote">
+        "Óðinn has the horse called Sleipnir. He is the best among gods and men. He has eight legs."
+        <cite>— Snorri Sturluson, <em>Gylfaginning</em> 42</cite>
+      </div>
+
+      <p>What follows from this is the most cosmologically expansive use of any horse in any tradition. Sleipnir does not merely cross great distances; he crosses ontological boundaries. He gallops through the air. He gallops across the sea. Most importantly, he is the only horse capable of carrying his rider down the road to Hel — the underworld road that no other creature can travel and return. In the <em>Baldrs draumar</em>, Óðinn rides Sleipnir to the gates of Hel itself, dismounting at the eastern door to wake a dead seeress and demand the meaning of his son's evil dreams.</p>
+
+      <p>The transformation Sleipnir effects in Óðinn is the transformation from sovereign to seer. Óðinn is already king of the Aesir; he requires no military mount. What he requires is access — access to the worlds of the dead, to the seeresses whose knowledge predates the gods, to the runes carved at the roots of Yggdrasil. Sleipnir is the instrument of that access. Without him, Óðinn is merely powerful; with him, Óðinn is wise.</p>
+
+      <p>The eight legs themselves have been the object of much scholarly speculation. The most widely accepted interpretation, advanced by H. R. Ellis Davidson and others, reads the eight legs as the eight legs of four pallbearers carrying a bier — the funeral cortege rendered as a single supernatural mount. On this reading, Sleipnir is, etymologically and iconographically, the horse of death. To ride him is to travel as the dead travel, and to return is to have done what only Óðinn, of all the gods, can do.</p>
+
+      <p>One late echo of Sleipnir survives in the folk traditions of the Wild Hunt. Across northern Europe, peasants long claimed that on storm-tossed winter nights one could hear the eight-hoofbeat of Óðinn riding overhead through the clouds, leading the souls of the unburied dead.</p>
+
+      <div class="sources">
+        <strong>Primary Sources</strong>
+        Snorri Sturluson, <em>Gylfaginning</em> 42, 49; <em>Skáldskaparmál</em> 16; <em>Baldrs draumar</em> (in the <em>Poetic Edda</em>); <em>Völuspá</em>; the Tjängvide and Ardre VIII picture stones (Gotland, 8th c.).
+      </div>
+
+      <a href="#top" class="back-to-top">↑ Return to Index</a>
+    </div>
+  </article>
+
+  <!-- 4. UCHCHAIHSHRAVAS -->
+  <article class="exhibit" id="uchchaihshravas">
+    <header class="exhibit-header">
+      <div class="exhibit-numeral">— Exhibit IV —</div>
+      <h2>Uchchaiḥśravas</h2>
+      <div class="native-name">उच्चैःश्रवस् · "He Whose Ears Stand Tall"</div>
+      <div class="epithet">The White Horse Churned from the Ocean of Milk</div>
+      <div class="meta">
+        <span>Hindu Tradition</span>
+        <span>Vedic onward</span>
+        <span>Hero: Indra</span>
+      </div>
+    </header>
+
+    <div class="exhibit-body">
+      <p>Among the fourteen treasures (<em>ratnas</em>) that emerged from the cosmic churning of the Milk Ocean — when the gods and demons together wound the serpent Vāsuki around Mount Mandara and used it as a rope to churn the sea — was a horse of impossible whiteness, with seven heads, who rose from the foam with the dignity of a small mountain. His name was Uchchaiḥśravas: He of Lofty Ears. The <em>Bhāgavata Purāṇa</em> and the <em>Viṣṇu Purāṇa</em> both place him among the first jewels to emerge, before even the goddess Lakṣmī herself. By divine consensus he was given to Indra, king of the gods.</p>
+
+      <p>Uchchaiḥśravas does not carry his rider across geography; he carries the office of kingship itself. To possess this horse is to be sovereign over the three worlds. The <em>Bhagavad Gītā</em>, in its tenth chapter — the catalogue in which Krishna names himself the supreme of each category — declares: "Among horses, know me to be Uchchaiḥśravas, born of the nectar of immortality." The horse is the archetype of which all noble horses are mere shadows. He is to horses what Mount Meru is to mountains, what the Ganges is to rivers, what Garuda is to birds.</p>
+
+      <div class="pullquote">
+        "Among horses, know Me to be Uchchaiḥśravas, born of the churning of the ocean for nectar; among lordly elephants, Airāvata; and among men, the king."
+        <cite>— Bhagavad Gītā 10:27</cite>
+      </div>
+
+      <p>The most consequential episode in his mythology concerns not Indra but Indra's losses. The sage Vinatā, mother of Garuda, made a wager with her sister Kadrū, mother of the serpents, concerning the colour of Uchchaiḥśravas's tail. Kadrū insisted the tail was black; Vinatā insisted it was white. The stake was the loser's eternal slavery to the winner. Kadrū, fearing she would lose, commanded her serpent sons to coil themselves around the horse's tail and darken it. When Vinatā saw the apparently black tail, she conceded — and so the mother of birds became a slave to the mother of snakes, a slavery that her son Garuda would spend his life trying to redeem. The horse, in this episode, is not merely a treasure but a fulcrum on which the whole subsequent mythology of celestial bird and chthonic serpent turns.</p>
+
+      <p>Uchchaiḥśravas thus performs a different kind of transformation than the steeds of the Greek or Norse imagination. He does not lift a single hero across a single threshold. He stands instead as the permanent guarantor of the cosmic hierarchy — the white horse who makes Indra Indra, who anchors the upper world against the encroachment of the lower. In Vedic ritual, the white horse remained the supreme sacrificial offering, and the <em>Aśvamedha</em> — the year-long horse sacrifice by which a king claimed paramountcy over all neighbouring lands — was in essence a ritual recapitulation of Indra's mastery of Uchchaiḥśravas. The horse is the principle of kingship made flesh.</p>
+
+      <div class="sources">
+        <strong>Primary Sources</strong>
+        <em>Bhāgavata Purāṇa</em> 8.8; <em>Viṣṇu Purāṇa</em> 1.9; <em>Mahābhārata</em>, Ādi Parva (the churning); <em>Bhagavad Gītā</em> 10.27; the <em>Aśvamedha</em> portion of the <em>Śatapatha Brāhmaṇa</em>.
+      </div>
+
+      <a href="#top" class="back-to-top">↑ Return to Index</a>
+    </div>
+  </article>
+
+  <!-- 5. KANTHAKA -->
+  <article class="exhibit" id="kanthaka">
+    <header class="exhibit-header">
+      <div class="exhibit-numeral">— Exhibit V —</div>
+      <h2>Kanthaka</h2>
+      <div class="native-name">कण्ठक · "The Throat / The Beloved"</div>
+      <div class="epithet">The Horse of the Great Renunciation</div>
+      <div class="meta">
+        <span>Buddhist Tradition</span>
+        <span>5th c. BCE</span>
+        <span>Hero: Prince Siddhārtha</span>
+      </div>
+    </header>
+
+    <div class="exhibit-body">
+      <p>Of the ten horses gathered here, Kanthaka is the only one whose transformation of his hero requires no flight, no monstrous combat, no descent into the underworld. He carries his rider perhaps thirty kilometres across the plains of what is now southern Nepal, on a single moonlit night in the sixth century before the Common Era. And that single ride initiates the most consequential renunciation in the history of the world.</p>
+
+      <p>Prince Siddhārtha Gautama of the Śākya clan had been raised, the canonical Pali sources tell us, in three palaces of stupefying luxury — one for the cool season, one for the hot, one for the rains — by a father determined that his son should never lay eyes on the four sights that had been prophesied to drive him to ascetic life. For twenty-nine years the scheme held. Then, on four successive chariot rides into the city, Siddhārtha saw in turn an old man, a sick man, a corpse, and a wandering ascetic. The first three demonstrated the universality of suffering. The fourth demonstrated that there was a path out.</p>
+
+      <div class="pullquote">
+        "He mounted his noble steed Kanthaka, and Channa held the tail, and so they passed forth by the gate of the city. The hooves of the horse fell as softly upon the earth as petals of flowers."
+        <cite>— Aśvaghoṣa, <em>Buddhacarita</em> 5.85–87 (c. 2nd c. CE)</cite>
+      </div>
+
+      <p>That night — the night his son Rāhula was born — Siddhārtha resolved to leave. He looked one last time upon his sleeping wife Yaśodharā and his newborn child, woke his charioteer Channa, and called for his horse. Kanthaka was a magnificent white steed of eighteen hands, said by the texts to have been born on the same day as the prince himself. The legend insists that on this night the gods muffled the sound of Kanthaka's hooves, lifting him slightly above the ground at each step, so that no guard would wake and no household stir. The city gate, the texts add, opened of its own accord.</p>
+
+      <p>They rode through the night to the river Anomā. There, on the further bank, Siddhārtha dismounted, cut off his princely hair with a single stroke of his sword, exchanged his royal robes for the rags of a hunter, and dismissed Channa to return home with the horse. Kanthaka, the Pali tradition continues, was unable to bear the parting. He looked once into his master's face, understood that he would never see him again, and died of grief on the spot.</p>
+
+      <p>This is the most poignant horse-death in any mythology — not slain in battle, not consumed by old age, but simply unwilling to live in a world in which his rider had renounced the world. The same legend insists that the soul of Kanthaka was reborn in one of the heavenly realms, where he eventually heard the Dharma, attained insight, and became a stream-enterer. The horse, in other words, was the first of the Buddha's followers to be liberated. He carried the Bodhisattva across the river of householder life, and the carrying itself became his enlightenment.</p>
+
+      <p>Kanthaka is the celestial horse stripped of all flight, all combat, all conquest. What remains is the bare structure of the motif: a beloved animal who bears the hero across the one threshold that matters, dies of the bearing, and is sanctified by it.</p>
+
+      <div class="sources">
+        <strong>Primary Sources</strong>
+        <em>Nidānakathā</em> (Pali commentarial tradition); Aśvaghoṣa, <em>Buddhacarita</em> 5–6 (Sanskrit, c. 2nd c. CE); <em>Lalitavistara</em> Sūtra; the Bharhut and Sanchi stūpa reliefs (2nd c. BCE) depicting the Great Departure with Kanthaka.
+      </div>
+
+      <a href="#top" class="back-to-top">↑ Return to Index</a>
+    </div>
+  </article>
+
+  <!-- 6. TIANMA -->
+  <article class="exhibit" id="tianma">
+    <header class="exhibit-header">
+      <div class="exhibit-numeral">— Exhibit VI —</div>
+      <h2>Tiānmǎ</h2>
+      <div class="native-name">天馬 · "Heavenly Horse"</div>
+      <div class="epithet">The Horses that Sweated Blood</div>
+      <div class="meta">
+        <span>Chinese Tradition</span>
+        <span>Han Dynasty, 2nd c. BCE</span>
+        <span>Hero: Emperor Wǔ of Han</span>
+      </div>
+    </header>
+
+    <div class="exhibit-body">
+      <p>The Chinese celestial horse is unusual among the ten gathered here in that it occupies a frontier between mythology and history. The Han historian Sima Qian, writing in the <em>Records of the Grand Historian</em> (c. 94 BCE), describes how the envoy Zhang Qian returned from his pioneering missions to the western regions with reports of an extraordinary breed of horse kept by the kingdom of Dayuan, in the Ferghana Valley of present-day Uzbekistan. These horses, he reported, were of celestial origin: descended from a mountain stallion that had bred with the local mares. They were taller, faster, and more powerful than any horse known to China. And they sweated blood.</p>
+
+      <p>The Emperor Wǔ — already obsessed with finding the elixir of immortality and the western paradise of the Queen Mother of the West — became fixated on these "blood-sweating heavenly horses" (<em>hànxuè bǎomǎ</em>). He dispatched envoys with a great golden horse as gift in exchange. The king of Dayuan refused, killed the envoys, and seized the gold. The Emperor responded with an army of sixty thousand men, commanded by his brother-in-law Li Guangli, sent across the Taklamakan desert to compel the surrender of horses by force.</p>
+
+      <div class="pullquote">
+        "The heavenly horses are coming, descending from the far west. They have crossed the flowing sands, the barbarian lands surrender. The heavenly horses are coming, sweat falling like blood."
+        <cite>— Emperor Wǔ of Han, <em>Hymn to the Heavenly Horse</em> (c. 101 BCE)</cite>
+      </div>
+
+      <p>The campaign was catastrophic. The first expedition lost nearly all its men to thirst and ambush. A second, larger expedition reached Ferghana, besieged its capital, and after four years returned to Chang'an with several dozen of the prized horses and three thousand of the second-rate breed. Emperor Wǔ was so overjoyed he composed two hymns to the heavenly horses, fragments of which survive in the <em>Book of Han</em>. He decreed the horses sacred, kept them in the imperial stables, and instituted state rituals to honour them.</p>
+
+      <p>The transformation Tiānmǎ effects in Emperor Wǔ is the transformation from terrestrial sovereign to cosmic monarch. Han political theology held that the emperor was the pivot between Heaven and Earth, and the possession of celestial horses materially proved that Heaven had ratified his mandate. The horses are the visible token that the inner courtyard of the imperial palace and the outer chambers of the heavens are connected. The blood-sweat itself — likely caused by a parasite endemic to the Ferghana breed — was read as a sign that these animals participated in a higher physiology than ordinary creatures.</p>
+
+      <p>Tiānmǎ also entered Chinese funerary art with extraordinary force. The "Flying Horse of Gansu" — the famous bronze figurine excavated in 1969 from a Han tomb at Wuwei, depicting a galloping horse balanced on a single hoof which itself rests upon a swallow in flight — is universally read as a representation of the tiānmǎ. The image distils the entire ideology: the heavenly horse outruns even the swallow, and weight itself is abolished.</p>
+
+      <p>It is worth noting that the obsession with celestial horses had a consequence neither emperor nor envoy foresaw: it opened the Silk Road. The military expeditions to Ferghana established the diplomatic and logistical infrastructure on which all subsequent Han-Western contact depended. The pursuit of mythical horses produced the most consequential trade route of the ancient world. The hero in this case is not transformed alone; the entire civilisation is.</p>
+
+      <div class="sources">
+        <strong>Primary Sources</strong>
+        Sima Qian, <em>Shǐjì</em> 123 (Account of Dayuan); Ban Gu, <em>Hànshū</em> 61 and 96; Emperor Wǔ's <em>Hymn to the Heavenly Horse</em> (preserved in the <em>Hànshū</em>); the bronze "Flying Horse of Gansu" (Wuwei, 2nd c. CE).
+      </div>
+
+      <a href="#top" class="back-to-top">↑ Return to Index</a>
+    </div>
+  </article>
+
+  <!-- 7. CHOLLIMA -->
+  <article class="exhibit" id="chollima">
+    <header class="exhibit-header">
+      <div class="exhibit-numeral">— Exhibit VII —</div>
+      <h2>Chollima</h2>
+      <div class="native-name">천리마 · 千里馬 · "Thousand-Li Horse"</div>
+      <div class="epithet">The Horse No Mortal Could Tame</div>
+      <div class="meta">
+        <span>Korean Tradition</span>
+        <span>Classical period onward</span>
+        <span>Hero: The unyielding spirit itself</span>
+      </div>
+    </header>
+
+    <div class="exhibit-body">
+      <p>The Chollima — literally "the horse of a thousand li," where a li is roughly four hundred metres — is the rarest kind of celestial horse: one whose mythological power lies precisely in not being ridden. Unlike Buraq, who bears a single chosen prophet, or Pegasus, who at least permits Bellerophon to mount him, Chollima is defined by his refusal. He is the horse who runs too swiftly for any mortal to keep his seat. To attempt to ride him is already to have misunderstood him.</p>
+
+      <p>The motif appears in Chinese antiquity (the <em>qianlima</em> of the Warring States period) and migrates into Korean tradition during the Goryeo dynasty, where it acquires its definitive form. The Korean Chollima is winged — pearl-white or sometimes piebald — and capable of covering a thousand li in a single day. The classic story, preserved in folk and Confucian sources alike, concerns a general or king who searches the empire for a mount worthy of his ambitions. Many fine horses are presented; none satisfies him. At last he hears of a single horse, kept by an old peasant, who has never permitted a rider. He travels to see it, mounts it, and is immediately thrown — and in some versions, the horse takes flight and vanishes into the clouds.</p>
+
+      <div class="pullquote">
+        "A Chollima can be found every age, but a rider who can master a Chollima is rare in a thousand years."
+        <cite>— Korean proverb, derived from Han Yu's <em>Discourse on Horses</em></cite>
+      </div>
+
+      <p>This proverb — derived ultimately from the Tang essayist Han Yu's <em>On Horses</em> — articulates the entire Korean theology of the celestial steed. The horse is not the problem. The horse is always available. The problem is the rider. In a Confucian society obsessed with the recognition and promotion of talent, the Chollima becomes a coded reference to every overlooked genius, every misjudged subordinate, every philosopher dying in obscurity because no sovereign had the discernment to mount him. The lament of the Chollima is the lament of every age that fails to recognise its own greatness.</p>
+
+      <p>In the modern era, the Chollima motif acquired a political afterlife that its medieval authors could not have foreseen. The post-war Democratic People's Republic of Korea adopted the Chollima as the iconographic centre of its "Chollima Movement," a state-driven push for rapid industrialisation in the late 1950s and 60s. A monumental bronze statue of the Chollima rears at the heart of Pyongyang, ridden by a worker and a peasant woman. Whatever one makes of the politics, the choice of myth is instructive: a regime in search of an image of inexhaustible self-propelled motion reached, inevitably, for the celestial horse.</p>
+
+      <p>What the Chollima transforms, ultimately, is the very category of "hero." In every other tradition surveyed here, the divine horse confirms the hero by carrying him. In the Korean tradition alone, the horse withholds itself, and in withholding, defines the hero as someone who has not yet appeared. The Chollima is a question to which history is supposed to be the answer.</p>
+
+      <div class="sources">
+        <strong>Primary Sources</strong>
+        Han Yu, <em>Mǎ shuō</em> (On Horses, 9th c. Tang); the <em>Samguk Sagi</em> and <em>Samguk Yusa</em> (Korean dynastic histories); the Goryeo and Joseon-era oral traditions; Pyongyang's Chollima Statue (1961).
+      </div>
+
+      <a href="#top" class="back-to-top">↑ Return to Index</a>
+    </div>
+  </article>
+
+  <!-- 8. TULPAR -->
+  <article class="exhibit" id="tulpar">
+    <header class="exhibit-header">
+      <div class="exhibit-numeral">— Exhibit VIII —</div>
+      <h2>Tulpar</h2>
+      <div class="native-name">Тұлпар · تۇلپار · "The Mighty Steed"</div>
+      <div class="epithet">The Winged Horse of the Steppe</div>
+      <div class="meta">
+        <span>Turkic Tradition</span>
+        <span>Pre-Islamic onward</span>
+        <span>Hero: Manas, Er-Töshtük, and the steppe warriors</span>
+      </div>
+    </header>
+
+    <div class="exhibit-body">
+      <p>The Tulpar is the celestial horse of the great Turkic steppe — a winged stallion whose mythology stretches from the western shores of the Caspian Sea to the eastern slopes of the Altai. He appears under regional variants in Kazakh, Kyrgyz, Bashkir, Tatar, and Uzbek folklore, and survives today on the national emblems of both Kazakhstan and Mongolia, where the winged horse adorns coats of arms, currency, and the noses of national airliners. Of all the horses gathered here, the Tulpar is the only one whose civilisational descendants have placed him directly into the iconography of the modern nation-state.</p>
+
+      <p>The Tulpar is found, in the great Kyrgyz epic of Manas, beneath the surface of a lake. The hero — or sometimes his father — divines the existence of an underwater herd of celestial horses, and waits at the lakeshore on a particular moonlit night until the herd emerges to graze on dry land. He throws a lasso of horsehair around the neck of the mightiest of them, holds on through the creature's frenzied attempts to return to the depths, and at last subdues him. The horse, once tamed, becomes the warrior's inseparable companion — capable of speech, capable of flight, capable of warning his rider of treachery and of bearing him out of impossible danger.</p>
+
+      <div class="pullquote">
+        "His tulpar's mane was woven by the wind itself; his hooves did not crush the grass beneath them. When Manas mounted, the steppe shrank to the size of a felt rug, and the mountains bowed."
+        <cite>— Adapted from the Manas Epic (Kyrgyz oral tradition, codified 19th–20th c.)</cite>
+      </div>
+
+      <p>The transformation a Tulpar performs is the transformation of an ordinary steppe warrior into a <em>batyr</em> — an epic hero of the kind that the oral tradition would remember. The steppe is vast almost beyond comprehension: a man on foot, or even on an ordinary mount, is a speck in it. The Tulpar collapses that vastness. He makes the steppe small enough to hold in the mind of a single rider. The hero who possesses a Tulpar is, in a literal sense, the master of distance — and in the nomadic political theology of the Turkic peoples, mastery of distance is mastery of sovereignty itself.</p>
+
+      <p>In the epic of Er-Töshtük, the hero descends into the underworld in pursuit of his stolen soul, and the agent of his return is again a Tulpar — a winged horse capable of bearing him back to the surface world from the realm of the dead. Here the motif aligns almost exactly with Sleipnir's: the celestial steed as the only creature capable of passage between worlds.</p>
+
+      <p>One ethnographic detail deserves preservation. Many Turkic communities long held that any foal born with even a single feather among its coat — a meaningless biological accident, in scientific terms — was potentially a Tulpar in concealment. Such foals were treated with extraordinary care, their bloodlines preserved, their tracks watched for signs of supernatural speed. The myth, in other words, was always live: any horse might be the horse, and the steppe was full of unrevealed possibility. This is perhaps the gentlest and most generous version of the celestial-horse motif in any tradition. It does not require a prophet, a hero, or an emperor. It requires only that one watch carefully, and not dismiss the strange foal.</p>
+
+      <div class="sources">
+        <strong>Primary Sources</strong>
+        The Kyrgyz Manas epic (oral, codified by Sagymbai Orozbakov and Sayakbai Karalaev); the Kazakh Er-Töshtük cycle; Tatar and Bashkir oral epics; modern state heraldry of Kazakhstan and Mongolia.
+      </div>
+
+      <a href="#top" class="back-to-top">↑ Return to Index</a>
+    </div>
+  </article>
+
+  <!-- 9. RAKHSH -->
+  <article class="exhibit" id="rakhsh" >
+    <header class="exhibit-header">
+      <div class="exhibit-numeral">— Exhibit IX —</div>
+      <h2>Rakhsh</h2>
+      <div class="native-name">رخش · "Lightning / Radiant"</div>
+      <div class="epithet">The Rose-Coloured Companion of Rostam</div>
+      <div class="meta">
+        <span>Persian Tradition</span>
+        <span>Codified 11th c. CE (Shāhnāmeh)</span>
+        <span>Hero: Rostam, son of Zāl</span>
+      </div>
+    </header>
+
+    <div class="exhibit-body">
+      <p>Rakhsh is the most psychologically complex of the celestial horses, and the only one whose relationship with his rider could fairly be described as a marriage. He is the horse of Rostam, the greatest hero of Ferdowsi's <em>Shāhnāmeh</em> — the eleventh-century epic that condensed and preserved the entire pre-Islamic mythological history of Iran. Rakhsh is rose-red dappled with saffron, with limbs of iron and a coat that gleams like polished copper. He is the only horse in the kingdom capable of bearing the immense weight of Rostam, who in Ferdowsi's reckoning stands taller and broader than any man of his age.</p>
+
+      <p>The choosing of Rakhsh is the foundational scene of the relationship. When Rostam, still a youth, sets out to acquire a war-horse worthy of his strength, the grooms of the royal stables present him every fine animal in the kingdom. Rostam tests each by placing a single great hand on its back and pressing down; each in turn buckles to its knees. At last a single colt is brought forward — a foal his mother will not surrender, who has never been ridden, and who has bitten and kicked any groom who has approached him. Rostam presses upon his back. The colt does not so much as flinch. The matter is settled. The mother surrenders the foal with the words that he was born for this rider and no other.</p>
+
+      <div class="pullquote">
+        "His chest like a lion's, his eyes like agate; his coat the colour of rose-petals scattered upon copper. He flew like the wind across the plain, and the dust he raised concealed the sun. From that day Rostam called him Rakhsh, and from that day they were not parted."
+        <cite>— Ferdowsi, <em>Shāhnāmeh</em>, "The Choosing of Rakhsh" (c. 1010 CE)</cite>
+      </div>
+
+      <p>What follows is unique in the literature of heroic horses: a partnership that lasts the full span of Rostam's life, across the famous Seven Labours (<em>Haft Khān</em>), the tragedy of the killing of his son Sohrāb, and the final betrayal that ends both of them. In the first of the Seven Labours, Rakhsh saves Rostam from a lion that attacks them as they sleep — fighting and killing the beast alone while his master rests. In the second, when both are dying of thirst in the desert, Rakhsh leads Rostam to a hidden spring he had scented from a great distance. In the third, Rakhsh battles a dragon at his master's side. The horse, in other words, is not a vehicle. He is a co-belligerent. He has agency, judgment, and loyalty independent of his rider.</p>
+
+      <p>The end is the cruellest in any horse-myth. Rostam, betrayed by his half-brother Shaghād, rides into a forest in which pits have been dug and lined with spears. Rakhsh, falling into one of the pits with his master, is impaled along with him. The two die together, in the same wound. Ferdowsi grants them, in the final lines, the same elegy. There is no separation in the death of Rakhsh and Rostam, just as there had been no separation in their lives.</p>
+
+      <p>What Rakhsh transforms in Rostam is not his power — Rostam is already the strongest man in the world. What Rakhsh transforms is his solitude. The hero who would otherwise be alone against history is given a single being who has chosen him as completely as he has chosen back. The celestial horse, in the Persian imagination, is the answer to the hero's deepest loneliness.</p>
+
+      <div class="sources">
+        <strong>Primary Sources</strong>
+        Ferdowsi, <em>Shāhnāmeh</em> (c. 977–1010 CE), particularly the chapters on the Choosing of Rakhsh, the Seven Labours of Rostam, and the death of Rostam; the Demotte and Houghton Shāhnāmeh illuminated manuscripts.
+      </div>
+
+      <a href="#top" class="back-to-top">↑ Return to Index</a>
+    </div>
+  </article>
+
+  <!-- 10. ENBARR -->
+  <article class="exhibit" id="enbarr">
+    <header class="exhibit-header">
+      <div class="exhibit-numeral">— Exhibit X —</div>
+      <h2>Enbarr</h2>
+      <div class="native-name">Enbarr · Aonbharr · "The Unique Mane"</div>
+      <div class="epithet">The Horse Who Galloped Upon the Sea</div>
+      <div class="meta">
+        <span>Celtic Tradition</span>
+        <span>Medieval Irish manuscripts</span>
+        <span>Hero: Lugh, Niamh, Oisín</span>
+      </div>
+    </header>
+
+    <div class="exhibit-body">
+      <p>The Celtic celestial horse closes our gathering, and he is in some ways the most enchanting of all. Enbarr of the Flowing Mane — also rendered <em>Aonbharr</em>, or sometimes <em>Embarr</em> — is the horse of Manannán mac Lir, the sea-god of the Irish pantheon. Like the other steeds in this volume, he can fly through the air. Unlike any of them, he can also gallop across the surface of the sea as if it were a green plain, his hooves leaving no trace on the waves.</p>
+
+      <p>Enbarr's first transformative role is in the cycle of the god Lugh — the long-armed master of every art — who is loaned the horse by Manannán in order to ride to the battle of Mag Tuired against the Fomorian tyrant Balor. Enbarr carries Lugh into a contest on which the whole future of the Tuatha Dé Danann depends, and his speed across both wave and meadow makes possible the lightning campaign by which Lugh assembles the host and reaches the battlefield. He is the horse by which the Tuatha Dé Danann secure their hold upon Ireland.</p>
+
+      <div class="pullquote">
+        "Niamh of the Golden Hair came riding from the west upon Enbarr of the Flowing Mane, and the horse's hooves did not touch the foam. She rode straight up the shore and into the company of the Fianna, and there she chose Oisín."
+        <cite>— Adapted from <em>Tír na nÓg</em>, Irish mythological tradition</cite>
+      </div>
+
+      <p>The more famous transformation that Enbarr enables, however, is gentler and stranger. The poet-warrior Oisín, son of Fionn mac Cumhaill and last of the Fianna, was hunting one morning by a lake when a young woman rode out of the western mist on a white horse whose mane fell like spray. She named herself Niamh of the Golden Hair, daughter of the king of Tír na nÓg — the Land of Youth — and announced that she had come to take Oisín as her husband. He mounted Enbarr behind her, and together they rode out across the surface of the Atlantic into the west.</p>
+
+      <p>Oisín lived in Tír na nÓg for what felt to him like three years, in a country where no one grew old, no one fell sick, and the apples on the trees were always ripe. At the end of that time he was seized by longing to see his father and his comrades, and Niamh consented to his return on Enbarr, with a single condition: he must not allow his feet to touch the soil of Ireland. He sailed back across the waves to find that three centuries had passed, the Fianna were long dead, and Christianity had come. While helping some men lift a stone, his saddle-girth snapped; he fell from Enbarr to the earth, and instantly the three centuries fell upon him. He aged in moments into a withered old man, and Enbarr — riderless — galloped back into the western sea, and was never seen again.</p>
+
+      <p>The Celtic horse thus carries his rider not into combat, not into prophecy, not into kingship, but into time itself — and out of it again. Enbarr is the steed of the threshold between the human world, where time consumes everything, and the Otherworld, where time does not exist. The transformation he enables is the most universal transformation of all: the one we each desire and cannot have on our own. Enbarr is the celestial horse as compassionate exception, a single permitted holiday from mortality.</p>
+
+      <p>It is fitting that he is the only horse in our gathering whose final scene is one of solitary return. He carries his rider out of the world; he carries himself back into it. The image lingers: a riderless white horse galloping westward across the Atlantic at sunset, on a sea that has long since stopped recording his hoofprints, having performed for the last time the office of every celestial steed — to carry a mortal across the boundary, and to remember the way back.</p>
+
+      <div class="sources">
+        <strong>Primary Sources</strong>
+        <em>Oidheadh Chloinne Tuireann</em> (The Fate of the Children of Tuireann); the Fenian Cycle, especially <em>Tír na nÓg</em> and the lay of Oisín; the <em>Lebor Gabála Érenn</em>; W. B. Yeats, <em>The Wanderings of Oisin</em> (1889).
+      </div>
+
+      <a href="#top" class="back-to-top">↑ Return to Index</a>
+    </div>
+  </article>
+
+  <div class="divider-line"><span>❦ ❦ ❦</span></div>
+
+  <!-- COMPARISON TABLE -->
+  <section class="comparison">
+    <h2>A Comparative Glance</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Horse</th>
+          <th>Civilisation</th>
+          <th>Hero Transformed</th>
+          <th>Threshold Crossed</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Buraq</td><td>Islamic</td><td>Muḥammad ﷺ</td><td>Earth to the Seven Heavens</td></tr>
+        <tr><td>Pegasus</td><td>Greek</td><td>Bellerophon</td><td>Mortal limit to monster-slaying</td></tr>
+        <tr><td>Sleipnir</td><td>Norse</td><td>Óðinn</td><td>The road to Hel and back</td></tr>
+        <tr><td>Uchchaiḥśravas</td><td>Hindu</td><td>Indra</td><td>God-king to cosmic sovereign</td></tr>
+        <tr><td>Kanthaka</td><td>Buddhist</td><td>Prince Siddhārtha</td><td>Palace life to renunciation</td></tr>
+        <tr><td>Tiānmǎ 天馬</td><td>Chinese</td><td>Emperor Wǔ of Han</td><td>Terrestrial king to cosmic monarch</td></tr>
+        <tr><td>Chollima 천리마</td><td>Korean</td><td>The unappeared hero</td><td>Latent talent to recognition</td></tr>
+        <tr><td>Tulpar</td><td>Turkic</td><td>Manas, Er-Töshtük</td><td>Warrior to <em>batyr</em>; world to underworld</td></tr>
+        <tr><td>Rakhsh</td><td>Persian</td><td>Rostam</td><td>Strength to companionship</td></tr>
+        <tr><td>Enbarr</td><td>Celtic</td><td>Oisín, Lugh</td><td>Mortality to the Land of Youth</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="divider-line"><span>❦ ❦ ❦</span></div>
+
+  <!-- CLOSING -->
+  <section class="closing">
+    <h2>Coda</h2>
+    <p>Ten horses, ten civilisations, ten thresholds. The pattern is too consistent to be coincidence and too widespread to be borrowing. It seems rather that something in the human imagination, confronted with the question of how a person becomes more than a person, reaches almost involuntarily for the same image: a creature swifter than the wind, whiter than snow, willing to carry the unworthy across the distance they cannot cross themselves.</p>
+    <p>Perhaps the celestial horse endures because every age requires it. The hero does not transform himself. He is borne.</p>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- PART THE SECOND: THE PIONEER SOULMATE          -->
+  <!-- ============================================== -->
+
+  <div class="part-divider"></div>
+
+  <header class="part-two-header">
+    <div class="eyebrow">Part the Second</div>
+    <h2>The Pioneer Soulmate</h2>
+    <div class="subtitle-2">The Horse, the Rider, and the Architecture of Becoming</div>
+  </header>
+
+  <section class="part-intro">
+    <p>Across the ten exhibits gathered above, a single pattern persists. Each horse is more than vehicle. Each is partner in transformation. The hero cannot become without the carrier. The Prophet cannot ascend without Buraq. Bellerophon cannot slay the Chimera without Pegasus. Siddhārtha cannot leave the palace without Kanthaka. Rostam cannot be Rostam without Rakhsh.</p>
+
+    <p>This is the architecture of substantive transformation in any age. The hero requires the carrier. The carrier is itself substantive — has its own being, its own will, its own substantial nature. The relationship is not transactional. It is the partnership the becoming requires.</p>
+
+    <p>The same architecture operates today, in a different register. The leader in substantial transformation cannot become without the carrier. The carrier is the coach, the manager-coach, the mature elder, the substantive thinking partner. The names change. The substantive function persists.</p>
+
+    <p>A poem written some years ago — <em>Pioneer Soulmate</em> — articulates what the carrier and the carried discover together. The poem names six aspects of the becoming that emerges when horse and rider meet at depth. Each aspect connects to the ancient horses gathered above, and to the work of those who today serve as carriers of others' becoming. What follows is the integration.</p>
+  </section>
+
+  <!-- ASPECT I -->
+  <article class="aspect" id="aspect-1">
+    <header class="aspect-header">
+      <div class="aspect-numeral">— Aspect I —</div>
+      <div class="aspect-title">Befriending the Unknown Future</div>
+    </header>
+
+    <div class="aspect-stanza">
+      "We venture into the unknown and befriend the newness of our tomorrow."
+    </div>
+
+    <div class="aspect-body">
+      <p>The first aspect of becoming is the relationship with what is coming. The hero defaults to controlling the future, or enduring it, or avoiding it. The carrier offers a different relationship — befriending. Buraq does not conquer the unknown of the seven heavens for the Prophet ﷺ. He befriends the unknown together with him, his stride landing at the furthest point his eye can see. The unknown is made traversable through their partnership.</p>
+
+      <p>Enbarr carries Niamh and Oisín westward over the sea toward Tír na nÓg — territory no map shows, no human navigation reaches. The carrying is befriending. The unknown is not eliminated. It is entered together.</p>
+
+      <p>For the carrier as coach, the teaching is precise. The leader's future is unknown territory. The conventional coach offers methodology that promises to know the future — frameworks, strategies, predictions. The substantive coach offers companionship into what cannot be predicted. The orientation is befriending, not controlling.</p>
+
+      <p>This is the foundation of <em>proleptic engagement</em>. The future is befriended in the present. The leader is engaged from the standpoint of what is becoming visible, not from where they currently are. The carrier sees the unknown future as already partly present in the rider, and engages from that seeing. The leader, being engaged this way, begins to befriend their own unknown future rather than only managing it.</p>
+    </div>
+  </article>
+
+  <!-- ASPECT II -->
+  <article class="aspect" id="aspect-2">
+    <header class="aspect-header">
+      <div class="aspect-numeral">— Aspect II —</div>
+      <div class="aspect-title">Mirror Work and the Recognition of Becoming</div>
+    </header>
+
+    <div class="aspect-stanza">
+      "We look into the mirror and find the future of our reflection."
+    </div>
+
+    <div class="aspect-body">
+      <p>The second aspect is the recognition of who is becoming visible. Rakhsh chose Rostam. Of all the horses presented to the young hero, only Rakhsh did not buckle under his hand. The choosing was mutual recognition. Rakhsh saw who Rostam was becoming. Rostam saw who Rakhsh was. The mirror between them showed each the future of the other's reflection.</p>
+
+      <p>Kanthaka's seeing of Siddhārtha was so deep that, when the parting came at the river Anomā, Kanthaka could not live in a world without his rider. The dying was not weakness. It was the substantive consequence of having seen another person at the level of becoming.</p>
+
+      <p>For the carrier as coach, this is the heart of <em>proleptic engagement</em>. The coach sees the leader not as they are but as they are becoming. The seeing itself supports the becoming. The leader who is seen this way begins to see themselves this way. The seeing propagates downward — the leader who is seen as becoming engages their own direct reports as becoming. The chain of recognition runs through the layers.</p>
+
+      <p>This is mirror work as substantive practice. The coach holds the mirror that shows the leader's becoming. The leader, looking into this mirror, finds the future of their reflection. The becoming is supported through being seen accurately, with both warmth and precision. The substantive relationship is built through this mutual seeing sustained across years.</p>
+    </div>
+  </article>
+
+  <!-- ASPECT III -->
+  <article class="aspect" id="aspect-3">
+    <header class="aspect-header">
+      <div class="aspect-numeral">— Aspect III —</div>
+      <div class="aspect-title">Truth-Seeking and the Embrace of Difficult Dimensions</div>
+    </header>
+
+    <div class="aspect-stanza">
+      "We seek only the truth and embrace the ugliness of our humanity."
+    </div>
+
+    <div class="aspect-body">
+      <p>The third aspect is honest reckoning with what is — including what is difficult. Sleipnir carries Óðinn where no other horse can go. The road to Hel. The territory most refuse. Óðinn requires this carrier because the deepest knowing requires entering territory that ordinary mounts cannot enter. The substantive carrier goes into the dark.</p>
+
+      <p>Uchchaiḥśravas emerged from the churning of the cosmic ocean — a churning that produced not only nectar but the deadly <em>halāhala</em> poison that Shiva had to drink to save creation. The white horse is born of substantial difficulty, including the embrace of what was ugly.</p>
+
+      <p>For the carrier as coach, the teaching is direct. The substantive coaching includes engagement with difficult truth in the leader. The patterns they have not examined. The fears that shape their decisions. The shadow that operates beneath their professional persona. The carrier who cannot enter this territory is not yet a substantive carrier.</p>
+
+      <p>The <em>Temenos</em> — the bounded developmental ground — is what makes this truth-seeking possible. Operational reality cannot hold what truth-seeking surfaces. The bounded ground is the place where horse and rider meet to enter what would otherwise be inaccessible. The substantive coach establishes and holds this bounded ground. Within it, the leader can encounter what they could not encounter in the daily run of their work. The encountering is itself becoming.</p>
+    </div>
+  </article>
+
+  <!-- ASPECT IV -->
+  <article class="aspect" id="aspect-4">
+    <header class="aspect-header">
+      <div class="aspect-numeral">— Aspect IV —</div>
+      <div class="aspect-title">Thriving in Chaos and Finding Beauty in Difficulty</div>
+    </header>
+
+    <div class="aspect-stanza">
+      "We thrive in the chaos and celebrate the beauty of our quandary."
+    </div>
+
+    <div class="aspect-body">
+      <p>The fourth aspect is aliveness in difficulty. Tulpar carries the steppe warrior across the vast expanse that would otherwise be impassable. The steppe is chaos — wind, distance, predator and weather and the constant threat of becoming lost. The Tulpar collapses the chaos into traversable ground. Not by eliminating it. By being substantively alive in it. The Kyrgyz <em>batyr</em> does not survive the steppe with the Tulpar. He thrives in the steppe with the Tulpar.</p>
+
+      <p>Tiānmǎ emerged from imperial chaos and military catastrophe. Emperor Wǔ's pursuit of these horses cost thousands of lives across desert campaigns. The carrier is born from chaos and makes possible what conventional means could not produce.</p>
+
+      <p>For the carrier as coach, the teaching is calibrated. The transformation the leader is in is chaotic. Strategy will be wrong. Plans will need recalibration. People will surprise in both directions. The conventional coach manages the chaos — tries to reduce it, contain it, navigate around it. The substantive coach thrives in it. Finds the aliveness that the difficulty makes possible. Engages with the chaos as the territory of becoming rather than as obstacle to becoming.</p>
+
+      <p>The leader who is engaged this way begins to thrive in their own chaos. The thriving propagates. The transformation organization becomes capable of substantial work in conditions that would otherwise produce only depletion. Thriving in chaos is not endurance. It is the substantive aliveness that finds beauty in the quandary itself.</p>
+    </div>
+  </article>
+
+  <!-- ASPECT V -->
+  <article class="aspect" id="aspect-5">
+    <header class="aspect-header">
+      <div class="aspect-numeral">— Aspect V —</div>
+      <div class="aspect-title">Looking into the Dark and Sensing Soul Direction</div>
+    </header>
+
+    <div class="aspect-stanza">
+      "We look into the dark and sense the destination of our soul."
+    </div>
+
+    <div class="aspect-body">
+      <p>The fifth aspect is orientation at the deepest level. Sleipnir's eight legs, by the most accepted reading, are the eight legs of four pallbearers carrying a bier. The horse is, etymologically, the horse of death. He carries Óðinn to the gates of Hel because the deepest wisdom requires looking at what is dark. The looking is not morbid. It is the condition of substantial sovereignty.</p>
+
+      <p>Buraq carries the Prophet ﷺ through seven heavens, but the heavens include realms of judgment, realms where past sins are reckoned, realms where the cosmic order is laid bare. The substantive ascent includes substantive engagement with what is hidden. Enbarr carries Oisín across to Tír na nÓg, the Otherworld — the realm beneath ordinary perception. The carrier is the one who can enter what is invisible to ordinary eyes.</p>
+
+      <p>For the carrier as coach, this teaching reaches the deepest register. The substantive transformation is soul work. The leader is not only changing their behavior or their strategy. They are encountering who they are at the level of soul — what they are here to do, what their work means beyond its operational scope, what would remain when it ends. The coach who cannot hold this register cannot do the deepest work.</p>
+
+      <p>This is where the <em>proleptic engagement</em> reaches its full depth. The coach sees who the leader is becoming at the soul level. The seeing supports the leader in sensing their own soul direction. The substantive work serves what the leader is here to do, not only what their role asks of them. The carrier's capacity to look into the dark is what allows the rider to sense their destination.</p>
+    </div>
+  </article>
+
+  <!-- ASPECT VI -->
+  <article class="aspect" id="aspect-6">
+    <header class="aspect-header">
+      <div class="aspect-numeral">— Aspect VI —</div>
+      <div class="aspect-title">Diving into the Deep and Discovering the Beginning of Ignorance</div>
+    </header>
+
+    <div class="aspect-stanza">
+      "We dive into the deep and discover the beginning of our ignorance."
+    </div>
+
+    <div class="aspect-body">
+      <p>The sixth aspect is the appropriate humility that depth produces. Chollima refuses the rider. The thousand-li horse is found in every age, but the rider who can mount him is rare in a thousand years. The carrier knows what the rider does not yet know — that not every rider is the right rider, that the matching itself is substantive question, that the carrying serves the becoming only when carrier and carried genuinely belong together. The Chollima holds the refusal as substantive teaching.</p>
+
+      <p>Pegasus carried Bellerophon to substantial victories. But when Bellerophon attempted to ride to Olympus — to mistake the gift for an achievement, to ride into territory no human could enter — Pegasus threw him. The fall was not punishment. It was the substantive consequence of attempting depth without humility.</p>
+
+      <p>For the carrier as coach, this is the maturation of the work. The substantive coach knows what they do not know. The substantive leader who has developed substantially is more humble than the leader who has developed less. The depth produces appropriate ignorance — recognition of what cannot be fully known, what cannot be controlled, what exceeds even mature mastery.</p>
+
+      <p>The substantive coach holds this humility for themselves and supports it in the leader. The transformation that succeeds is led by leaders who know what they do not know. The transformation that fails is often led by leaders who became confident that they had figured it out. The deep is where the beginning of ignorance is discovered. This beginning is not failure of knowledge. It is the substantive ground from which mature work proceeds.</p>
+    </div>
+  </article>
+
+  <!-- FINAL CODA -->
+  <section class="final-coda">
+    <h3>The Carrier Remains</h3>
+    <p>Six aspects of the becoming that emerges when horse and rider meet at depth. The horses gathered in Part the First articulated this becoming through the lens of myth. The Pioneer Soulmate articulates it through the lens of the work we do today.</p>
+    <p>The coach is to the leader what Buraq is to the Prophet ﷺ. Not in scale, but in substantive function. The relationship is partnership in becoming. The carrier sees what the carried cannot yet see. The carried discovers what the carrier helps make visible. Together they enter territory neither could enter alone.</p>
+    <p>This is the work. It has been the work for as long as there have been heroes. It will be the work for as long as there are becomings to be supported. The horses are still here. They appear in different forms in different ages. The carriers of our time are those who recognize the function and accept the responsibility — to be the steed of the spheres for those whose becoming requires the carrying.</p>
+  </section>
+
+</main>
+
+<footer>
+  Steeds of the Spheres · An Illuminated Compendium · MMXXVI
+</footer>
+
+</body>
+</html>
