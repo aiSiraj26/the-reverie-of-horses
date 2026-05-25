@@ -978,6 +978,79 @@
     line-height: 1.6;
   }
 
+  /* ========== PATRONAGE ========== */
+  .support {
+    margin: 5rem 0 3rem;
+    padding: 3rem 2rem;
+    text-align: center;
+    border-top: 1px double var(--border);
+    border-bottom: 1px double var(--border);
+    scroll-margin-top: 2rem;
+  }
+  .support h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  .support-lede {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    max-width: 620px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.6;
+  }
+  .support-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2rem;
+    max-width: 720px;
+    margin: 0 auto 2.5rem;
+  }
+  .support-card {
+    display: block;
+    padding: 1.4rem 1.2rem;
+    border: 1px solid var(--gold-soft);
+    border-radius: 2px;
+    text-decoration: none;
+    color: var(--ink);
+    background: rgba(184, 134, 11, 0.02);
+    transition: border-color 120ms ease, background 120ms ease;
+  }
+  .support-card:hover {
+    border-color: var(--gold);
+    background: rgba(184, 134, 11, 0.06);
+  }
+  .support-card-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .support-card-detail {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    font-style: italic;
+    line-height: 1.4;
+  }
+  .support-privacy {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.82rem;
+    color: var(--muted);
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.5;
+    font-style: italic;
+  }
+
   /* ========== RESPONSIVE ========== */
   @media (max-width: 600px) {
     body { font-size: 17px; }
@@ -1722,6 +1795,36 @@
     <p>Six aspects of the becoming that emerges when horse and rider meet at depth. The horses gathered in Part the First articulated this becoming through the lens of myth. The Pioneer Soulmate articulates it through the lens of the work we do today.</p>
     <p>The coach is to the leader what Buraq is to the Prophet ﷺ. Not in scale, but in substantive function. The relationship is partnership in becoming. The carrier sees what the carried cannot yet see. The carried discovers what the carrier helps make visible. Together they enter territory neither could enter alone.</p>
     <p>This is the work. It has been the work for as long as there have been heroes. It will be the work for as long as there are becomings to be supported. The horses are still here. They appear in different forms in different ages. The carriers of our time are those who recognize the function and accept the responsibility — to be the celestial steed for those whose becoming requires the carrying.</p>
+  </section>
+
+  <!-- PATRONAGE -->
+  <section class="support" id="support">
+    <h3>Patronage</h3>
+    <p class="support-lede">If this compendium has carried you somewhere worth going, there are four ways to support its continued making. Each opens on the patron's own platform; no card data ever touches this site.</p>
+
+    <div class="support-grid">
+      <a class="support-card" data-support="tip" href="https://ko-fi.com/aisiraj26" target="_blank" rel="noopener noreferrer">
+        <div class="support-card-label">A Coin in the Bowl</div>
+        <div class="support-card-detail">A one-time tip · via Ko-fi</div>
+      </a>
+
+      <a class="support-card" data-support="digital" href="https://aisiraj26.lemonsqueezy.com/buy/divine-horses-compendium" target="_blank" rel="noopener noreferrer">
+        <div class="support-card-label">The Compendium, in Hand</div>
+        <div class="support-card-detail">A downloadable PDF edition · via Lemon Squeezy</div>
+      </a>
+
+      <a class="support-card" data-support="subscription" href="https://www.patreon.com/aisiraj26" target="_blank" rel="noopener noreferrer">
+        <div class="support-card-label">A Standing Patronage</div>
+        <div class="support-card-detail">Monthly support for new chapters · via Patreon</div>
+      </a>
+
+      <a class="support-card" data-support="prints" href="https://society6.com/aisiraj26" target="_blank" rel="noopener noreferrer">
+        <div class="support-card-label">An Image for the Wall</div>
+        <div class="support-card-detail">Fine-art prints of the exhibits · via Society6</div>
+      </a>
+    </div>
+
+    <p class="support-privacy">Payments are processed entirely on the patron's platform — Ko-fi, Lemon Squeezy, Patreon, or Society6. No card numbers, names, or addresses are collected or stored on this site. Refunds and disputes are handled by the respective provider. See each platform's privacy policy for details.</p>
   </section>
 
 </main>
