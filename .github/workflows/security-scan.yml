@@ -47,9 +47,18 @@ jobs:
         run: |
           set -euo pipefail
 
-          # Lowercase header lookup helper.
-          header() { grep -i "^$1:" headers.txt | tail -1 | sed -E "s/^[^:]+:[[:space:]]*//"; }
-          meta_value() { grep -oE "<meta[^>]+$1[^>]*content=\"[^\"]+\"" body.html | sed -E 's/.*content="([^"]+)".*/\1/' | head -1; }
+          # Helpers — `|| true` keeps `set -e` from bailing when an optional
+          # header or meta tag is simply absent (grep exits 1 with no match).
+          header() {
+            local v
+            v=$(grep -i "^$1:" headers.txt 2>/dev/null | tail -1 | sed -E "s/^[^:]+:[[:space:]]*//" || true)
+            echo "$v"
+          }
+          meta_value() {
+            local v
+            v=$(grep -oE "<meta[^>]+$1[^>]*content=\"[^\"]+\"" body.html 2>/dev/null | sed -E 's/.*content="([^"]+)".*/\1/' | head -1 || true)
+            echo "$v"
+          }
 
           declare -i PASS=0 FAIL=0 WARN=0
           report=""
