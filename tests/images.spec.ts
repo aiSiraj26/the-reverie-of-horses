@@ -1,40 +1,37 @@
 import { test, expect } from '@playwright/test';
-
-const EXHIBIT_IDS = [
-  'buraq', 'pegasus', 'sleipnir', 'uchchaihshravas', 'kanthaka',
-  'tianma', 'chollima', 'tulpar', 'rakhsh', 'enbarr',
-];
+import { HORSES } from './fixtures';
 
 test.describe('exhibit images', () => {
   test.describe.configure({ mode: 'serial' }); // one page, scroll through it
   test.setTimeout(60_000); // image fetches from Wikimedia can be slow
 
-  test('every exhibit image has non-empty alt text', async ({ page }) => {
+  test.beforeEach(async ({ page }) => {
     await page.goto('/');
-    for (const id of EXHIBIT_IDS) {
-      const img = page.locator(`article.exhibit#${id} img`).first();
-      await expect(img, `${id} should have an <img>`).toHaveCount(1);
+  });
+
+  test('every exhibit image has non-empty alt text', async ({ page }) => {
+    for (const horse of HORSES) {
+      const img = page.locator(`article.exhibit#${horse.id} img`).first();
+      await expect(img, `${horse.id} should have an <img>`).toHaveCount(1);
       const alt = await img.getAttribute('alt');
-      expect(alt?.trim().length ?? 0, `${id} image alt must be non-empty`).toBeGreaterThan(0);
+      expect(alt?.trim().length ?? 0, `${horse.id} image alt must be non-empty`).toBeGreaterThan(0);
     }
   });
 
   test('every exhibit image actually loads (naturalWidth > 0)', async ({ page }) => {
-    await page.goto('/');
-
     const failed: string[] = [];
-    for (const id of EXHIBIT_IDS) {
-      const img = page.locator(`article.exhibit#${id} img`).first();
+    for (const horse of HORSES) {
+      const img = page.locator(`article.exhibit#${horse.id} img`).first();
       await img.scrollIntoViewIfNeeded();
       try {
         await expect
           .poll(async () => await img.evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth), {
             timeout: 15_000,
-            message: `${id} image did not load`,
+            message: `${horse.id} image did not load`,
           })
           .toBeGreaterThan(0);
       } catch {
-        failed.push(id);
+        failed.push(horse.id);
       }
     }
     expect(failed, `images that failed to load: ${failed.join(', ')}`).toEqual([]);
