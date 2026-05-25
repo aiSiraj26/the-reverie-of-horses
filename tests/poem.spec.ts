@@ -1,58 +1,53 @@
 import { test, expect } from '@playwright/test';
+import { POEM_STANZAS } from './fixtures';
 
 /**
  * Pioneer Soulmate — the full poem appears at the start of Part the Second,
  * before the prose intro and before the six Aspect articles break it apart.
  */
 
-const STANZAS: Array<{ first: string; last: string }> = [
-  { first: 'We venture', last: 'of our tomorrow.' },
-  { first: 'We look',    last: 'of our reflection.' }, // "We look / into the mirror …"
-  { first: 'We seek',    last: 'of our humanity.' },
-  { first: 'We thrive',  last: 'of our quandary.' },
-  { first: 'We look',    last: 'of our soul.' },       // "We look / into the dark …"
-  { first: 'We dive',    last: 'of our ignorance.' },
-];
-
 test.beforeEach(async ({ page }) => {
   await page.goto('/');
 });
 
-test('poem section exists at the start of Part the Second', async ({ page }) => {
-  const poem = page.locator('section.poem');
-  await expect(poem, 'expected <section class="poem">').toHaveCount(1);
+test('poem section exists between the Part Two header and the first aspect', async ({ page }) => {
+  await expect(page.locator('section.poem')).toHaveCount(1);
 
-  // It must come AFTER the Part Two header and BEFORE the first aspect article.
   const order = await page.evaluate(() => {
     const header = document.querySelector('header.part-two-header');
     const poem = document.querySelector('section.poem');
     const firstAspect = document.querySelector('article.aspect');
     if (!header || !poem || !firstAspect) return null;
-    const pos = (a: Element, b: Element) =>
-      a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1;
-    return { headerBeforePoem: pos(header, poem), poemBeforeAspect: pos(poem, firstAspect) };
+    const isBefore = (a: Element, b: Element) =>
+      Boolean(a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING);
+    return {
+      headerBeforePoem: isBefore(header, poem),
+      poemBeforeAspect: isBefore(poem, firstAspect),
+    };
   });
   expect(order, 'all three landmarks must exist').not.toBeNull();
-  expect(order!.headerBeforePoem, 'poem must come after the Part Two header').toBe(-1);
-  expect(order!.poemBeforeAspect, 'poem must come before the first aspect article').toBe(-1);
+  expect(order!.headerBeforePoem, 'poem must come after the Part Two header').toBe(true);
+  expect(order!.poemBeforeAspect, 'poem must come before the first aspect article').toBe(true);
 });
 
-test('poem has exactly six stanzas with the right opening and closing lines', async ({ page }) => {
+test('poem has six stanzas, each with the right opening and four following lines', async ({ page }) => {
   const stanzas = page.locator('section.poem .poem-stanza');
-  await expect(stanzas).toHaveCount(6);
+  await expect(stanzas).toHaveCount(POEM_STANZAS.length);
 
-  for (let i = 0; i < STANZAS.length; i++) {
+  for (let i = 0; i < POEM_STANZAS.length; i++) {
     const stanza = stanzas.nth(i);
-    const text = (await stanza.innerText()).replace(/\s+/g, ' ').trim();
-    expect(text, `stanza ${i + 1} should start with "${STANZAS[i].first}"`).toMatch(
-      new RegExp(`^${STANZAS[i].first}\\b`),
-    );
-    expect(text, `stanza ${i + 1} should end with "${STANZAS[i].last}"`).toContain(STANZAS[i].last);
+    // innerText preserves <br> as newlines, so each line lands on its own row.
+    const renderedLines = (await stanza.innerText())
+      .split(/\r?\n/)
+      .map((s) => s.trim())
+      .filter(Boolean);
+
+    const expected = [POEM_STANZAS[i].opening, ...POEM_STANZAS[i].lines];
+    expect(renderedLines, `stanza ${i + 1} lines mismatch`).toEqual(expected);
   }
 });
 
 test('"We venture" is rendered as the prominent opening', async ({ page }) => {
-  // The first stanza's opening words are visually large, like the image.
   const opening = page.locator('section.poem .poem-opening');
   await expect(opening).toHaveCount(1);
   await expect(opening).toHaveText('We venture');
