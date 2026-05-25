@@ -30,6 +30,26 @@ test.describe('XSS / injection surface', () => {
     expect(offenders, `inline event handlers: ${JSON.stringify(offenders)}`).toEqual([]);
   });
 
+  test('no third-party font hosts referenced (fonts are self-hosted)', async ({ page }) => {
+    const offenders = await page.evaluate(() => {
+      const banned = ['fonts.googleapis.com', 'fonts.gstatic.com', 'fonts.bunny.net'];
+      const found: string[] = [];
+      for (const el of Array.from(document.querySelectorAll('[href], [src]'))) {
+        const u = el.getAttribute('href') || el.getAttribute('src') || '';
+        if (banned.some((b) => u.includes(b))) found.push(u);
+      }
+      // Also scan inline <style> rules for embedded font URLs.
+      for (const style of Array.from(document.querySelectorAll('style'))) {
+        const text = style.textContent || '';
+        for (const b of banned) {
+          if (text.includes(b)) found.push(`inline <style> referenced ${b}`);
+        }
+      }
+      return found;
+    });
+    expect(offenders, `third-party font references: ${offenders.join(', ')}`).toEqual([]);
+  });
+
   test('no mixed-content resources (http:// instead of https://)', async ({ page }) => {
     const insecure = await page.evaluate(() => {
       const urls: string[] = [];
