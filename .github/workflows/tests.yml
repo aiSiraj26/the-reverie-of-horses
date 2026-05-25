@@ -4,6 +4,17 @@ on:
   push:
   pull_request:
 
+# Allow the deploy job to publish to Pages.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Ensure only one Pages deploy runs at a time; let in-flight deploys finish.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
   playwright:
     name: Playwright
@@ -41,3 +52,29 @@ jobs:
           name: playwright-report
           path: playwright-report
           retention-days: 14
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: playwright
+    # Only deploy when the green commit lands on main.
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Stage static site
+        run: |
+          mkdir -p _site
+          cp index.html _site/
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
