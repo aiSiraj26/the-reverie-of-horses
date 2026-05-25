@@ -1,0 +1,36 @@
+# Dependabot keeps GitHub Actions and npm dependencies up to date.
+# Especially important for actions/* which are pinned to commit SHAs in
+# .github/workflows — Dependabot will rebase them onto fresh SHAs whenever
+# the underlying action releases a new version.
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "08:00"
+      timezone: "America/New_York"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "ci"
+      include: "scope"
+
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "08:00"
+      timezone: "America/New_York"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "deps"
+      include: "scope"
+    # Group lockfile-only patch bumps so they don't spam separate PRs.
+    groups:
+      dev-dependencies:
+        dependency-type: "development"
+        update-types:
+          - "patch"
+          - "minor"
