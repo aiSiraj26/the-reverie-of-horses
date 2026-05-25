@@ -4,6 +4,11 @@ on:
   push:
   pull_request:
 
+# Opt JavaScript actions into Node.js 24 ahead of GitHub's forced cutover
+# (2026-06-02). Lets any breakage surface here instead of on the deadline.
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
 # Allow the deploy job to publish to Pages.
 permissions:
   contents: read
