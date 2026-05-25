@@ -1,0 +1,140 @@
+name: Security Scan
+
+# Scheduled probe of the live site's security posture. Fetches the rendered
+# HTML + response headers, grades what's present, and writes a summary to
+# the Actions run. Fails only on a genuine regression (HSTS missing, HTTPS
+# redirect broken, or a known-good meta tag disappearing).
+#
+# Why not Mozilla Observatory? Their v2 API scans hosts only, not paths,
+# and aisiraj26.github.io/ itself is 404 — there's no way to point them at
+# /the-reverie-of-horses/.
+
+on:
+  schedule:
+    - cron: '0 9 * * 1'  # 09:00 UTC every Monday
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/security-scan.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  scan:
+    name: Headers & meta-tag scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      TARGET_URL: https://aisiraj26.github.io/the-reverie-of-horses/
+    steps:
+      - name: Fetch headers and body
+        id: fetch
+        run: |
+          set -euo pipefail
+          echo "Scanning ${TARGET_URL}"
+          curl -sS -D headers.txt -o body.html -L "${TARGET_URL}"
+          # Headers from the FIRST response (no Location), not the redirect chain.
+          # GH Pages redirects http -> https; we want the final HTTPS response.
+          tr -d '\r' < headers.txt > headers.normalized
+          mv headers.normalized headers.txt
+          echo "::group::Raw headers"
+          cat headers.txt
+          echo "::endgroup::"
+
+      - name: Grade response headers and meta tags
+        id: grade
+        run: |
+          set -euo pipefail
+
+          # Lowercase header lookup helper.
+          header() { grep -i "^$1:" headers.txt | tail -1 | sed -E "s/^[^:]+:[[:space:]]*//"; }
+          meta_value() { grep -oE "<meta[^>]+$1[^>]*content=\"[^\"]+\"" body.html | sed -E 's/.*content="([^"]+)".*/\1/' | head -1; }
+
+          declare -i PASS=0 FAIL=0 WARN=0
+          report=""
+
+          check() {
+            # $1 status (PASS/FAIL/WARN), $2 label, $3 detail
+            case "$1" in
+              PASS) PASS+=1; report+="| ✅ PASS | $2 | $3 |"$'\n' ;;
+              WARN) WARN+=1; report+="| ⚠️  WARN | $2 | $3 |"$'\n' ;;
+              FAIL) FAIL+=1; report+="| ❌ FAIL | $2 | $3 |"$'\n' ;;
+            esac
+          }
+
+          # --- HTTP-layer headers ---
+          hsts="$(header strict-transport-security)"
+          if [ -n "$hsts" ]; then
+            max_age=$(echo "$hsts" | grep -oE "max-age=[0-9]+" | grep -oE "[0-9]+" || echo 0)
+            if [ "${max_age:-0}" -ge 31536000 ]; then
+              check PASS "Strict-Transport-Security" "max-age=$max_age"
+            else
+              check WARN "Strict-Transport-Security" "max-age=$max_age is below 1 year"
+            fi
+          else
+            check FAIL "Strict-Transport-Security" "header missing"
+          fi
+
+          ct="$(header content-type)"
+          if echo "$ct" | grep -qi "charset=utf-8"; then
+            check PASS "Content-Type charset" "$ct"
+          else
+            check WARN "Content-Type charset" "$ct (no explicit utf-8)"
+          fi
+
+          # GH Pages does NOT set these; informational only.
+          for h in x-content-type-options x-frame-options referrer-policy permissions-policy content-security-policy; do
+            v="$(header "$h")"
+            if [ -n "$v" ]; then
+              check PASS "$h header" "$v"
+            else
+              check WARN "$h header" "not set by host (GH Pages limitation; meta-tag equivalent may exist)"
+            fi
+          done
+
+          # --- Meta-tag equivalents ---
+          csp_meta="$(meta_value 'http-equiv="Content-Security-Policy"' || true)"
+          if [ -n "$csp_meta" ]; then
+            check PASS "CSP via <meta>" "${csp_meta:0:80}..."
+          else
+            check FAIL "CSP via <meta>" "meta tag missing"
+          fi
+
+          ref_meta="$(meta_value 'name="referrer"' || true)"
+          if [ -n "$ref_meta" ]; then
+            check PASS "Referrer-Policy via <meta>" "$ref_meta"
+          else
+            check FAIL "Referrer-Policy via <meta>" "meta tag missing"
+          fi
+
+          # --- HTTPS redirect ---
+          redirect_status=$(curl -sS -o /dev/null -w "%{http_code}" "http://aisiraj26.github.io/the-reverie-of-horses/")
+          if [ "$redirect_status" = "301" ] || [ "$redirect_status" = "302" ] || [ "$redirect_status" = "308" ]; then
+            check PASS "HTTP → HTTPS redirect" "status $redirect_status"
+          else
+            check FAIL "HTTP → HTTPS redirect" "status $redirect_status (expected 301/302/308)"
+          fi
+
+          # --- Output ---
+          {
+            echo "## Security headers scan"
+            echo ""
+            echo "**Target:** \`${TARGET_URL}\`"
+            echo ""
+            echo "**Tally:** ✅ $PASS pass · ⚠️  $WARN warn · ❌ $FAIL fail"
+            echo ""
+            echo "| Status | Check | Detail |"
+            echo "|--------|-------|--------|"
+            echo "$report"
+            echo ""
+            echo "_WARN rows for HTTP-header-delivered policies are expected on GitHub Pages, which doesn't allow custom headers. They are not regressions — see the meta-tag rows for the actual enforced policy._"
+          } > $GITHUB_STEP_SUMMARY
+
+          echo "fail=$FAIL" >> "$GITHUB_OUTPUT"
+
+      - name: Fail on regressions
+        if: steps.grade.outputs.fail != '0'
+        run: |
+          echo "::error::${{ steps.grade.outputs.fail }} security check(s) regressed."
+          exit 1
