@@ -4,11 +4,14 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <!--
-  Defence-in-depth security policy.
-  CSP intentionally allowlists common analytics origins (Plausible, GA/GTM)
-  so they can be added later without relaxing the policy. 'unsafe-inline'
-  on style-src is required by the existing inline <style> block; remove it
-  if the CSS is ever extracted to an external file.
+  Defence-in-depth security policy. The site ships no JavaScript and no inline
+  styles, so the CSP is locked down hard: no 'unsafe-inline' anywhere, and no
+  third-party script/connect origins. style-src is 'self' only (CSS lives in
+  styles.css); img-src allows self + data: (a small inline SVG texture in the
+  CSS) + the Wikimedia hosts the exhibit images load from.
+
+  If analytics are ever added, allowlist the specific origin here at that time
+  rather than pre-opening it.
 
   Note: frame-ancestors and Permissions-Policy can only be delivered via
   HTTP headers, not via <meta>. GitHub Pages does not let us set custom
@@ -16,7 +19,7 @@
   If we move to a host that allows headers (Cloudflare Pages, Netlify),
   add: Content-Security-Policy: ...; frame-ancestors 'none'
 -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://plausible.io https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://commons.wikimedia.org https://upload.wikimedia.org; connect-src 'self' https://www.google-analytics.com https://plausible.io; frame-src 'none'; base-uri 'self'; form-action 'self'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self'; font-src 'self'; img-src 'self' data: https://commons.wikimedia.org https://upload.wikimedia.org; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'self'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>The Reverie of Horses — An Illuminated Compendium</title>
 <link rel="stylesheet" href="styles.css">

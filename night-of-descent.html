@@ -4,12 +4,15 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <!--
-  Defence-in-depth security policy. Mirrors index.html. The shared design
-  system lives in styles.css (loaded via style-src 'self'); 'unsafe-inline'
-  is retained only for the small inline style attributes the pages may use.
-  Images on this page are self-hosted under assets/, so img-src 'self' covers them.
+  Defence-in-depth security policy. Locked down: no JavaScript, no inline
+  styles. script-src 'none'; style-src 'self' (styles.css); img-src 'self'
+  + data: only (all images on this page are self-hosted under assets/; the
+  data: URI is a small inline SVG texture in the CSS). No third-party origins.
+
+  Note: frame-ancestors / Permissions-Policy need HTTP headers, which GitHub
+  Pages can't set. On a host that allows headers, add frame-ancestors 'none'.
 -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://plausible.io https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://commons.wikimedia.org https://upload.wikimedia.org; connect-src 'self' https://www.google-analytics.com https://plausible.io; frame-src 'none'; base-uri 'self'; form-action 'self'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'self'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="description" content="The Night of Descent — Laylat al-Qadr, the Night of Power on which the Qur'ān descended; a night better than a thousand months, with the angels, the decree, the dusk-to-dawn arc, and the voices of the Sufi masters.">
 <title>The Night of Descent — Laylat al-Qadr</title>
@@ -37,7 +40,7 @@
   <!-- ===== OPENING ===== -->
   <section class="intro" id="the-night">
     <h2>The Night of Power</h2>
-    <p class="arabic" lang="ar" style="text-align:center;">لَيْلَةُ الْقَدْرِ</p>
+    <p class="arabic u-center" lang="ar">لَيْلَةُ الْقَدْرِ</p>
     <p>If the Night of Ascent carried the Prophet ﷺ upward through the seven heavens, the Night of Descent is its mirror: the night the heavens draw near to earth. <em>Laylat al-Qadr</em> — the Night of Power, the Night of Decree — is the holiest night of the year, when the Qur'ān began its descent, the angels fill the earth, and divine mercy flows freely until the break of dawn.</p>
 
     <div class="exhibit-image">
@@ -68,8 +71,8 @@
         <div>
           <p class="arabic" lang="ar">إِنَّا أَنزَلْنَاهُ فِي لَيْلَةِ الْقَدْرِ<br>وَمَا أَدْرَاكَ مَا لَيْلَةُ الْقَدْرِ<br>لَيْلَةُ الْقَدْرِ خَيْرٌ مِّنْ أَلْفِ شَهْرٍ<br>تَنَزَّلُ الْمَلَائِكَةُ وَالرُّوحُ فِيهَا بِإِذْنِ رَبِّهِم مِّن كُلِّ أَمْرٍ<br>سَلَامٌ هِيَ حَتَّىٰ مَطْلَعِ الْفَجْرِ</p>
           <p class="translation">"Innā anzalnāhu fī laylati l-qadr. Wa mā adrāka mā laylatu l-qadr. Laylatu l-qadri khayrun min alfi shahr. Tanazzalu l-malāʾikatu wa-r-rūḥu fīhā bi-idhni rabbihim min kulli amr. Salāmun hiya ḥattā maṭlaʿi l-fajr."</p>
-          <p class="translation" style="font-style:normal;">"Indeed, We sent the Qur'ān down during the Night of Decree. And what can make you know what is the Night of Decree? The Night of Decree is better than a thousand months. The angels and the Spirit descend therein by permission of their Lord for every matter. Peace it is until the emergence of dawn."</p>
-          <p class="kicker" style="margin-top:0.5rem;">Qur'ān 97:1–5</p>
+          <p class="translation u-normal">"Indeed, We sent the Qur'ān down during the Night of Decree. And what can make you know what is the Night of Decree? The Night of Decree is better than a thousand months. The angels and the Spirit descend therein by permission of their Lord for every matter. Peace it is until the emergence of dawn."</p>
+          <p class="kicker u-mt-sm">Qur'ān 97:1–5</p>
         </div>
       </div>
 
@@ -96,8 +99,8 @@
     </div>
 
     <div class="exhibit-body">
-      <p class="arabic" lang="ar" style="text-align:center;">تَنَزَّلُ الْمَلَائِكَةُ وَالرُّوحُ فِيهَا بِإِذْنِ رَبِّهِم مِّن كُلِّ أَمْرٍ</p>
-      <p class="translation" style="text-align:center;">"The angels and the Spirit descend therein by permission of their Lord — for every matter." — Qur'ān 97:4</p>
+      <p class="arabic u-center" lang="ar">تَنَزَّلُ الْمَلَائِكَةُ وَالرُّوحُ فِيهَا بِإِذْنِ رَبِّهِم مِّن كُلِّ أَمْرٍ</p>
+      <p class="translation u-center">"The angels and the Spirit descend therein by permission of their Lord — for every matter." — Qur'ān 97:4</p>
 
       <div class="card-grid">
         <div class="card">
@@ -150,7 +153,7 @@
         </div>
       </div>
 
-      <div class="pullquote" style="max-width:680px;margin-left:auto;margin-right:auto;">
+      <div class="pullquote u-narrow">
         "Peace it is — until the emergence of dawn."
         <cite>— Sūrat al-Qadr (97:5)</cite>
       </div>
@@ -233,7 +236,7 @@
           </div>
         </div>
         <div>
-          <div class="pullquote" style="margin-top:0;">
+          <div class="pullquote u-mt-0">
             "On the Night of Power, time itself bows. The eternal breaks into the temporal, and the soul — if it is awake — is drenched in the light of the Unseen."
           </div>
           <div class="pullquote">
@@ -349,10 +352,10 @@ because of this melody, from head to foot, I am in love."<span class="q-source">
       <p>The method has three components the masters returned to consistently. The first is the removal of exits — close the places the attention habitually escapes to. The second is sustained attention: not a single moment of concentrated prayer but hours of returning, again and again, to the Presence whenever the mind wanders. The wandering is not the failure; the returning is the practice. The third is honesty: bring what is actually true in you, without the performance layer.</p>
 
       <h3>The Supplication for This Night</h3>
-      <div class="exhibit-body" style="text-align:center;">
-        <p class="arabic" lang="ar" style="text-align:center;">اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي</p>
+      <div class="exhibit-body u-center">
+        <p class="arabic u-center" lang="ar">اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي</p>
         <p class="translation">Allāhumma innaka ʿafuwwun tuḥibbu l-ʿafwa faʿfu ʿannī</p>
-        <p class="translation" style="font-style:normal;">"O God, You are Pardon, You love to pardon, so pardon me." <span class="kicker" style="display:inline;">— transmitted in al-Tirmidhī</span></p>
+        <p class="translation u-normal">"O God, You are Pardon, You love to pardon, so pardon me." <span class="kicker u-inline">— transmitted in al-Tirmidhī</span></p>
       </div>
       <p>Notice the structure: <em>You are this. You love this. Let it include me.</em> The three-fold movement does not petition an external power for something it might or might not grant. It calls on a quality that is already present and asks to be received into it.</p>
 
@@ -370,7 +373,7 @@ because of this melody, from head to foot, I am in love."<span class="q-source">
   <!-- ===== PEACE UNTIL DAWN ===== -->
   <section class="closing" id="peace">
     <h2>Peace Until the Dawn</h2>
-    <p class="arabic" lang="ar" style="text-align:center;">سَلَامٌ هِيَ حَتَّىٰ مَطْلَعِ الْفَجْرِ</p>
+    <p class="arabic u-center" lang="ar">سَلَامٌ هِيَ حَتَّىٰ مَطْلَعِ الْفَجْرِ</p>
     <p>"Peace it is until the emergence of dawn." — Sūrat al-Qadr 97:5</p>
     <p>From sunset to sunrise, this night is pure tranquillity and divine peace. May this night bring peace to your heart and light to your soul.</p>
     <a href="index.html" class="back-to-top">↑ Return to the Compendium</a>
