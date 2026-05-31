@@ -4,12 +4,15 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <!--
-  Defence-in-depth security policy. Mirrors index.html. The shared design
-  system lives in styles.css (loaded via style-src 'self'); 'unsafe-inline'
-  is retained only for the small inline style attributes the pages may use.
-  Images on this page are self-hosted under assets/, so img-src 'self' covers them.
+  Defence-in-depth security policy. Locked down: no JavaScript, no inline
+  styles. script-src 'none'; style-src 'self' (styles.css); img-src 'self'
+  + data: only (all images on this page are self-hosted under assets/; the
+  data: URI is a small inline SVG texture in the CSS). No third-party origins.
+
+  Note: frame-ancestors / Permissions-Policy need HTTP headers, which GitHub
+  Pages can't set. On a host that allows headers, add frame-ancestors 'none'.
 -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://plausible.io https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://commons.wikimedia.org https://upload.wikimedia.org; connect-src 'self' https://www.google-analytics.com https://plausible.io; frame-src 'none'; base-uri 'self'; form-action 'self'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'self'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="description" content="The Night of Ascent — Laylat al-Miʿrāj, the Night Journey and Ascension of the Prophet Muḥammad ﷺ through the seven heavens.">
 <title>The Night of Ascent — Laylat al-Miʿrāj</title>
@@ -348,7 +351,7 @@
   <section class="closing" id="prayer">
     <h2>The Greatest Gift</h2>
     <p>In the divine presence, Allah ordained fifty daily prayers for the believers. As the Prophet descended, Mūsā advised him to return and ask for a reduction, knowing humanity's weakness. He returned repeatedly, each time receiving a reduction of ten, until five remained. When Mūsā urged him once more, the Prophet ﷺ replied:</p>
-    <div class="pullquote" style="max-width:640px;margin-left:auto;margin-right:auto;">
+    <div class="pullquote u-narrow">
       "I have asked my Lord until I am too shy. I accept and submit."
       <cite>— The Night of Ascent</cite>
     </div>
@@ -376,7 +379,7 @@
         </div>
         <div class="col">
           <h4>Dante Alighieri</h4>
-          <p class="who" lang="it" style="font-style:italic;">"La gloria di colui che tutto move / per l'universo penetra, e risplende / in una parte più e meno altrove."</p>
+          <p class="who u-italic" lang="it">"La gloria di colui che tutto move / per l'universo penetra, e risplende / in una parte più e meno altrove."</p>
           <p><em>"The glory of Him who moves all things penetrates through the universe and shines in one part more, and in another less."</em> — Paradiso · Canto I</p>
         </div>
       </div>
@@ -420,7 +423,7 @@
         </div>
         <div class="col">
           <h4>The Empyrean · Paradiso Canto XXVI</h4>
-          <p class="who" lang="it" style="font-style:italic;">"Or, figliuol mio, non il gustar del legno / fu per sé la cagion di tanto essilio, / ma solamente il trapassar del segno."</p>
+          <p class="who u-italic" lang="it">"Or, figliuol mio, non il gustar del legno / fu per sé la cagion di tanto essilio, / ma solamente il trapassar del segno."</p>
           <p><em>"Know, my son, that the tasting of the tree was not in itself the cause of so long an exile, but solely the transgression of the sign."</em> Dante's Adam is philosophical and retrospective — he speaks not of weeping for his children but of disobedience as a principle.</p>
         </div>
       </div>
@@ -444,7 +447,7 @@
         <strong>Jahannam &amp; the Inferno.</strong> During the Miʿrāj the Prophet ﷺ was shown Hellfire — a vast abyss guarded by Mālik, who has never smiled, with seven gates and nineteen angels. Dante's Inferno is an architecture of nine descending circles, each calibrated to the sin by <em>contrapasso</em>. Above its gate: "Per me si va ne la città dolente" — "Through me the way into the suffering city." Both traditions agree: the vision of it changes everything.
       </div>
 
-      <div class="pullquote" style="max-width:680px;margin-left:auto;margin-right:auto;">
+      <div class="pullquote u-narrow">
         "Amor che move il sole e l'altre stelle." — "The love that moves the sun and the other stars."
         <cite>— Paradiso, Canto XXXIII (final line)</cite>
       </div>
