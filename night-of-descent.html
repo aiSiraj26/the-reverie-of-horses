@@ -5,21 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <!--
   Defence-in-depth security policy. Mirrors index.html. The shared design
-  system now lives in styles.css (loaded via style-src 'self'); 'unsafe-inline'
+  system lives in styles.css (loaded via style-src 'self'); 'unsafe-inline'
   is retained only for the small inline style attributes the pages may use.
+  Images on this page are self-hosted under assets/, so img-src 'self' covers them.
 -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://plausible.io https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://commons.wikimedia.org https://upload.wikimedia.org; connect-src 'self' https://www.google-analytics.com https://plausible.io; frame-src 'none'; base-uri 'self'; form-action 'self'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta name="description" content="The Night of Descent — Laylat al-Qadr, the Night of Power on which the Qur'ān descended.">
+<meta name="description" content="The Night of Descent — Laylat al-Qadr, the Night of Power on which the Qur'ān descended; a night better than a thousand months.">
 <title>The Night of Descent — Laylat al-Qadr</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <header class="hero" id="top">
-  <div class="eyebrow">The Reverie of Horses</div>
-  <h1>The Night of Descent</h1>
-  <p class="subtitle">Laylat al-Qadr — the Night of Power, when the Qur'ān descended to the earth</p>
+  <div class="eyebrow">The Reverie of Horses · The Night of Descent</div>
+  <h1>Laylat al-Qadr</h1>
+  <p class="subtitle">The Night of Power — when the Qur'ān was first revealed and the heavens drew near to earth. A night better than a thousand months.</p>
   <div class="byline">Curated · Annotated · MMXXVI</div>
 </header>
 
@@ -33,45 +34,202 @@
 
 <main class="container">
 
-  <article class="exhibit" id="laylat-al-qadr">
-    <header class="exhibit-header">
-      <div class="exhibit-numeral">— The Night of Descent —</div>
-      <h2>Laylat al-Qadr</h2>
-      <div class="native-name">لَيْلَة ٱلْقَدْر · "The Night of Power"</div>
-      <div class="epithet">The Night of Decree, when the Qur'ān descended</div>
-      <div class="meta">
-        <span>Islamic Tradition</span>
-        <span>The last ten nights of Ramaḍān</span>
-        <span>The Descent · al-Qadr</span>
-      </div>
-    </header>
+  <!-- ===== OPENING ===== -->
+  <section class="intro" id="the-night">
+    <h2>The Night of Power</h2>
+    <p class="arabic" lang="ar" style="text-align:center;">لَيْلَةُ الْقَدْرِ</p>
+    <p>If the Night of Ascent carried the Prophet ﷺ upward through the seven heavens, the Night of Descent is its mirror: the night the heavens came down to earth. <em>Laylat al-Qadr</em> — the Night of Decree, the Night of Power — is the most sacred night of the year, when the Qur'ān began its descent and the angels fill the earth until dawn.</p>
 
-    <!-- IMAGE — replace the placeholder below with the artwork you want here. -->
-    <div class="exhibit-image">
-      <div class="placeholder">Image to come — drop the artwork and caption for the Night of Descent here.</div>
+    <div class="pullquote">
+      "Indeed, We sent it down during the Night of Decree. And what can make you know what is the Night of Decree? The Night of Decree is better than a thousand months."
+      <cite>— Sūrat al-Qadr (97:1–3)</cite>
+    </div>
+
+    <p>What follows draws together the revelation of the Qur'ān, the hidden timing of the night, the descent of the angels, the signs by which it is known, its immeasurable virtue, the worship that fills it, and the peace that crowns it until the break of dawn.</p>
+  </section>
+
+  <div class="divider-line"><span>❦ ❦ ❦</span></div>
+
+  <!-- ===== THE REVELATION ===== -->
+  <section id="revelation">
+    <div class="chapter-head">
+      <span class="kicker">The Revelation</span>
+      <h2>When the Qur'ān Descended</h2>
     </div>
 
     <div class="exhibit-body">
-      <!-- TEXT — replace the placeholder paragraphs below with your content. -->
-      <div class="placeholder">Main text to come — share the prose for the Night of Descent (Laylat al-Qadr) and it will be set here in the compendium's style.</div>
-
-      <!-- Optional pull-quote block, ready to fill in:
-      <div class="pullquote">
-        "…"
-        <cite>— source</cite>
+      <div class="split">
+        <div class="split-media">
+          <div class="exhibit-image">
+            <img src="assets/night-of-descent/quran-light.jpg" alt="The Holy Qur'ān with divine light emanating from its pages" loading="lazy" width="1067" height="1600">
+            <div class="caption">The descent of the Qur'ān — light from the Preserved Tablet to the lowest heaven.</div>
+          </div>
+        </div>
+        <div>
+          <p class="arabic" lang="ar">إِنَّا أَنزَلْنَاهُ فِي لَيْلَةِ الْقَدْرِ</p>
+          <p class="translation">"Indeed, We sent it [the Qur'ān] down during the Night of Decree." — Sūrat al-Qadr 97:1</p>
+          <p>On this blessed night, the Holy Qur'ān began its descent from the Preserved Tablet (<em>al-Lawḥ al-Maḥfūẓ</em>) to the lowest heaven — from where it was revealed to the Prophet Muḥammad ﷺ over twenty-three years through the Angel Jibrīl.</p>
+        </div>
       </div>
-      -->
-
-      <!-- Optional sources block, ready to fill in:
-      <div class="sources">
-        <strong>Primary Sources</strong>
-        …
-      </div>
-      -->
-
-      <a href="index.html" class="back-to-top">↑ Return to the Compendium</a>
     </div>
-  </article>
+  </section>
+
+  <div class="divider-line"><span>❦ ❦ ❦</span></div>
+
+  <!-- ===== THE TIMING ===== -->
+  <section id="timing">
+    <div class="chapter-head">
+      <span class="kicker">The Timing</span>
+      <h2>Seek It in the Last Ten Nights</h2>
+      <p>The exact night is hidden, encouraging believers to devote themselves throughout the final third of Ramaḍān.</p>
+    </div>
+
+    <div class="exhibit-body">
+      <div class="card-grid">
+        <div class="card">
+          <h4>The Odd Nights</h4>
+          <p>The Prophet ﷺ emphasised seeking it in the odd nights: the 21st, 23rd, 25th, 27th, and 29th of Ramaḍān. The 27th night is most commonly associated with Laylat al-Qadr.</p>
+        </div>
+        <div class="card">
+          <h4>Why Hidden?</h4>
+          <p>Allah concealed its exact date as a mercy, so that believers would increase their worship across all ten nights, multiplying their reward and devotion.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider-line"><span>❦ ❦ ❦</span></div>
+
+  <!-- ===== THE DESCENT OF ANGELS ===== -->
+  <section id="angels">
+    <div class="chapter-head">
+      <span class="kicker">The Descent of Angels</span>
+      <h2>When Heaven Touches Earth</h2>
+    </div>
+
+    <div class="exhibit-body">
+      <div class="split reverse">
+        <div class="split-media">
+          <div class="exhibit-image">
+            <img src="assets/night-of-descent/mosque-night.jpg" alt="A mosque illuminated at night under a starry sky" loading="lazy" width="1536" height="1024">
+            <div class="caption">A mosque illuminated beneath the night sky, as the angels descend.</div>
+          </div>
+        </div>
+        <div>
+          <p class="arabic" lang="ar">تَنَزَّلُ الْمَلَائِكَةُ وَالرُّوحُ فِيهَا</p>
+          <p class="translation">"The angels and the Spirit [Jibrīl] descend therein by permission of their Lord for every matter." — Sūrat al-Qadr 97:4</p>
+          <p>On this night, angels descend in great numbers, led by the Angel Jibrīl (Gabriel). They fill the earth, carrying blessings and peace, recording the worship of the believers, and saying <em>Āmīn</em> to their prayers until the break of dawn.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider-line"><span>❦ ❦ ❦</span></div>
+
+  <!-- ===== THE SIGNS ===== -->
+  <section id="signs">
+    <div class="chapter-head">
+      <span class="kicker">The Signs</span>
+      <h2>Marks of the Blessed Night</h2>
+      <p>Traditions describe several signs by which the night may be recognised, though its true blessing lies in sincere worship.</p>
+    </div>
+
+    <div class="exhibit-body">
+      <div class="card-grid">
+        <div class="card"><h4>A Serene Sunrise</h4><p>The sun rises the next morning without dazzling rays, appearing like a smooth, radiant disc of soft light.</p></div>
+        <div class="card"><h4>Tranquil Weather</h4><p>The night is calm and pleasant, neither too hot nor too cold, with a gentle peacefulness in the air.</p></div>
+        <div class="card"><h4>Gentle Atmosphere</h4><p>Many narrations describe a serene, still quality to the night, with a sense of profound calm.</p></div>
+        <div class="card"><h4>Shooting Stars Cease</h4><p>Some traditions mention that no shooting stars are cast on this night.</p></div>
+      </div>
+
+      <div class="exhibit-image">
+        <img src="assets/night-of-descent/night-sky-stars.jpg" alt="A starry night sky over a serene landscape" loading="lazy" width="1536" height="1024">
+        <div class="caption">The still, luminous sky of the blessed night.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider-line"><span>❦ ❦ ❦</span></div>
+
+  <!-- ===== THE VIRTUE ===== -->
+  <section id="virtue">
+    <div class="chapter-head">
+      <span class="kicker">The Virtue</span>
+      <h2>Better Than a Thousand Months</h2>
+      <div class="native-name" lang="ar">لَيْلَةُ الْقَدْرِ خَيْرٌ مِّنْ أَلْفِ شَهْرٍ</div>
+      <p>"The Night of Decree is better than a thousand months." — Sūrat al-Qadr 97:3</p>
+    </div>
+
+    <div class="exhibit-body">
+      <div class="split">
+        <div class="split-media">
+          <div class="exhibit-image">
+            <img src="assets/night-of-descent/calligraphy-qadr.jpg" alt="Calligraphic rendering of Laylat al-Qadr" loading="lazy" width="1536" height="1024">
+            <div class="caption">Laylat al-Qadr, rendered in calligraphy.</div>
+          </div>
+        </div>
+        <div>
+          <p>Worship on this single night carries the reward of over eighty-three years of devotion. A lifetime of blessing condensed into hours — an immeasurable gift of divine mercy for those who seek it.</p>
+          <div class="fact-grid">
+            <div class="fact"><div class="fact-label">Months of reward</div><div class="fact-value">1000+</div></div>
+            <div class="fact"><div class="fact-label">Years of worship</div><div class="fact-value">83+</div></div>
+            <div class="fact"><div class="fact-label">Blessed night</div><div class="fact-value">1</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider-line"><span>❦ ❦ ❦</span></div>
+
+  <!-- ===== THE WORSHIP ===== -->
+  <section id="worship">
+    <div class="chapter-head">
+      <span class="kicker">The Worship</span>
+      <h2>How to Spend the Night</h2>
+    </div>
+
+    <div class="exhibit-body">
+      <div class="split reverse">
+        <div class="split-media">
+          <div class="exhibit-image">
+            <img src="assets/night-of-descent/lantern-glow.jpg" alt="A glowing lantern casting warm light into the dark" loading="lazy" width="1067" height="1600">
+            <div class="caption">A lantern's glow — the long vigil of the night.</div>
+          </div>
+        </div>
+        <div>
+          <p class="arabic" lang="ar">اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي</p>
+          <p class="translation">"O Allah, You are Most Forgiving, and You love forgiveness, so forgive me."</p>
+          <p>This was the beloved supplication taught by the Prophet ﷺ to ʿĀʾishah RA for this night — the dua to repeat above all others when seeking Laylat al-Qadr.</p>
+        </div>
+      </div>
+
+      <div class="card-grid">
+        <div class="card"><h4>Recite the Qur'ān</h4><p>Engage deeply with the words of Allah, reflecting on their meaning and beauty.</p></div>
+        <div class="card"><h4>Make Duʿāʾ</h4><p>Pour out your heart in supplication — above all the dua of forgiveness the Prophet ﷺ taught for this night.</p></div>
+        <div class="card"><h4>Pray Qiyām</h4><p>Stand in the night prayer, seeking nearness to Allah through extended devotion.</p></div>
+        <div class="card"><h4>Seek Forgiveness</h4><p>Make sincere <em>istighfār</em> and <em>tawbah</em>, returning to Allah with a repentant heart.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider-line"><span>❦ ❦ ❦</span></div>
+
+  <!-- ===== THE PEACE ===== -->
+  <section id="peace">
+    <div class="exhibit-image">
+      <img src="assets/night-of-descent/dome-rock.jpg" alt="The Dome of the Rock in Jerusalem at night" loading="lazy" width="1536" height="1024">
+      <div class="caption">The Dome of the Rock at night — peace until the dawn.</div>
+    </div>
+  </section>
+
+  <section class="closing" id="peace-text">
+    <h2>Peace Until the Dawn</h2>
+    <p class="arabic" lang="ar" style="text-align:center;">سَلَامٌ هِيَ حَتَّىٰ مَطْلَعِ الْفَجْرِ</p>
+    <p>"Peace it is until the emergence of dawn." — Sūrat al-Qadr 97:5</p>
+    <p>From sunset to sunrise, this night is pure tranquillity and divine peace — a sanctuary of serenity where every moment is filled with mercy, and the believer finds rest in the nearness of their Creator.</p>
+    <a href="index.html" class="back-to-top">↑ Return to the Compendium</a>
+  </section>
 
 </main>
 
@@ -90,6 +248,7 @@
 
 <footer>
   The Reverie of Horses · An Illuminated Compendium · MMXXVI
+  <br>Image credits: scenes of Laylat al-Qadr rendered in a contemporary devotional style.
 </footer>
 
 </body>
