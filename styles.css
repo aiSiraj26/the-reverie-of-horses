@@ -1061,3 +1061,172 @@
   font-style: italic;
   font-size: 1.1rem;
 }
+
+/* ---------------------------------------------------------------------------
+ * Night of Ascent (Laylat al-Miʿrāj) — long-form feature page elements.
+ * These extend the compendium's parchment/gold system with a few patterns the
+ * exhibit pages didn't need: Arabic display quotes, small fact grids, and the
+ * two-column "parallel" layout used for the Dante comparison.
+ * ------------------------------------------------------------------------- */
+
+/* Gold uppercase section label (the "kicker" above a heading). */
+.kicker {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+
+/* Arabic display line — right-to-left, larger, gold-tinted. */
+.arabic {
+  font-family: 'Cormorant Garamond', 'Amiri', serif;
+  font-size: clamp(1.5rem, 3.2vw, 2.1rem);
+  line-height: 2;
+  color: var(--ink);
+  text-align: right;
+  direction: rtl;
+  margin: 1.2rem 0 0.6rem;
+}
+.translation {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--ink-soft);
+  margin-bottom: 0.4rem;
+}
+
+/* A two-column figure layout: image beside prose, stacking on small screens. */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  margin: 2.5rem 0;
+}
+.split.reverse > .split-media { order: 2; }
+@media (max-width: 700px) {
+  .split { grid-template-columns: 1fr; }
+  .split.reverse > .split-media { order: 0; }
+}
+
+/* Small grid of labelled facts (year, distance, etc.). */
+.fact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin: 1.8rem 0;
+}
+.fact {
+  border: 1px solid var(--gold-soft);
+  background: rgba(184, 134, 11, 0.04);
+  padding: 1rem 1.2rem;
+}
+.fact .fact-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.35rem;
+}
+.fact .fact-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  color: var(--ink);
+  line-height: 1.4;
+}
+
+/* Numbered list of ornate cards (the seven heavens, the chest-opening steps). */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+.card {
+  position: relative;
+  border: 1px solid var(--gold-soft);
+  background: var(--parchment-dark);
+  padding: 1.5rem 1.6rem;
+  overflow: hidden;
+}
+.card .card-num {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+.card h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+.card .arabic { font-size: 1.4rem; margin: 0.3rem 0; }
+.card p {
+  font-size: 0.98rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+/* Two-tradition parallel block (Isra wal-Miraj vs. Dante's Commedia). */
+.parallel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+@media (max-width: 700px) {
+  .parallel { grid-template-columns: 1fr; }
+}
+.parallel .col {
+  border: 1px solid var(--gold-soft);
+  padding: 1.6rem;
+  background: rgba(184, 134, 11, 0.03);
+}
+.parallel .col h4 {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+}
+.parallel .col p { font-size: 1rem; line-height: 1.65; color: var(--ink-soft); }
+.parallel .col .who {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* A lighter section heading used to break the long page into chapters. */
+.chapter-head {
+  text-align: center;
+  margin: 3.5rem 0 2rem;
+}
+.chapter-head h2 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: var(--ink);
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+.chapter-head .native-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  color: var(--ink-soft);
+  direction: rtl;
+  margin-top: 0.3rem;
+}
+.chapter-head p {
+  max-width: 640px;
+  margin: 1rem auto 0;
+  color: var(--ink-soft);
+}
