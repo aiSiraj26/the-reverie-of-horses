@@ -1230,3 +1230,116 @@
   margin: 1rem auto 0;
   color: var(--ink-soft);
 }
+
+/* ---------------------------------------------------------------------------
+ * Night of Descent (Laylat al-Qadr) — extra building blocks for the expanded
+ * page: a dusk-to-dawn timeline, small source-citation pills, and a saint
+ * block for the longer Sufi quotations.
+ * ------------------------------------------------------------------------- */
+
+/* Small uppercase citation pills, used under the four-fold descent cards. */
+.source-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.9rem;
+}
+.source-tag {
+  font-family: 'Cinzel', serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--gold-soft);
+  border-radius: 999px;
+  padding: 0.25rem 0.7rem;
+  white-space: nowrap;
+}
+
+/* Dusk-to-dawn vertical timeline. */
+.timeline {
+  position: relative;
+  margin: 2.5rem 0;
+  padding-left: 2rem;
+  border-left: 1px solid var(--gold-soft);
+}
+.timeline-item { position: relative; margin-bottom: 2rem; }
+.timeline-item:last-child { margin-bottom: 0; }
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: calc(-2rem - 5px);
+  top: 0.55rem;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 3px var(--parchment);
+}
+.timeline-item .t-time {
+  font-family: 'Cinzel', serif;
+  font-size: 0.95rem;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+}
+.timeline-item .t-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  color: var(--ink);
+  font-weight: 600;
+  margin: 0.1rem 0 0.4rem;
+}
+.timeline-item p { color: var(--ink-soft); margin: 0; }
+
+/* A saint block: name, dates, intro, then a column of quotations. */
+.saint { margin: 2.5rem 0; }
+.saint .saint-tradition {
+  font-family: 'Cinzel', serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+.saint h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.9rem;
+  color: var(--ink);
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+.saint .saint-dates {
+  font-family: 'Cinzel', serif;
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.9rem;
+}
+.saint .saint-intro { color: var(--ink-soft); margin-bottom: 1.4rem; }
+.saint .saint-quotes {
+  border-left: 1px solid var(--gold-soft);
+  padding-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+.saint blockquote {
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--ink);
+  white-space: pre-line;
+}
+.saint .q-source {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-style: normal;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 0.5rem;
+}
