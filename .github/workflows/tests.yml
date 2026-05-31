@@ -78,8 +78,10 @@ jobs:
       - name: Stage static site
         run: |
           mkdir -p _site
-          cp index.html _site/
+          cp index.html night-of-ascent.html night-of-descent.html _site/
+          cp styles.css _site/
           cp -R fonts _site/
+          cp -R assets _site/
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9  # v5.0.0
