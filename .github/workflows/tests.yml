@@ -29,7 +29,7 @@ jobs:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
 
       - name: Set up Node.js
-        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e  # v4 (no Dependabot bump available)
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e  # v6.4.0
         with:
           node-version: 20
           cache: npm
@@ -77,11 +77,54 @@ jobs:
 
       - name: Stage static site
         run: |
-          mkdir -p _site
-          cp index.html night-of-ascent.html night-of-descent.html reverie-of-grandmothers.html _site/
-          cp styles.css _site/
-          cp -R fonts _site/
-          cp -R assets _site/
+          # Stage by convention, not by enumerating files: copy the whole repo
+          # to a scratch dir OUTSIDE the tree, strip what must not ship, then
+          # move it into _site. Adding a new page/asset needs no edit here —
+          # which prevents the silent-404 class of bug where the manifest and
+          # the file tree drift apart. Uses only cp/rm (no rsync dependency)
+          # so the step is portable and locally reproducible.
+          set -euo pipefail
+          tmp="$(mktemp -d)"
+          cp -R . "$tmp/site"
+          rm -rf "$tmp/site/.git" "$tmp/site/.github" "$tmp/site/node_modules" \
+                 "$tmp/site/tests" "$tmp/site/_site" \
+                 "$tmp/site/playwright-report" "$tmp/site/test-results"
+          rm -f "$tmp/site/package.json" "$tmp/site/package-lock.json" \
+                "$tmp/site/playwright.config.ts" "$tmp"/site/*.md
+          rm -rf _site
+          mv "$tmp/site" _site
+          rm -rf "$tmp"
+
+      - name: Verify staged site
+        run: |
+          # Post-condition guard: fail loudly if staging produced something
+          # broken, instead of deploying a site that 404s. Assert the entry
+          # point and shared stylesheet exist, then check every local asset
+          # referenced by each HTML page is actually present in _site.
+          #
+          # Note: a `while read` after a pipe runs in a SUBSHELL, so an `exit`
+          # or variable set inside it does NOT affect this script. We avoid
+          # that trap entirely with a process-substitution feed and a flag.
+          set -euo pipefail
+          test -f _site/index.html || { echo "::error::_site/index.html missing"; exit 1; }
+          test -f _site/styles.css || { echo "::error::_site/styles.css missing"; exit 1; }
+          test -d _site/fonts      || { echo "::error::_site/fonts missing"; exit 1; }
+          missing=0
+          for html in _site/*.html; do
+            while read -r ref; do
+              [ -n "$ref" ] || continue
+              if [ ! -f "_site/$ref" ]; then
+                echo "::error file=$html::referenced asset missing from _site: $ref"
+                missing=1
+              fi
+            done < <(grep -oE '(src|href)="[^"#:]+\.(css|js|jpg|jpeg|png|svg|webp|woff2?)"' "$html" \
+                       | sed -E 's/.*="([^"]+)"/\1/' | sort -u)
+          done
+          if [ "$missing" -ne 0 ]; then
+            echo "::error::staging is incomplete — see missing assets above"
+            exit 1
+          fi
+          echo "Staged $(find _site -type f | wc -l) files; all referenced local assets present."
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9  # v5.0.0
