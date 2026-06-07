@@ -4,15 +4,16 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <!--
-  Defence-in-depth security policy. Locked down: no JavaScript, no inline
-  styles. script-src 'none'; style-src 'self' (styles.css); img-src 'self'
-  + data: only (images, once added, are self-hosted under assets/; the data:
-  URI is the inline SVG texture in the CSS). No third-party origins.
+  Defence-in-depth security policy. No JavaScript, no inline styles.
+  script-src 'none'; style-src 'self' (styles.css). img-src allows 'self'
+  + data: (the inline SVG texture in the CSS) + the Wikimedia hosts the
+  exhibit plates are hotlinked from (same allowance index.html uses). No
+  third-party script/connect origins.
 
   Note: frame-ancestors / Permissions-Policy need HTTP headers, which GitHub
   Pages can't set. On a host that allows headers, add frame-ancestors 'none'.
 -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'self'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self'; font-src 'self'; img-src 'self' data: https://commons.wikimedia.org https://upload.wikimedia.org; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'self'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="description" content="The Reverie of Grandmothers — a second compendium of historical carriers: grandmothers whose documented transformation of villages, towns, and cities mirrors the celestial steeds of The Reverie of Horses.">
 <title>The Reverie of Grandmothers — A Second Compendium</title>
@@ -106,8 +107,8 @@
     </header>
 
     <div class="exhibit-image">
-      <div class="placeholder">❦ Plate I ❦ — image to be added. Suggested: the official Nobel ceremony photographs (Creative Commons via the Norwegian Nobel Institute) and the Kenyan portraits by Martin Rowe. Source: <a href="https://commons.wikimedia.org/wiki/Category:Wangari_Maathai" target="_blank" rel="noopener">Wikimedia — Category:Wangari Maathai</a> · CC BY-SA / public-domain government photographs.</div>
-      <div class="caption"><em>Wangari Maathai at the Nobel Peace Prize Ceremony, December 2004</em> — receiving the Nobel Peace Prize at the Oslo City Hall, the first African woman so honored.</div>
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Wangari_Maathai_in_2001.jpg?width=900" alt="Wangari Maathai, Kenyan environmentalist and Nobel Peace Prize laureate, photographed in colour" loading="lazy">
+      <div class="caption"><em>Wangari Maathai</em>, founder of the Green Belt Movement and the first African woman to receive the Nobel Peace Prize. <a href="https://commons.wikimedia.org/wiki/Category:Wangari_Maathai" target="_blank" rel="noopener">Wikimedia Commons</a> · CC BY.</div>
     </div>
 
     <div class="exhibit-body">
@@ -161,8 +162,8 @@
     </header>
 
     <div class="exhibit-image">
-      <div class="placeholder">❦ Plate II ❦ — image to be added. Suggested: photographs from the Argentine national archives and the Madres archive (CC-licensed), and the documentary work of Marcelo Brodsky. Source: <a href="https://commons.wikimedia.org/wiki/Category:Madres_de_Plaza_de_Mayo" target="_blank" rel="noopener">Wikimedia — Category:Madres de Plaza de Mayo</a> · CC BY-SA / Argentine government archive materials.</div>
-      <div class="caption"><em>Las Abuelas in the Plaza de Mayo (Thursday demonstration)</em> — the Mothers and Grandmothers in their characteristic white headscarves, embroidered with the names of disappeared children and grandchildren, walking the silent circle around the Pirámide de Mayo in Buenos Aires.</div>
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Estela_de_Carlotto_-_Festejos_Bicentenario.jpg?width=900" alt="Estela de Carlotto, president of the Abuelas de Plaza de Mayo, photographed in colour" loading="lazy">
+      <div class="caption"><em>Estela de Carlotto</em>, president of the Abuelas de Plaza de Mayo, who recovered her own stolen grandson after thirty-six years. <a href="https://commons.wikimedia.org/wiki/Category:Estela_Barnes_de_Carlotto" target="_blank" rel="noopener">Wikimedia Commons</a> · CC BY-SA (Argentine government / press archives).</div>
     </div>
 
     <div class="exhibit-body">
@@ -218,8 +219,8 @@
     </header>
 
     <div class="exhibit-image">
-      <div class="placeholder">❦ Plate III ❦ — image to be added. Suggested: the press photographs of the early Chipko actions and the documentary archive of Sunderlal Bahuguna and Vandana Shiva. Source: <a href="https://commons.wikimedia.org/wiki/Category:Chipko_movement" target="_blank" rel="noopener">Wikimedia — Category:Chipko movement</a> · public-domain Indian press photography of the 1970s and Creative Commons documentation.</div>
-      <div class="caption"><em>The Women of Reni in the Forest, 1974</em> — documentary photographs of the Chipko movement and the women of Reni village, gathered in the forest in the act of embracing the trees.</div>
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Chipko_movement.jpg?width=900" alt="Women of the Chipko movement embracing trees in the Garhwal Himalayas, period documentary photograph" loading="lazy">
+      <div class="caption"><em>The Chipko movement</em> — village women of the Garhwal Himalayas embracing the trees to prevent their felling. No verified colour portrait of Gaura Devi survives in the public domain; this period documentary image stands for the action she led at Reni. <a href="https://commons.wikimedia.org/wiki/Category:Chipko_movement" target="_blank" rel="noopener">Wikimedia Commons</a>.</div>
     </div>
 
     <div class="exhibit-body">
