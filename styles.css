@@ -501,6 +501,30 @@
     font-size: 0.9rem;
     font-style: italic;
   }
+  .toc-aside {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--gold-soft);
+  }
+  .toc-aside a {
+    color: var(--ink);
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .toc-aside a:hover { color: var(--gold); }
+  .toc-aside a .culture {
+    font-family: 'Cormorant Garamond', serif;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--muted);
+    font-size: 1.05rem;
+    font-style: italic;
+  }
 
   @media (max-width: 600px) {
     .toc ol { columns: 1; }
@@ -1010,6 +1034,7 @@
      (Layers One and Two) and previews the six aspects of carrying (Layer Three). */
   .interlude {
     margin: 4rem 0 2rem;
+    scroll-margin-top: 2rem;
   }
   .interlude-header {
     text-align: center;
