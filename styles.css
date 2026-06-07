@@ -1005,6 +1005,111 @@
     line-height: 1.6;
   }
 
+  /* ========== INTERLUDE: A READING OF THE REVERIE ========== */
+  /* Bridges Part the First and Part the Second — synthesises the ten horses
+     (Layers One and Two) and previews the six aspects of carrying (Layer Three). */
+  .interlude {
+    margin: 4rem 0 2rem;
+  }
+  .interlude-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+  .interlude-header .eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.4em;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+    text-transform: uppercase;
+  }
+  .interlude-header h2 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    color: var(--ink);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+  }
+  .interlude-body p {
+    margin-bottom: 1.3rem;
+    text-align: justify;
+    hyphens: auto;
+  }
+  .interlude-pronouncement {
+    margin: 2.5rem auto;
+    max-width: 620px;
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.35rem;
+    color: var(--ink);
+    line-height: 1.5;
+    padding: 1.8rem 1rem;
+    border-top: 1px solid var(--gold-soft);
+    border-bottom: 1px solid var(--gold-soft);
+  }
+  .interlude-subhead {
+    font-family: 'Cinzel', serif;
+    text-align: center;
+    font-size: 1.1rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin: 3.5rem 0 2.5rem;
+  }
+  .layer {
+    margin: 2.5rem 0;
+  }
+  .layer-numeral {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    letter-spacing: 0.4em;
+    font-size: 0.75rem;
+    margin-bottom: 0.6rem;
+    text-transform: uppercase;
+  }
+  .layer-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.2rem, 2.6vw, 1.5rem);
+    color: var(--ink);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+  }
+  .layer p {
+    text-align: justify;
+    hyphens: auto;
+  }
+  .layer-list {
+    list-style: none;
+    margin: 1rem 0 0;
+    padding: 0;
+  }
+  .layer-list li {
+    position: relative;
+    padding-left: 1.6rem;
+    margin-bottom: 0.9rem;
+    line-height: 1.5;
+  }
+  .layer-list li::before {
+    content: "❧";
+    position: absolute;
+    left: 0;
+    top: 0.05em;
+    color: var(--gold);
+    font-size: 0.95em;
+  }
+  .layer-list strong {
+    font-family: 'Cinzel', serif;
+    font-size: 0.92em;
+    letter-spacing: 0.03em;
+    color: var(--ink);
+    font-weight: 600;
+  }
+
   /* ========== RESPONSIVE ========== */
   @media (max-width: 600px) {
     body { font-size: 17px; }
@@ -1013,6 +1118,7 @@
     .exhibit .meta { gap: 1rem; }
     .exhibit .meta span { border-left: none; padding-left: 0; }
     .aspect-stanza { font-size: 1.2rem; padding: 1.5rem 0.5rem; }
+    .interlude-pronouncement { font-size: 1.2rem; padding: 1.5rem 0.5rem; }
   }
 
 /* ---------------------------------------------------------------------------
