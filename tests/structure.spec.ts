@@ -22,7 +22,7 @@ test('has exactly one <h1>', async ({ page }) => {
   await expect(page.locator('h1')).toHaveText('The Reverie of Horses');
 });
 
-test('index lists all ten horses, linking to in-page anchors', async ({ page }) => {
+test('index lists all twelve horses, linking to in-page anchors', async ({ page }) => {
   for (const horse of HORSES) {
     const link = page.locator(`a[href="#${horse.id}"]`).first();
     await expect(link, `index should link to #${horse.id}`).toBeVisible();
@@ -60,17 +60,31 @@ test('Part the Second has six aspects', async ({ page }) => {
 });
 
 test.describe('comparative table', () => {
-  test('has ten horse rows', async ({ page }) => {
-    await expect(page.locator('table tbody tr')).toHaveCount(10);
+  test('has twelve horse rows', async ({ page }) => {
+    await expect(page.locator('.comparison table tbody tr')).toHaveCount(12);
   });
 
   test('each row names the horse and its civilisation', async ({ page }) => {
-    const rows = page.locator('table tbody tr');
+    const rows = page.locator('.comparison table tbody tr');
     for (let i = 0; i < HORSES.length; i++) {
       const row = rows.nth(i);
       const text = await row.innerText();
       expect(text, `row ${i + 1} should mention ${HORSES[i].name}`).toContain(HORSES[i].name);
       expect(text, `row ${i + 1} should mention ${HORSES[i].civilisation}`).toContain(HORSES[i].civilisation);
+    }
+  });
+});
+
+test.describe('twelve transformations table', () => {
+  test('has twelve horse rows', async ({ page }) => {
+    await expect(page.locator('.transformations table tbody tr')).toHaveCount(12);
+  });
+
+  test('each row names the horse', async ({ page }) => {
+    const rows = page.locator('.transformations table tbody tr');
+    for (let i = 0; i < HORSES.length; i++) {
+      const text = await rows.nth(i).innerText();
+      expect(text, `row ${i + 1} should mention ${HORSES[i].name}`).toContain(HORSES[i].name);
     }
   });
 });

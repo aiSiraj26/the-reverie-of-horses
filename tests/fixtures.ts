@@ -15,6 +15,8 @@ export const HORSES = [
   { id: 'tulpar',          name: 'Tulpar',          civilisation: 'Turkic' },
   { id: 'rakhsh',          name: 'Rakhsh',          civilisation: 'Persian' },
   { id: 'enbarr',          name: 'Enbarr',          civilisation: 'Celtic' },
+  { id: 'caspian-mare',    name: 'The Caspian Mare', civilisation: 'Persian' },
+  { id: 'kiso-steed',      name: 'The Kiso Steed',   civilisation: 'Japanese' },
 ] as const;
 
 export type Horse = (typeof HORSES)[number];
