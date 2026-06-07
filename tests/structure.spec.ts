@@ -22,7 +22,7 @@ test('has exactly one <h1>', async ({ page }) => {
   await expect(page.locator('h1')).toHaveText('The Reverie of Horses');
 });
 
-test('index lists all ten horses, linking to in-page anchors', async ({ page }) => {
+test('index lists all twelve horses, linking to in-page anchors', async ({ page }) => {
   for (const horse of HORSES) {
     const link = page.locator(`a[href="#${horse.id}"]`).first();
     await expect(link, `index should link to #${horse.id}`).toBeVisible();
@@ -60,8 +60,8 @@ test('Part the Second has six aspects', async ({ page }) => {
 });
 
 test.describe('comparative table', () => {
-  test('has ten horse rows', async ({ page }) => {
-    await expect(page.locator('.comparison table tbody tr')).toHaveCount(10);
+  test('has twelve horse rows', async ({ page }) => {
+    await expect(page.locator('.comparison table tbody tr')).toHaveCount(12);
   });
 
   test('each row names the horse and its civilisation', async ({ page }) => {
@@ -75,9 +75,9 @@ test.describe('comparative table', () => {
   });
 });
 
-test.describe('ten transformations table', () => {
-  test('has ten horse rows', async ({ page }) => {
-    await expect(page.locator('.transformations table tbody tr')).toHaveCount(10);
+test.describe('twelve transformations table', () => {
+  test('has twelve horse rows', async ({ page }) => {
+    await expect(page.locator('.transformations table tbody tr')).toHaveCount(12);
   });
 
   test('each row names the horse', async ({ page }) => {
