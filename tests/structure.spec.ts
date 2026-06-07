@@ -61,16 +61,30 @@ test('Part the Second has six aspects', async ({ page }) => {
 
 test.describe('comparative table', () => {
   test('has ten horse rows', async ({ page }) => {
-    await expect(page.locator('table tbody tr')).toHaveCount(10);
+    await expect(page.locator('.comparison table tbody tr')).toHaveCount(10);
   });
 
   test('each row names the horse and its civilisation', async ({ page }) => {
-    const rows = page.locator('table tbody tr');
+    const rows = page.locator('.comparison table tbody tr');
     for (let i = 0; i < HORSES.length; i++) {
       const row = rows.nth(i);
       const text = await row.innerText();
       expect(text, `row ${i + 1} should mention ${HORSES[i].name}`).toContain(HORSES[i].name);
       expect(text, `row ${i + 1} should mention ${HORSES[i].civilisation}`).toContain(HORSES[i].civilisation);
+    }
+  });
+});
+
+test.describe('ten transformations table', () => {
+  test('has ten horse rows', async ({ page }) => {
+    await expect(page.locator('.transformations table tbody tr')).toHaveCount(10);
+  });
+
+  test('each row names the horse', async ({ page }) => {
+    const rows = page.locator('.transformations table tbody tr');
+    for (let i = 0; i < HORSES.length; i++) {
+      const text = await rows.nth(i).innerText();
+      expect(text, `row ${i + 1} should mention ${HORSES[i].name}`).toContain(HORSES[i].name);
     }
   });
 });
