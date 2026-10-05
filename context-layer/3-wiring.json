@@ -9,43 +9,43 @@
       "wiring_id": "wir_001",
       "leader_id": "ldr_001",
       "core_values": [
-        "reliability",
-        "loyalty",
-        "candor"
+        "craft",
+        "speed",
+        "loyalty"
       ],
-      "decision_style": "decisive_when_cornered",
+      "decision_style": "intuitive",
       "risk_posture": "action",
       "drivers": [
         "mastery",
-        "security"
+        "impact"
       ],
       "avoidances": [
-        "Whether her own role should change shape as the company grows."
+        "Hiring a number two for himself."
       ],
       "triggers": [
-        "Being called the bottleneck in front of her reports."
+        "Being asked 'who else knows how this works?'"
       ],
       "feedback_receptivity": {
         "score": 4,
         "form": "framed_as_own_insight",
-        "note": "Blunt criticism shuts her down."
+        "note": "Takes broad invitations well. Prescriptions feel like being managed."
       },
       "motivators": [
         "visible_win",
-        "peer_respect"
+        "hard_challenge"
       ],
       "energy_profile": {
-        "best_thinking": "Early morning, alone.",
-        "drains_fastest": "Back-to-back status meetings."
+        "best_thinking": "Early morning, before email.",
+        "drains_fastest": "Being pulled into small fixes."
       },
       "identity_claims": [
-        "I'm the one who makes it work."
+        "I'm the one who builds it."
       ],
-      "shadow": "Reliability becomes hoarding; the team stops trying.",
+      "shadow": "Speed becomes doing it himself; the team learns to wait.",
       "source": {
         "type": "agent_inference",
-        "date": "2026-10-05",
-        "note": "Agent's read from Maya's own words; revisit by 2026-12."
+        "date": "2026-09-21",
+        "note": "Agent's read from Tariq's own words; revisit by 2026-12."
       },
       "is_hypothesis": true
     },
@@ -53,43 +53,44 @@
       "wiring_id": "wir_002",
       "leader_id": "ldr_002",
       "core_values": [
-        "loyalty",
-        "fairness",
-        "speed"
+        "competence",
+        "composure",
+        "loyalty"
       ],
-      "decision_style": "consensus_seeking",
+      "decision_style": "analytical",
       "risk_posture": "patience",
       "drivers": [
         "security",
-        "freedom"
+        "status"
       ],
       "avoidances": [
-        "Any conversation that could be read as a challenge to Sam."
+        "Any conversation with the board chair that could be read as conflict."
       ],
       "triggers": [
-        "Comparisons to how his previous employer handled conflict."
+        "Being compared to her predecessor.",
+        "Surprise questions in board meetings."
       ],
       "feedback_receptivity": {
-        "score": 4,
+        "score": 3,
         "form": "direct_blunt",
-        "note": "Soft framing lets him hear what he wants to hear."
+        "note": "Soft framing lets her hear what she wants. Direct, specific feedback lands, but slowly."
       },
       "motivators": [
-        "being_believed_in",
+        "peer_respect",
         "hard_challenge"
       ],
       "energy_profile": {
-        "best_thinking": "On a walk, mid-afternoon.",
-        "drains_fastest": "Investor update prep."
+        "best_thinking": "Mid-morning, with a written draft.",
+        "drains_fastest": "Open-ended board prep."
       },
       "identity_claims": [
-        "I'm the glue."
+        "I'm the one who has it under control."
       ],
-      "shadow": "Loyalty becomes avoidance; harmony is kept at the cost of the truth.",
+      "shadow": "Composure becomes concealment; control is protected at the cost of the truth.",
       "source": {
         "type": "agent_inference",
-        "date": "2026-06-02",
-        "note": "Agent's read from Dan's own words; flagged for review after the stall on thr_003."
+        "date": "2026-05-12",
+        "note": "Agent's read from Elena's own words; flagged for review after the stall on thr_002."
       },
       "is_hypothesis": true
     },
@@ -98,53 +99,44 @@
       "leader_id": "ldr_003",
       "core_values": [
         "craft",
-        "candor",
-        "loyalty"
+        "loyalty",
+        "candor"
       ],
-      "decision_style": "analytical",
+      "decision_style": "intuitive",
       "risk_posture": "patience",
       "drivers": [
         "mastery",
-        "impact"
+        "security"
       ],
       "avoidances": [
-        "Showing uncertainty in front of senior people."
+        "Any conversation that ends the firm as he knows it."
       ],
       "triggers": [
-        "Being corrected publicly on a number."
+        "Hearing the firm is 'ready' without him."
       ],
       "feedback_receptivity": {
-        "score": 5,
-        "form": "direct_blunt",
-        "note": "Wants data and specifics; praise without detail reads as noise."
+        "score": 4,
+        "form": "framed_as_own_insight",
+        "note": "Reflective; works best with questions and silence."
       },
       "motivators": [
-        "hard_challenge",
-        "visible_win"
+        "being_believed_in",
+        "peer_respect"
       ],
       "energy_profile": {
-        "best_thinking": "Late evening, with a written draft.",
-        "drains_fastest": "Unstructured open-ended meetings."
+        "best_thinking": "Walking, alone.",
+        "drains_fastest": "Partner meetings about money."
       },
       "identity_claims": [
-        "I'm the one who gets it right."
+        "The firm is my eye."
       ],
-      "shadow": "Craft becomes perfectionism; she doesn't ship until she's certain, and her team learns to wait for her.",
+      "shadow": "Craft becomes possession; the firm cannot move without his eye.",
       "source": {
         "type": "agent_inference",
-        "date": "2026-09-14",
-        "note": "Agent's read from Priya's own words."
+        "date": "2026-09-02",
+        "note": "Agent's read from Kofi's own words; revisit by 2026-12."
       },
-      "is_hypothesis": true,
-      "revisions": [
-        {
-          "date": "2026-08-20",
-          "field": "feedback_receptivity.form",
-          "was": "framed_as_own_insight",
-          "now": "direct_blunt",
-          "why": "She asked for the sharper version of the feedback after the board meeting. The earlier read was wrong."
-        }
-      ]
+      "is_hypothesis": true
     }
   ]
 }

@@ -1,99 +1,108 @@
 # Buraq Agent — Context Layer (worked example)
 
-Five JSON files, one per layer, implementing `context-layer-spec.md`. Everything in here is **synthetic**: three invented leaders, no client data. Each file says so in its `_meta` block. Real leader records must never be committed to this repo, because the site's deploy step publishes everything except `*.md`.
+Five JSON files, one per layer, implementing `context-layer-spec.md`, plus a vocabulary file and a validator. Everything here is **synthetic**: three invented leaders, no client data. Each file says so in its `_meta` block. Real leader records must never be committed to this repo, because the site's deploy step publishes everything except top-level `*.md` files.
 
-| File | Layer | Records | Shape |
-|---|---|---|---|
-| `1-identity.json` | Identity | 3 | one per leader |
-| `2-threshold.json` | The Threshold | 5 | one per crossing |
-| `3-wiring.json` | Values and Wiring | 3 | one per leader |
-| `4-practice.json` | The Practice | 5 | one per commitment |
-| `5-relationship.json` | The Relationship | 11 | append-only log |
-| `vocab.json` | Allowed `dimension` and `archetype` values | 6 + 12 | taken from the site |
-| `validate.mjs` | Checks the rules in the spec | | `node context-layer/validate.mjs` |
+| File | Layer | Records |
+|---|---|---|
+| `1-identity.json` | Identity | 3 (one per leader) |
+| `2-threshold.json` | The Threshold | 4 (one per crossing) |
+| `3-wiring.json` | Values and Wiring | 3 (one per leader) |
+| `4-practice.json` | The Practice | 3 (one per commitment) |
+| `5-relationship.json` | The Relationship | 10 (append-only log) |
+| `vocab.json` | Dimensions, steeds (agent stances), tension pairs | 6 + 12 + 4 |
+| `validate.mjs` | Checks the spec's rules. Run `node context-layer/validate.mjs` | |
 
-## The three example leaders
+## What changed in Layer 2
 
-| Leader | What it shows |
-|---|---|
-| **Maya Okafor**, COO (`ldr_001`) | **In progress.** Primary threshold `on_the_crossing`, an active practice, a paused practice after a slip, and a secondary threshold the agent inferred but Maya has not confirmed. |
-| **Dan Reyes**, founder-CEO (`ldr_002`) | **Stalled.** Primary threshold `stalled` and past its target date, practice paused with a broken streak (longest 3, current 0), a run of slips, and a `reframe` entry trying a smaller ask. His Layer 1 record is 146 days old, so the validator warns that it is due for refresh. |
-| **Priya Raman**, VP Product (`ldr_003`) | **Crossed, then a new one.** `thr_004` is `crossed` and kept as history, with its practice `retired`. A new primary `thr_005` is `not_started`. Her wiring record shows a revision after the agent's read turned out wrong. |
+Layer 2 now lets a leader hold more than one dimension and more than one stance at once, and records the tensions between them.
+
+```
+"dimension": { "primary": ["mirror_work", "truth_seeking"], "secondary": ["humble_ignorance"] }
+"archetype": { "primary": ["pegasus"],                      "secondary": [] }
+"stance_notes": "How the agent behaves. Internal only: never name the stance to the leader."
+"tensions": [ { tension_id, between: [side, side], description, pull_a, pull_b, state, intensity 1-5, first_observed, source } ]
+```
+
+- `primary` and `secondary` are always arrays. `primary` has 1 or 2 entries and `secondary` up to 3. The cap exists because the spec's own warning applies here too: an agent that holds everything chases everything.
+- `archetype` is the agent's **internal stance**. It shapes voice and behavior and is never shown to the leader. The validator requires `stance_notes` to say so.
+- A **tension** names two sides, each a dimension or an archetype that this threshold actually holds. `state` is `active`, `easing`, `dormant` or `resolved`. Tensions are never deleted, so the trajectory is kept.
+
+## The three leaders
+
+| Leader | Your brief | In the data |
+|---|---|---|
+| **Tariq Haddad** `ldr_001` | Active crossing: founder, bottleneck to architect. Dimension: Befriending the Unknown Future. Stance: Buraq. | `thr_001` is `on_the_crossing`, confidence 4, no tensions, one practice with a 3-week streak. |
+| **Elena Voss** `ldr_002` | Stalled: hired CEO frozen by fear of board conflict. Dimensions: Mirror Work and Truth-Seeking. Stance: Pegasus. | `thr_002` is `stalled` and past its target date. One active tension (truth-seeking vs mirror work), intensity 4. Practice paused, streak broken (current 0, longest 2). Her identity record is 168 days old, so the validator warns it is due for refresh. |
+| **Kofi Mensah** `ldr_003` | Dual state: letting go of old identity vs stepping into the dark. Dimensions: Looking into the Dark and Befriending the Future. Stances: Rakhsh with Kanthaka. | `thr_003` holds two primary dimensions and two primary stances, with **two active tensions**: Rakhsh vs Kanthaka (intensity 5) and Soul Direction vs Unknown Future (intensity 3). A second, inferred threshold `thr_004` sits behind it. |
+
+Two additions beyond your brief, both so the data matches the site (explained below): Elena gets `humble_ignorance` and Kofi gets `mirror_work` as **secondary** dimensions.
 
 ## How a session reads and writes
 
-Every record links back by id: `leader_id` is the key, thresholds point to leaders, practices point to thresholds, and log entries point to a leader and (optionally) a threshold.
+Every record links by id: `leader_id` is the key, thresholds point to leaders, practices point to thresholds, and log entries point to a leader and (optionally) a threshold.
 
-**Start of session (read, in this order)**
-1. Layer 1 for the leader. If `refresh_date` is old, spend the first two minutes confirming it with them.
-2. Layer 2: the one record with `is_primary: true`. Read `status`, `confidence` and `resistance`. Read crossed thresholds only as proof to quote back.
-3. Layer 3: the leader's wiring. Treat it as a hypothesis. Check the `source.date`, and use `feedback_receptivity.form` to choose *how* to say things.
-4. Layer 4: active practices on the primary threshold. Note streaks and `agent_role` (prompt, hold silence, or escalate).
-5. Layer 5: the last few entries for this leader, plus any `commitments_kept` still `pending`.
+**Start of session: read**
+1. **Layer 1** for the leader. If `refresh_date` is old, spend the first few minutes confirming it with them.
+2. **Layer 2**: the record with `is_primary: true`. Read `status`, `confidence` and `resistance`, then the dimensions, the stance and `stance_notes`. Then read the `tensions`: an `active` one tells you the leader will pull two ways in the same session. Read `crossed` thresholds only as proof to quote back.
+3. **Layer 3**: the leader's wiring. Treat it as a hypothesis and check its date. Use `feedback_receptivity.form` to choose *how* to say things.
+4. **Layer 4**: practices on the primary threshold. Note streaks and `agent_role`.
+5. **Layer 5**: the last few entries for this leader, plus any `commitments_kept` still `pending`.
 
-**During the session**: Speak in the leader's `language`. Use the threshold's `archetype` for voice only, never as a label for the person.
+**During the session**: speak in the leader's `language`. Use the stance for voice and behavior only, and never label the person with it.
 
-**End of session (write)**
+**End of session: write**
 - **Layer 5**: append one entry. Never edit an old one. Put what the leader said in `source.said` and what you concluded in `source.inferred`. Every agent note carries a date.
-- **Layer 4**: update `last_completed` and `streak` for any practice that was done or missed. Agree new practices and add them with a source.
-- **Layer 2**: change `status` only on evidence (e.g. `crossed` needs `dates.crossed`). If the leader restates the crossing in their own words, replace an inferred title and change the source type to `leader_words`.
-- **Layer 3**: if the leader proves a read wrong, change the value, add a dated entry to `revisions`, and update the source date.
-- **Layer 1**: only change what the leader confirms.
+- **Layer 4**: update `last_completed` and `streak`. Add any new commitment with a source.
+- **Layer 2**: change `status` only on evidence (`crossed` needs `dates.crossed`). Update each tension's `state` and `intensity` as you observe them. If the leader restates an inferred title in their own words, replace it and change the source type to `leader_words`.
+- **Layer 3**: if the leader proves a read wrong, change it and update the source date.
+- **Layer 1**: change only what the leader confirms.
 
-Run `node context-layer/validate.mjs` after any write. It fails (exit 1) on unknown ids, values outside the allowed lists, a missing source, two primary thresholds for one leader, more than three core values, or log entries out of order.
+Run the validator after any write. It exits 1 on unknown ids, values outside the vocabulary, a missing source, two primary thresholds for one leader, a dimension listed as both primary and secondary, a tension on something the threshold does not hold, more than three core values, or log entries out of order.
 
-## Where I had to make a call on the spec
+## Mapping the site's steeds and dimensions into Layer 2
 
-The spec is clear almost everywhere. These are the places where it was silent or contradicted itself. Please confirm or overrule each one.
+Source: `index.html`, the Twelve Transformations table and the six aspects of *The Pioneer Soulmate*. In `vocab.json`, every steed carries the site's own partnership type, what-transforms and teaching, plus the aspects whose text actually cites it. The `agent_stance` and `shadow` lines are **my reading of the site's Teaching column and are marked `proposed`**. Please review them before the agent relies on them.
 
-1. **No field for "primary".** The rules say only one threshold is primary, but no field holds that. I added `is_primary` (boolean). The validator enforces exactly one per leader.
-2. **Layer 5 is append-only, yet `commitments_kept` is "filled in later".** I made it a list of `{commitment, outcome, resolved_in}` where `outcome` is `kept`, `missed` or `pending`, and `resolved_in` points at the later entry that settled it. Strictly, that makes `commitments_kept` the one field written after the fact. If you want a pure append-only log, we'd move outcomes into the later entry instead.
-3. **Link fields added.** Layer 3 and Layer 5 gain `leader_id` so they can be queried per leader. Layer 4 links through `threshold_id`, as the spec says.
-4. **Layer 3 "every entry is a hypothesis".** I added `is_hypothesis: true` (validator requires it) and an optional `revisions` list, so a corrected read leaves a trail instead of being overwritten.
-5. **Layer 1 "never inferred".** Validator rejects an inferred source on Layer 1. Layer 2 can be inferred, but then the source says so (see `thr_002`).
-6. **Spec example vs. the vocabulary.** See below.
-7. **"Do not invent client data" vs. "populate three example leaders".** I resolved this by making the leaders plainly fictional and labelling every file synthetic. If you'd rather have no named people at all, say so and I'll use role-only placeholders.
+| Steed (stance) | Site teaching | Site aspects that cite it | Proposed stance in one line |
+|---|---|---|---|
+| Buraq | Receptivity as readiness | I, V | Expand scope; leap, don't ladder |
+| Pegasus | Humility through refusal | VI | Decline to flatter; let the refusal teach |
+| Sleipnir | Capability over affection | III, V | Go where the leader avoids |
+| Uchchaiḥśravas | Principle over person | III | Hold the standard of the office |
+| Kanthaka | Sacrifice as completion | II | Honor the severance |
+| Tiānmǎ | Myth shapes reality | IV | Back the vision |
+| Chollima | Worthiness as prerequisite | VI | Test readiness honestly |
+| Tulpar | Combat as knowing | IV | Be alive in the struggle |
+| Rakhsh | Knowing and being known | II | Mutual recognition |
+| Enbarr | Finitude as mercy | I, V | Cross the threshold with them |
+| The Caspian Mare | Courage wears no gender | none | Back valour against an assumed limit |
+| The Kiso Steed | The carrier that bears her onward | none | Stay to the end |
 
-## Review: do the site's steeds and dimensions fit Layer 2?
+Four proposed **tension pairs** are in `vocab.json` (for example Unknown Future vs Soul Direction, and Rakhsh vs Kanthaka). These are my suggestions, not the site's.
 
-Layer 2 asks for a `dimension` (one of "six carrying dimensions") and an `archetype` ("the steed that fits"). I read the site's page (`index.html`): the twelve exhibits, the "Twelve Transformations" table, and the six aspects of *The Pioneer Soulmate*.
+### Where your pairings don't match the site
 
-### Which steeds each of the six aspects actually draws on
+The validator warns when a chosen stance has no link to any of the threshold's dimensions in the site's own text. Your three pairings produced two real mismatches:
 
-| Dimension (site aspect) | Steeds the site's text uses | Clean fit? |
-|---|---|---|
-| I. Befriending the Unknown Future | Buraq, Enbarr | Yes |
-| II. Mirror Work and the Recognition of Becoming | Rakhsh, Kanthaka | Yes |
-| III. Truth-Seeking and the Embrace of Difficult Dimensions | Sleipnir, Uchchaiḥśravas | Yes |
-| IV. Thriving in Chaos and Finding Beauty in Difficulty | Tulpar, Tiānmǎ | Yes |
-| V. Looking into the Dark and Sensing Soul Direction | Sleipnir, Buraq, Enbarr | Partly (overlaps) |
-| VI. Diving into the Deep and Discovering the Beginning of Ignorance | Pegasus, Chollima | Yes |
+1. **Pegasus with Mirror Work and Truth-Seeking.** The site cites Pegasus only under aspect VI (humility about ignorance). Your reading, "humility through refusal to flatter the ego", is a good one, but it is your reading. I made `humble_ignorance` a secondary dimension for Elena so the pairing is traceable to the site. Alternatively, the site could add Pegasus to Aspects II or III.
+2. **Rakhsh and Kanthaka with Soul Direction and Unknown Future.** The site cites both steeds only under aspect II (Mirror Work). Kanthaka's severance is really about *letting go of an identity*, which is not one of the six. I made `mirror_work` a secondary dimension for Kofi so the pairing is traceable.
+3. **Buraq with Unknown Future** is a clean match: the site cites Buraq under aspect I.
 
-### Where it does not fit
+### Gaps in the site's six dimensions
 
-1. **Two steeds map to no dimension.** The Caspian Mare (Gordāfarīd) and The Kiso Steed (Tomoe Gozen) are never cited in any of the six aspects. They're valid `archetype` values (they're in the twelve), but a threshold can't be steered to them through a dimension. The agent has nothing in the site's own text to say *when* they fit. Suggestion: decide which aspect each belongs to and add a line on the site, or accept that they are archetypes without a home dimension.
-2. **The spec's own example dimension doesn't exist.** Layer 2's example says `dimension: The carrying that hands over control`. None of the six aspects is about handing over control. The closest are II (Mirror Work: seeing someone's becoming) and VI (humility about who should carry). I mapped Maya's "stop being the bottleneck" to `mirror_work`, with archetype Buraq, but that's a judgment call, not a clean fit. If "handing over control" is a theme you coach often, it may deserve its own seventh dimension.
-3. **Three of the six dimensions overlap.** Sleipnir appears in both III (Truth-Seeking) and V (Soul Direction). Buraq and Enbarr appear in both I and V. So the agent can't pick a steed from a dimension alone. Decide whether `archetype` is chosen independently or constrained by the dimension. (The validator currently allows any steed with any dimension.)
-4. **The site calls them "aspects" and "dimensions".** The spec uses "dimension" and "six dimensions of carrying". The site mostly says "aspect" and uses "dimensions" only inside one aspect's title ("Difficult Dimensions"). Pick one word before it reaches users.
-5. **Steed ids are stored in two places.** `vocab.json` and `tests/fixtures.ts` both list the twelve steeds. Today they match (same ids). If the site adds a steed, both need updating. A test asserting they agree would prevent drift; I haven't added one because you asked for data and a review, not site changes.
+- **No dimension for letting go.** Your leader 1 (bottleneck to architect), your leader 3 (releasing an old identity), and the spec's own example ("The carrying that hands over control") are all about *release*. None of the six aspects covers it. They fit loosely under Mirror Work, but this keeps recurring. It may deserve a seventh dimension.
+- **The Caspian Mare and The Kiso Steed are not tied to any dimension.** They're valid stances, but the site gives the agent nothing to say when they fit.
+- **Overlap.** Sleipnir appears in III and V; Buraq and Enbarr in I and V. A dimension alone cannot pick a stance, so the stance has to be chosen independently, which is how the data is built.
+- **Vocabulary.** The site says "aspects"; the spec says "dimensions". Pick one.
+- **Two lists of steeds.** `vocab.json` and `tests/fixtures.ts` both list the twelve (same ids). If the site adds a steed, both need updating.
 
-### Archetype fit by "Partnership Type"
+## Calls I made where the spec was silent
 
-For the archetype field to be useful, a steed should suggest a *kind of crossing*. The site's table already gives that, so use it as guidance:
+Please confirm or overrule each.
 
-| Steed | Partnership type | Fits a crossing about... |
-|---|---|---|
-| Buraq | Grace | a leap in scope, being carried further than you'd go alone |
-| Pegasus | Conditional teaching | ambition checked by refusal (used for Dan's stall) |
-| Sleipnir | Instrumental | going where others won't |
-| Uchchaiḥśravas | Perpetual principle | holding the office, not the person |
-| Kanthaka | Severance | letting go as completion (used for Priya's succession) |
-| Tiānmǎ | Obsessional myth | a vision that reshapes reality |
-| Chollima | Refusal | readiness as a prerequisite |
-| Tulpar | Struggle | proving yourself in difficulty (used for Priya's board crossing) |
-| Rakhsh | Mutual recognition | being truly seen (used for Maya's CEO conversation) |
-| Enbarr | Threshold | accepting finitude |
-| The Caspian Mare | Valour | acting against an assumed limit |
-| The Kiso Steed | Devotion | loyalty carried to the end |
-
-Every row has a clear crossing, so the archetype field itself works. The weak link is the dimension-to-steed route, not the steeds.
+1. **`is_primary`** is a new boolean on Layer 2. The spec says one threshold is primary but has nowhere to store it.
+2. **Layer 5 `commitments_kept`** is "filled in later", but the log is append-only. I store `{commitment, outcome, resolved_in}`, where `resolved_in` points at the later entry that settled it. This is the one field written after the fact.
+3. **`leader_id`** added to Layers 3 and 5 so they can be looked up per leader.
+4. **Layer 3** carries `is_hypothesis: true` (validator requires it) and a dated source.
+5. **Layer 1** may not have an inferred source. The validator rejects it.
+6. **"Do not invent client data" vs "populate three leaders."** I made the leaders plainly fictional and marked every file synthetic. If you'd prefer role-only placeholders with no names, say so.

@@ -7,140 +7,141 @@
   "records": [
     {
       "leader_id": "ldr_001",
-      "name": "Maya Okafor",
-      "preferred_name": "Maya",
+      "name": "Tariq Haddad",
+      "preferred_name": "Tariq",
       "role": {
-        "title": "Chief Operating Officer",
-        "tenure_months": 24
+        "title": "Founder and CEO",
+        "tenure_months": 60
       },
       "span": {
-        "direct_reports": 6,
-        "approx_total": 140,
+        "direct_reports": 7,
+        "approx_total": 55,
         "layers_influenced": 3
       },
       "org_context": {
-        "stage": "Series C",
-        "size": 300,
-        "relationship": "hired"
+        "stage": "Series A",
+        "size": 55,
+        "relationship": "founder"
       },
-      "industry": "Logistics software",
+      "industry": "HR software",
       "business_model": "B2B subscription",
-      "mandate": "Hired to scale operations from 150 to 500 people without breaking delivery.",
-      "success_definition": "A company that runs well in the weeks I'm not in the room.",
+      "mandate": "Founder who has to turn a company that runs on him into one that runs without him.",
+      "success_definition": "A company I could leave for a month without a single call.",
       "stakeholders": [
-        "CEO (founder)",
-        "VP Engineering",
-        "Head of Customer Success"
+        "Co-founder and CTO",
+        "Head of Sales",
+        "Lead investor"
       ],
       "background": [
-        "Ran a warehouse floor at 24.",
-        "Learned that fixing a problem fast was how you earned respect."
+        "Built the first product himself, alone, over a year.",
+        "Learned early that if he did not fix it, nobody would."
       ],
       "constraints": [
-        "Board expects a hiring plan by Q1.",
-        "Two young children, so no evening travel."
+        "Series B conversations start in Q1.",
+        "Most of his seven direct reports joined in the last 18 months and are still learning the business."
       ],
       "language": [
-        "keeping the trucks moving"
+        "the machine",
+        "building the machine that builds"
       ],
       "source": {
         "type": "leader_words",
-        "date": "2026-10-05",
-        "note": "Intake conversation, confirmed by Maya."
+        "date": "2026-09-21",
+        "note": "Intake conversation, confirmed by Tariq."
       },
-      "refresh_date": "2026-10-05"
+      "refresh_date": "2026-09-21"
     },
     {
       "leader_id": "ldr_002",
-      "name": "Daniel Reyes",
-      "preferred_name": "Dan",
+      "name": "Elena Voss",
+      "preferred_name": "Elena",
       "role": {
-        "title": "Co-founder and CEO",
-        "tenure_months": 38
+        "title": "Chief Executive Officer (hired)",
+        "tenure_months": 14
       },
       "span": {
-        "direct_reports": 4,
-        "approx_total": 40,
-        "layers_influenced": 2
+        "direct_reports": 8,
+        "approx_total": 600,
+        "layers_influenced": 4
       },
       "org_context": {
-        "stage": "Seed",
-        "size": 40,
-        "relationship": "founder"
+        "stage": "Mature, private equity backed",
+        "size": 600,
+        "relationship": "hired"
       },
-      "industry": "Financial services",
-      "business_model": "Payments, transaction fees",
-      "mandate": "Founder holding the company together through its first hard year.",
-      "success_definition": "We're still building this together in five years, and proud of it.",
+      "industry": "Industrial equipment",
+      "business_model": "Manufacturing and service contracts",
+      "mandate": "Hired to modernize the company after the founder moved to chair.",
+      "success_definition": "The board trusts the plan enough to stop managing me.",
       "stakeholders": [
-        "Co-founder and CTO (Sam)",
-        "Lead investor",
-        "Head of Compliance"
+        "Board chair (the founder)",
+        "Lead PE partner",
+        "Chief Financial Officer"
       ],
       "background": [
-        "Founded the company with a college friend.",
-        "Watched his family's shop fail over a partnership dispute."
+        "Rose through operations at two large manufacturers.",
+        "Her first CEO role; previously always had a CEO above her to absorb board conflict."
       ],
       "constraints": [
-        "Eight months of runway.",
-        "Co-founder holds equal equity and a board seat."
+        "Seven-person board; the chair is her predecessor.",
+        "Covenant review in six months."
       ],
       "language": [
-        "the partnership",
-        "us"
+        "landing the plan",
+        "staying ahead of the board"
       ],
       "source": {
         "type": "leader_words",
-        "date": "2026-05-12",
-        "note": "Intake conversation, confirmed by Dan."
+        "date": "2026-04-20",
+        "note": "Intake conversation, confirmed by Elena."
       },
-      "refresh_date": "2026-05-12"
+      "refresh_date": "2026-04-20"
     },
     {
       "leader_id": "ldr_003",
-      "name": "Priya Raman",
-      "preferred_name": "Priya",
+      "name": "Kofi Mensah",
+      "preferred_name": "Kofi",
       "role": {
-        "title": "VP of Product",
-        "tenure_months": 50
+        "title": "Founder and Managing Principal",
+        "tenure_months": 264
       },
       "span": {
         "direct_reports": 5,
-        "approx_total": 35,
-        "layers_influenced": 2
+        "approx_total": 90,
+        "layers_influenced": 3
       },
       "org_context": {
-        "stage": "Public, mid-cap",
-        "size": 1800,
-        "relationship": "hired"
+        "stage": "Established, partner owned",
+        "size": 90,
+        "relationship": "founder"
       },
-      "industry": "Health technology",
-      "business_model": "Enterprise licensing",
-      "mandate": "Promoted to rebuild the product org after a reorganization.",
-      "success_definition": "A product org that is better than me and doesn't need me to prove it.",
+      "industry": "Architecture and urban design",
+      "business_model": "Professional services, fee based",
+      "mandate": "Founder who built the firm around his own eye, now asked by his partners to plan a succession.",
+      "success_definition": "The firm is excellent without me, and I know what I'm for next.",
       "stakeholders": [
-        "Chief Product Officer",
-        "General Counsel",
-        "Her senior director of design"
+        "Two senior partners",
+        "Spouse",
+        "A mentor from his early career"
       ],
       "background": [
-        "Trained as a clinician before moving into product.",
-        "First in her family to work in a corporate role."
+        "Founded the firm at 31 after being passed over at a larger practice.",
+        "His reputation and his name are on the door."
       ],
       "constraints": [
-        "Board-visible role; presentations are recorded.",
-        "Caring for a parent, so limited availability on Thursdays."
+        "Partnership agreement requires a succession plan within 18 months.",
+        "Name is on the firm; leaving it has legal and reputational weight."
       ],
       "language": [
-        "the craft",
-        "bedside manner"
+        "the practice",
+        "my eye"
       ],
       "source": {
         "type": "leader_words",
-        "date": "2026-09-14",
-        "note": "Quarterly refresh, confirmed by Priya."
+        "date": "2026-09-02",
+        "note": "Intake conversation, confirmed by Kofi."
       },
-      "refresh_date": "2026-09-14"
+      "refresh_date": "2026-09-02"
     }
   ]
 }

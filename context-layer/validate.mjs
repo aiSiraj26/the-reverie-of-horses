@@ -31,18 +31,48 @@ L1.forEach((r) => { const w = `L1 ${r.leader_id}`;
 dup(L1, 'leader_id', 'L1');
 
 const statuses = ['not_started','on_the_crossing','crossed','stalled'];
+const choice = (c, vocabKeys, where, label) => {
+  if (!c || !Array.isArray(c.primary) || !Array.isArray(c.secondary)) return err(`${where}: ${label} must be {primary: [...], secondary: [...]}`);
+  c.primary.length >= 1 || err(`${where}: ${label} needs at least one primary`);
+  c.primary.length <= 2 || err(`${where}: ${label} has more than 2 primary (the agent would chase everything)`);
+  c.secondary.length <= 3 || err(`${where}: ${label} has more than 3 secondary`);
+  [...c.primary, ...c.secondary].forEach((x) => x in vocabKeys || err(`${where}: ${label} "${x}" not in vocab`));
+  c.primary.filter((x) => c.secondary.includes(x)).forEach((x) => err(`${where}: ${label} "${x}" is both primary and secondary`));
+};
+const TENSION_STATES = ['active','easing','dormant','resolved'];
 L2.forEach((r) => { const w = `L2 ${r.threshold_id}`;
-  need(r, ['threshold_id','leader_id','is_primary','title','from_state','to_state','dimension','archetype','evidence','resistance','stakes','status','dates','confidence','source','cadence'], w);
+  need(r, ['threshold_id','leader_id','is_primary','title','from_state','to_state','dimension','archetype','stance_notes','tensions','evidence','resistance','stakes','status','dates','confidence','source','cadence'], w);
   hasSource(r, w);
   leaders.has(r.leader_id) || err(`${w}: unknown leader ${r.leader_id}`);
   oneOf(r.status, statuses, w);
-  r.dimension in vocab.dimensions || err(`${w}: dimension "${r.dimension}" not one of the six`);
-  r.archetype in vocab.archetypes || err(`${w}: archetype "${r.archetype}" not one of the twelve`);
+  choice(r.dimension, vocab.dimensions, w, 'dimension');
+  choice(r.archetype, vocab.archetypes, w, 'archetype');
+  const dimSet = new Set([...(r.dimension?.primary ?? []), ...(r.dimension?.secondary ?? [])]);
+  const arcSet = new Set([...(r.archetype?.primary ?? []), ...(r.archetype?.secondary ?? [])]);
+  (r.stance_notes && r.stance_notes.includes('Internal only')) || err(`${w}: stance_notes must say the stance is internal only`);
   (r.confidence?.score >= 1 && r.confidence.score <= 5 && r.confidence.reason) || err(`${w}: confidence needs score 1-5 and a reason`);
   if (r.status === 'crossed' && !r.dates?.crossed) err(`${w}: crossed but no dates.crossed`);
   if (r.status === 'crossed' && r.is_primary) err(`${w}: a crossed threshold cannot be primary`);
+  // Tensions: each side must be something this threshold actually holds.
+  (r.tensions ?? []).forEach((t) => { const tw = `${w} ${t.tension_id}`;
+    need(t, ['tension_id','between','description','pull_a','pull_b','state','intensity','first_observed','source'], tw);
+    hasSource(t, tw);
+    oneOf(t.state, TENSION_STATES, tw);
+    (t.intensity >= 1 && t.intensity <= 5) || err(`${tw}: intensity must be 1-5`);
+    (t.between?.length === 2) || err(`${tw}: between needs exactly two sides`);
+    (t.between ?? []).forEach((side) => {
+      const ok = side.kind === 'dimension' ? dimSet.has(side.id) : side.kind === 'archetype' ? arcSet.has(side.id) : false;
+      ok || err(`${tw}: ${side.kind} "${side.id}" is not held by this threshold`);
+    });
+  });
+  // Affinity check: warn when a chosen steed has no link to any chosen dimension on the site.
+  (r.archetype?.primary ?? []).forEach((a) => {
+    const asp = vocab.archetypes[a]?.site_aspects ?? [];
+    asp.some((d) => dimSet.has(d)) || warn(`${w}: stance "${a}" has no site link to this threshold's dimensions (site pairs it with: ${asp.join(', ') || 'none'})`);
+  });
 });
 dup(L2, 'threshold_id', 'L2');
+const tIds = L2.flatMap((r) => (r.tensions ?? []).map((t) => t.tension_id)); new Set(tIds).size === tIds.length || err('L2: duplicate tension_id');
 leaders.forEach((id) => { const n = L2.filter((t) => t.leader_id === id && t.is_primary).length;
   n === 1 || err(`L2 ${id}: needs exactly one primary threshold, found ${n}`); });
 
