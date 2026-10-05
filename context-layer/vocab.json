@@ -1,0 +1,28 @@
+{
+  "_meta": {
+    "note": "Allowed values for Layer 2 'dimension' and 'archetype'. Source: index.html (the six aspects of Part the Second; the twelve steeds). Steed ids match tests/fixtures.ts.",
+    "site": "https://aisiraj26.github.io/the-reverie-of-horses/"
+  },
+  "dimensions": {
+    "unknown_future":    { "aspect": "I",   "name": "Befriending the Unknown Future" },
+    "mirror_work":       { "aspect": "II",  "name": "Mirror Work and the Recognition of Becoming" },
+    "truth_seeking":     { "aspect": "III", "name": "Truth-Seeking and the Embrace of Difficult Dimensions" },
+    "thriving_in_chaos": { "aspect": "IV",  "name": "Thriving in Chaos and Finding Beauty in Difficulty" },
+    "soul_direction":    { "aspect": "V",   "name": "Looking into the Dark and Sensing Soul Direction" },
+    "humble_ignorance":  { "aspect": "VI",  "name": "Diving into the Deep and Discovering the Beginning of Ignorance" }
+  },
+  "archetypes": {
+    "buraq":           { "name": "Buraq",            "teaching": "Receptivity as readiness" },
+    "pegasus":         { "name": "Pegasus",          "teaching": "Humility through refusal" },
+    "sleipnir":        { "name": "Sleipnir",         "teaching": "Capability over affection" },
+    "uchchaihshravas": { "name": "Uchchaiḥśravas",   "teaching": "Principle over person" },
+    "kanthaka":        { "name": "Kanthaka",         "teaching": "Sacrifice as completion" },
+    "tianma":          { "name": "Tiānmǎ",           "teaching": "Myth shapes reality" },
+    "chollima":        { "name": "Chollima",         "teaching": "Worthiness as prerequisite" },
+    "tulpar":          { "name": "Tulpar",           "teaching": "Combat as knowing" },
+    "rakhsh":          { "name": "Rakhsh",           "teaching": "Knowing and being known" },
+    "enbarr":          { "name": "Enbarr",           "teaching": "Finitude as mercy" },
+    "caspian-mare":    { "name": "The Caspian Mare", "teaching": "Courage wears no gender" },
+    "kiso-steed":      { "name": "The Kiso Steed",   "teaching": "The carrier that bears her onward" }
+  }
+}

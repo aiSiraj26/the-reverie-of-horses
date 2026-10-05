@@ -1,0 +1,146 @@
+{
+  "_meta": {
+    "synthetic": true,
+    "note": "Invented example data for design review. Not client data. Real leader records must never be committed to this repository.",
+    "layer": "identity"
+  },
+  "records": [
+    {
+      "leader_id": "ldr_001",
+      "name": "Maya Okafor",
+      "preferred_name": "Maya",
+      "role": {
+        "title": "Chief Operating Officer",
+        "tenure_months": 24
+      },
+      "span": {
+        "direct_reports": 6,
+        "approx_total": 140,
+        "layers_influenced": 3
+      },
+      "org_context": {
+        "stage": "Series C",
+        "size": 300,
+        "relationship": "hired"
+      },
+      "industry": "Logistics software",
+      "business_model": "B2B subscription",
+      "mandate": "Hired to scale operations from 150 to 500 people without breaking delivery.",
+      "success_definition": "A company that runs well in the weeks I'm not in the room.",
+      "stakeholders": [
+        "CEO (founder)",
+        "VP Engineering",
+        "Head of Customer Success"
+      ],
+      "background": [
+        "Ran a warehouse floor at 24.",
+        "Learned that fixing a problem fast was how you earned respect."
+      ],
+      "constraints": [
+        "Board expects a hiring plan by Q1.",
+        "Two young children, so no evening travel."
+      ],
+      "language": [
+        "keeping the trucks moving"
+      ],
+      "source": {
+        "type": "leader_words",
+        "date": "2026-10-05",
+        "note": "Intake conversation, confirmed by Maya."
+      },
+      "refresh_date": "2026-10-05"
+    },
+    {
+      "leader_id": "ldr_002",
+      "name": "Daniel Reyes",
+      "preferred_name": "Dan",
+      "role": {
+        "title": "Co-founder and CEO",
+        "tenure_months": 38
+      },
+      "span": {
+        "direct_reports": 4,
+        "approx_total": 40,
+        "layers_influenced": 2
+      },
+      "org_context": {
+        "stage": "Seed",
+        "size": 40,
+        "relationship": "founder"
+      },
+      "industry": "Financial services",
+      "business_model": "Payments, transaction fees",
+      "mandate": "Founder holding the company together through its first hard year.",
+      "success_definition": "We're still building this together in five years, and proud of it.",
+      "stakeholders": [
+        "Co-founder and CTO (Sam)",
+        "Lead investor",
+        "Head of Compliance"
+      ],
+      "background": [
+        "Founded the company with a college friend.",
+        "Watched his family's shop fail over a partnership dispute."
+      ],
+      "constraints": [
+        "Eight months of runway.",
+        "Co-founder holds equal equity and a board seat."
+      ],
+      "language": [
+        "the partnership",
+        "us"
+      ],
+      "source": {
+        "type": "leader_words",
+        "date": "2026-05-12",
+        "note": "Intake conversation, confirmed by Dan."
+      },
+      "refresh_date": "2026-05-12"
+    },
+    {
+      "leader_id": "ldr_003",
+      "name": "Priya Raman",
+      "preferred_name": "Priya",
+      "role": {
+        "title": "VP of Product",
+        "tenure_months": 50
+      },
+      "span": {
+        "direct_reports": 5,
+        "approx_total": 35,
+        "layers_influenced": 2
+      },
+      "org_context": {
+        "stage": "Public, mid-cap",
+        "size": 1800,
+        "relationship": "hired"
+      },
+      "industry": "Health technology",
+      "business_model": "Enterprise licensing",
+      "mandate": "Promoted to rebuild the product org after a reorganization.",
+      "success_definition": "A product org that is better than me and doesn't need me to prove it.",
+      "stakeholders": [
+        "Chief Product Officer",
+        "General Counsel",
+        "Her senior director of design"
+      ],
+      "background": [
+        "Trained as a clinician before moving into product.",
+        "First in her family to work in a corporate role."
+      ],
+      "constraints": [
+        "Board-visible role; presentations are recorded.",
+        "Caring for a parent, so limited availability on Thursdays."
+      ],
+      "language": [
+        "the craft",
+        "bedside manner"
+      ],
+      "source": {
+        "type": "leader_words",
+        "date": "2026-09-14",
+        "note": "Quarterly refresh, confirmed by Priya."
+      },
+      "refresh_date": "2026-09-14"
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "_meta": {
+    "synthetic": true,
+    "note": "Invented example data for design review. Not client data. Real leader records must never be committed to this repository.",
+    "layer": "practice"
+  },
+  "records": [
+    {
+      "practice_id": "prc_001",
+      "threshold_id": "thr_001",
+      "name": "Weekly team decision handoff",
+      "rhythm": "weekly",
+      "definition_of_done": "One decision made by the team with no message to her.",
+      "tracking": "agent_followup",
+      "last_completed": "2026-10-02",
+      "streak": {
+        "current": 2,
+        "longest": 2
+      },
+      "friction": [
+        "She steps in when she senses hesitation."
+      ],
+      "agent_role": "prompt",
+      "status": "active",
+      "source": {
+        "type": "session",
+        "date": "2026-10-05",
+        "note": "Agreed in session."
+      }
+    },
+    {
+      "practice_id": "prc_002",
+      "threshold_id": "thr_001",
+      "name": "Leave the Monday ops stand-up ten minutes early",
+      "rhythm": "weekly",
+      "definition_of_done": "She is out of the room, and the stand-up finishes without her.",
+      "tracking": "self_report",
+      "last_completed": null,
+      "streak": {
+        "current": 0,
+        "longest": 0
+      },
+      "friction": [
+        "Guilt about leaving.",
+        "No one has asked her to stay."
+      ],
+      "agent_role": "hold_silence",
+      "status": "paused",
+      "source": {
+        "type": "session",
+        "date": "2026-10-09",
+        "note": "Agreed in check-in; paused after the slip on 2026-10-16."
+      }
+    },
+    {
+      "practice_id": "prc_003",
+      "threshold_id": "thr_003",
+      "name": "Write three sentences I'd say to Sam",
+      "rhythm": "weekly",
+      "definition_of_done": "A written draft saved and shared with the agent.",
+      "tracking": "artifact",
+      "last_completed": "2026-06-30",
+      "streak": {
+        "current": 0,
+        "longest": 3
+      },
+      "friction": [
+        "He keeps rewriting until the message is unsendable.",
+        "No fixed day or reminder."
+      ],
+      "agent_role": "escalate_to_next_session",
+      "status": "paused",
+      "source": {
+        "type": "session",
+        "date": "2026-06-02",
+        "note": "Agreed in session; paused 2026-08-11 after three missed weeks."
+      }
+    },
+    {
+      "practice_id": "prc_004",
+      "threshold_id": "thr_004",
+      "name": "Deliver one update from an outline, not a script",
+      "rhythm": "per_session",
+      "definition_of_done": "A one-page outline used in a real meeting.",
+      "tracking": "self_report",
+      "last_completed": "2026-08-18",
+      "streak": {
+        "current": 6,
+        "longest": 6
+      },
+      "friction": [
+        "Fear of a wrong number."
+      ],
+      "agent_role": "prompt",
+      "status": "retired",
+      "source": {
+        "type": "session",
+        "date": "2026-03-10",
+        "note": "Agreed in session; retired 2026-08-20 when thr_004 crossed."
+      }
+    },
+    {
+      "practice_id": "prc_005",
+      "threshold_id": "thr_005",
+      "name": "Hold a weekly 1:1 with my likely successor where I only ask questions",
+      "rhythm": "weekly",
+      "definition_of_done": "One 1:1 where she asks and does not tell.",
+      "tracking": "agent_followup",
+      "last_completed": null,
+      "streak": {
+        "current": 0,
+        "longest": 0
+      },
+      "friction": [
+        "She hasn't yet chosen who."
+      ],
+      "agent_role": "prompt",
+      "status": "paused",
+      "source": {
+        "type": "session",
+        "date": "2026-09-14",
+        "note": "Drafted at refresh; not started until a successor is named."
+      }
+    }
+  ]
+}

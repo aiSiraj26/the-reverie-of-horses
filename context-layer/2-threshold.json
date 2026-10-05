@@ -1,0 +1,164 @@
+{
+  "_meta": {
+    "synthetic": true,
+    "note": "Invented example data for design review. Not client data. Real leader records must never be committed to this repository.",
+    "layer": "threshold"
+  },
+  "records": [
+    {
+      "threshold_id": "thr_001",
+      "leader_id": "ldr_001",
+      "is_primary": true,
+      "title": "Stop being the bottleneck.",
+      "from_state": "Every decision, even small ones, waits on me.",
+      "to_state": "My team moves without asking permission.",
+      "dimension": "mirror_work",
+      "archetype": "buraq",
+      "evidence": [
+        "Two product calls shipped without my sign-off."
+      ],
+      "resistance": "I feel guilty when I'm not in the room.",
+      "stakes": "I stay the ceiling on how fast we grow.",
+      "status": "on_the_crossing",
+      "dates": {
+        "named": "2026-10-05",
+        "target_cross": "2026-12-31",
+        "crossed": null
+      },
+      "confidence": {
+        "score": 3,
+        "reason": "Intent is real but the guilt pattern is still active."
+      },
+      "source": {
+        "type": "leader_words",
+        "date": "2026-10-05",
+        "note": "Leader's own phrasing in session."
+      },
+      "cadence": "every_two_weeks"
+    },
+    {
+      "threshold_id": "thr_002",
+      "leader_id": "ldr_001",
+      "is_primary": false,
+      "title": "Say the hard thing to the CEO.",
+      "from_state": "I soften every message upward.",
+      "to_state": "I bring bad news early and plainly.",
+      "dimension": "truth_seeking",
+      "archetype": "rakhsh",
+      "evidence": [
+        "One unwelcome headcount concern raised before the board deck, not after."
+      ],
+      "resistance": "I don't want to be the person who ruins his mood.",
+      "stakes": "Problems reach him late and expensive.",
+      "status": "not_started",
+      "dates": {
+        "named": "2026-10-05",
+        "target_cross": null,
+        "crossed": null
+      },
+      "confidence": {
+        "score": 2,
+        "reason": "Agent's inference from a recurring theme; not yet confirmed by Maya."
+      },
+      "source": {
+        "type": "agent_inference",
+        "date": "2026-10-05",
+        "note": "Inferred from session theme. Title is the agent's wording until Maya restates it."
+      },
+      "cadence": "revisit_after_thr_001"
+    },
+    {
+      "threshold_id": "thr_003",
+      "leader_id": "ldr_002",
+      "is_primary": true,
+      "title": "Have the conversation I keep postponing.",
+      "from_state": "I route around Sam instead of telling him what I need.",
+      "to_state": "I say plainly what I need from him, and hear his answer.",
+      "dimension": "truth_seeking",
+      "archetype": "pegasus",
+      "evidence": [
+        "A scheduled one-hour conversation with Sam that actually happens, with notes."
+      ],
+      "resistance": "If I say it, the partnership might break.",
+      "stakes": "Runway shrinks while two founders pull in different directions.",
+      "status": "stalled",
+      "dates": {
+        "named": "2026-06-02",
+        "target_cross": "2026-08-15",
+        "crossed": null
+      },
+      "confidence": {
+        "score": 2,
+        "reason": "Named clearly but no movement since 2026-07-14; target date has passed."
+      },
+      "source": {
+        "type": "leader_words",
+        "date": "2026-06-02",
+        "note": "Leader's own phrasing in session."
+      },
+      "cadence": "monthly_until_restarted"
+    },
+    {
+      "threshold_id": "thr_004",
+      "leader_id": "ldr_003",
+      "is_primary": false,
+      "title": "Present to the board without a script.",
+      "from_state": "I read every word of my board updates.",
+      "to_state": "I speak to the room and take hard questions live.",
+      "dimension": "thriving_in_chaos",
+      "archetype": "tulpar",
+      "evidence": [
+        "Q2 board product update delivered from a one-page outline, followed by 20 minutes of live questions."
+      ],
+      "resistance": "If I improvise, I might get a number wrong.",
+      "stakes": "The board reads a cautious operator, not a strategic leader.",
+      "status": "crossed",
+      "dates": {
+        "named": "2026-03-10",
+        "target_cross": "2026-06-30",
+        "crossed": "2026-08-20"
+      },
+      "confidence": {
+        "score": 4,
+        "reason": "Observed behavior at the Q2 board meeting; reported by Priya and described in her words."
+      },
+      "source": {
+        "type": "leader_words",
+        "date": "2026-08-20",
+        "note": "Priya described the Q2 board meeting in session."
+      },
+      "cadence": "closed"
+    },
+    {
+      "threshold_id": "thr_005",
+      "leader_id": "ldr_003",
+      "is_primary": true,
+      "title": "Name who replaces me.",
+      "from_state": "I am the only person who can run product.",
+      "to_state": "Someone on my team is ready to run it, and I've said so out loud.",
+      "dimension": "soul_direction",
+      "archetype": "kanthaka",
+      "evidence": [
+        "A named successor and a written 12-month handoff plan shared with the CPO."
+      ],
+      "resistance": "I'm not sure who I am if I'm not the one in the seat.",
+      "stakes": "Her own next move is blocked until she can leave the seat cleanly.",
+      "status": "not_started",
+      "dates": {
+        "named": "2026-09-14",
+        "target_cross": null,
+        "crossed": null
+      },
+      "confidence": {
+        "score": 3,
+        "reason": "Priya raised it herself; timing not yet set."
+      },
+      "source": {
+        "type": "leader_words",
+        "date": "2026-09-14",
+        "note": "Priya raised this at the quarterly refresh."
+      },
+      "cadence": "every_two_weeks"
+    }
+  ]
+}
