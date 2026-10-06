@@ -87,7 +87,7 @@ jobs:
           tmp="$(mktemp -d)"
           cp -R . "$tmp/site"
           rm -rf "$tmp/site/.git" "$tmp/site/.github" "$tmp/site/node_modules" \
-                 "$tmp/site/tests" "$tmp/site/_site" \
+                 "$tmp/site/tests" "$tmp/site/_site" "$tmp/site/buraq-app" \
                  "$tmp/site/playwright-report" "$tmp/site/test-results"
           rm -f "$tmp/site/package.json" "$tmp/site/package-lock.json" \
                 "$tmp/site/playwright.config.ts" "$tmp"/site/*.md

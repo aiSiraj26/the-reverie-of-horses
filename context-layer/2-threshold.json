@@ -29,8 +29,8 @@
       "evidence": [
         "Hiring plan for two directors written and approved by the team without his edits."
       ],
-      "resistance": "He worries nothing will get fixed if he steps back.",
-      "stakes": "He stays the ceiling on growth and the Series B story is 'founder dependent'.",
+      "resistance": "I worry nothing will get fixed if I step back.",
+      "stakes": "I stay the ceiling on growth, and the Series B story becomes 'founder dependent'.",
       "status": "on_the_crossing",
       "dates": {
         "named": "2026-09-21",
@@ -100,8 +100,8 @@
       "evidence": [
         "A one-page gap list shared with the board chair before the next meeting."
       ],
-      "resistance": "A conflict with the board could cost her the seat, and with it control of the turnaround.",
-      "stakes": "Her plan stays untested until it fails publicly, and the board loses trust in her later.",
+      "resistance": "A conflict with the board could cost me the seat, and with it control of the turnaround.",
+      "stakes": "My plan stays untested until it fails publicly, and the board loses trust in me later.",
       "status": "stalled",
       "dates": {
         "named": "2026-05-12",
@@ -158,7 +158,7 @@
           ],
           "description": "The firm is the bond he is known by (Rakhsh) and the thing he must leave (Kanthaka). Staying keeps him known; leaving completes him.",
           "pull_a": "Stay recognized as the firm's eye.",
-          "pull_b": "Sever the bond so it can stand and he can go on.",
+          "pull_b": "Sever the bond so the firm can stand and the next chapter can begin.",
           "state": "active",
           "intensity": 5,
           "first_observed": "2026-09-02",
@@ -196,8 +196,8 @@
       "evidence": [
         "A named successor plan agreed with the two senior partners, and one written sentence about what he is for next."
       ],
-      "resistance": "He is afraid that without the firm he is not anyone.",
-      "stakes": "The firm's succession is forced on his partners' schedule, not his, and his next chapter begins in loss rather than choice.",
+      "resistance": "I'm afraid that without the firm I'm not anyone.",
+      "stakes": "The succession is forced on my partners' schedule, not mine, and my next chapter begins in loss rather than choice.",
       "status": "on_the_crossing",
       "dates": {
         "named": "2026-09-02",
@@ -239,8 +239,8 @@
       "evidence": [
         "A partner meeting where Kofi states the date himself."
       ],
-      "resistance": "He fears their relief.",
-      "stakes": "The decision is made for him.",
+      "resistance": "I fear their relief.",
+      "stakes": "The decision is made for me.",
       "status": "not_started",
       "dates": {
         "named": "2026-09-16",

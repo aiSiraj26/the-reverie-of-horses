@@ -1,0 +1,23 @@
+{
+  "name": "buraq-app",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Buraq.ai coaching UI — reads the five-layer context in ../context-layer.",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5173 --open",
+    "build": "vite build",
+    "test": "node --test server/*.test.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.131.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "tailwindcss": "^4.0.0",
+    "vite": "^7.0.0"
+  }
+}
