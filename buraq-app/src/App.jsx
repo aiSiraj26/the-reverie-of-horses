@@ -3,7 +3,7 @@ import Sidebar, { StatusChip } from './components/Sidebar.jsx';
 import Chat from './components/Chat.jsx';
 import IntakeModal from './components/IntakeModal.jsx';
 import Modal from './components/Modal.jsx';
-import { getJSON, streamChat } from './api.js';
+import { getJSON, getPrompt, streamChat } from './api.js';
 import { load, save } from './storage.js';
 
 const OVERRIDE_KEYS = ['title', 'from_state', 'to_state', 'resistance'];
@@ -58,10 +58,7 @@ export default function App() {
     } finally { setBusy(false); }
   }, [chats, leaderId, ov]);
 
-  const inspect = async () => {
-    const r = await fetch('/api/prompt', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ leader_id: leaderId, overrides: ov }) });
-    setBrief((await r.json()).prompt);
-  };
+  const inspect = async () => setBrief(await getPrompt(leaderId, ov));
 
   if (error) return <div className="grid h-full place-items-center p-8 text-center"><div><p className="font-serif text-xl">The context layer could not be loaded.</p><p className="mt-2 text-sm text-muted">{error}</p><p className="mt-4 text-xs text-muted">Run from <code>buraq-app/</code> with <code>npm run dev</code>.</p></div></div>;
   if (!ctx || !leader || !threshold) return <div className="grid h-full place-items-center text-sm text-muted">Loading…</div>;
@@ -82,12 +79,12 @@ export default function App() {
         <div className="flex items-center gap-3 border-b border-line px-5 py-3">
           <button onClick={() => setDrawer(true)} className="text-muted lg:hidden" aria-label="Open leader panel">☰</button>
           <div className="min-w-0 flex-1">
-            <div className="label">Working on</div>
-            <div className="truncate font-serif text-lg leading-tight">{threshold.title}</div>
+            <div className="label whitespace-nowrap">Working on</div>
+            <div className="line-clamp-2 font-serif text-base leading-tight sm:text-lg">{threshold.title}</div>
           </div>
-          {messages.length > 0 && <button onClick={() => { abort.current?.abort(); setBusy(false); setChats((c) => ({ ...c, [leaderId]: [] })); }} className="text-xs text-muted hover:text-ink">New conversation</button>}
+          {messages.length > 0 && <button onClick={() => { abort.current?.abort(); setBusy(false); setChats((c) => ({ ...c, [leaderId]: [] })); }} className="whitespace-nowrap text-xs text-muted hover:text-ink"><span className="sm:hidden">New</span><span className="hidden sm:inline">New conversation</span></button>}
           <StatusChip status={threshold.status} />
-          <span title={status?.mode === 'live' ? `Live replies via ${status.model}` : 'No ANTHROPIC_API_KEY set: replies are scripted from the context so you can see the UI work.'}
+          <span title={status?.mode === 'live' ? `Live replies via ${status.model}` : status?.hosted ? 'Hosted preview: replies are scripted from the context. Run it locally with an API key for live replies.' : 'No ANTHROPIC_API_KEY set: replies are scripted from the context so you can see the UI work.'}
             className={`hidden rounded-full border px-2.5 py-0.5 text-[0.7rem] sm:inline-block ${status?.mode === 'live' ? 'border-gold/40 text-gold' : 'border-line text-muted'}`}>
             {status?.mode === 'live' ? 'Live' : 'Demo mode'}
           </span>

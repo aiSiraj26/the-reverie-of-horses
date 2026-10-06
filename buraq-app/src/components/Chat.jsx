@@ -18,7 +18,8 @@ export default function Chat({ leader, threshold, messages, busy, onSend, starte
   const [text, setText] = useState('');
   const end = useRef(null), box = useRef(null);
   useEffect(() => { end.current?.scrollIntoView({ block: 'end', behavior: 'smooth' }); }, [messages]);
-  useEffect(() => { setText(''); box.current?.focus(); }, [leader.leader_id]);
+  // Only auto-focus where there is a physical keyboard; on a phone it would open the keyboard unasked.
+  useEffect(() => { setText(''); if (window.matchMedia('(pointer: fine)').matches) box.current?.focus(); }, [leader.leader_id]);
 
   const submit = (t = text) => { const v = t.trim(); if (!v || busy) return; setText(''); onSend(v); };
   return (
@@ -42,7 +43,7 @@ export default function Chat({ leader, threshold, messages, busy, onSend, starte
           <textarea ref={box} value={text} rows={1} disabled={busy} placeholder="Say what is on your mind…" aria-label="Message"
             onChange={(e) => { setText(e.target.value); e.target.style.height = 'auto'; e.target.style.height = Math.min(e.target.scrollHeight, 160) + 'px'; }}
             onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); submit(); } }}
-            className="max-h-40 flex-1 resize-none bg-transparent text-[0.95rem] leading-relaxed outline-none placeholder:text-muted" />
+            className="max-h-40 flex-1 resize-none bg-transparent text-base sm:text-[0.95rem] leading-relaxed outline-none placeholder:text-muted" />
           <button type="submit" disabled={busy || !text.trim()} aria-label="Send" className="rounded-full bg-ink px-4 py-1.5 text-sm text-paper transition disabled:opacity-30">Send</button>
         </form>
         <p className="mx-auto mt-2 max-w-2xl text-center text-[0.68rem] text-muted">Enter to send · Shift+Enter for a new line</p>

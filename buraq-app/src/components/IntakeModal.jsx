@@ -20,7 +20,7 @@ export default function IntakeModal({ leader, base, overrides, onSave, onReset, 
           <label key={f.key} className="block">
             <span className="font-serif text-base">{f.label}</span> <span className="text-xs text-muted">{f.hint}</span>
             <textarea value={draft[f.key]} rows={f.rows} onChange={(e) => setDraft({ ...draft, [f.key]: e.target.value })}
-              className="mt-1.5 w-full resize-none rounded-lg border border-line bg-panel px-3 py-2 text-sm leading-relaxed outline-none focus:border-gold" />
+              className="mt-1.5 w-full resize-none rounded-lg border border-line bg-panel px-3 py-2 text-base leading-relaxed sm:text-sm outline-none focus:border-gold" />
           </label>
         ))}
         <div className="flex items-center justify-between pt-1">
