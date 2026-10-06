@@ -7,8 +7,8 @@
   "records": [
     {
       "leader_id": "ldr_001",
-      "name": "Tariq Haddad",
-      "preferred_name": "Tariq",
+      "name": "Tomo Haddad",
+      "preferred_name": "Tomo",
       "role": {
         "title": "Founder and CEO",
         "tenure_months": 60
@@ -47,7 +47,7 @@
       "source": {
         "type": "leader_words",
         "date": "2026-09-21",
-        "note": "Intake conversation, confirmed by Tariq."
+        "note": "Intake conversation, confirmed by Tomo."
       },
       "refresh_date": "2026-09-21"
     },

@@ -41,5 +41,5 @@ test('demo replies differ by leader and never name the stance', () => {
   assert.equal(new Set(r).size, 3);
   r.forEach((x) => assert.doesNotMatch(x, /Buraq|Pegasus|Rakhsh|Kanthaka|stance/i));
   assert.match(r[2], /two pulls/); // Kofi has an active tension
-  assert.doesNotMatch(r[0], /two pulls/); // Tariq has none
+  assert.doesNotMatch(r[0], /two pulls/); // Tomo has none
 });

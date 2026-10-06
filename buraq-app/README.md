@@ -34,10 +34,10 @@ Optional settings in the same `.env`:
 - **Left sidebar**: the active leader, their current threshold (from → to), their active tensions (dots show intensity), and the agent's internal stance, collapsed and hidden by default. Open *Agent stance* to reveal it, or *Inspect full brief* to read exactly what the model is given.
 - **Top banner**: the primary threshold being worked on, with its status.
 - **Edit context**: four questions (where do you want to go, where are you now, where will you be, what pulls you back). They overwrite the primary threshold's `title`, `from_state`, `to_state` and `resistance` for the session. They are stored in your browser only and never change the JSON files.
-- **Leader switch**: Tariq (active crossing), Elena (stalled), Kofi (two tensions at once). Each keeps its own conversation.
+- **Leader switch**: Tomo (active crossing), Elena (stalled), Kofi (two tensions at once). Each keeps its own conversation.
 
 Try this: in Demo mode, send "I do not know where to start" as each leader.
-- Tariq gets a question that widens the frame (Buraq).
+- Tomo gets a question that widens the frame (Buraq).
 - Elena gets a refusal to reassure her (Pegasus).
 - Kofi gets both of his pulls named back to him (Rakhsh with Kanthaka).
 

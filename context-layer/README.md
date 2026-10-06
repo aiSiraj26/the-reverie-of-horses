@@ -31,7 +31,7 @@ Layer 2 now lets a leader hold more than one dimension and more than one stance 
 
 | Leader | Your brief | In the data |
 |---|---|---|
-| **Tariq Haddad** `ldr_001` | Active crossing: founder, bottleneck to architect. Dimension: Befriending the Unknown Future. Stance: Buraq. | `thr_001` is `on_the_crossing`, confidence 4, no tensions, one practice with a 3-week streak. |
+| **Tomo Haddad** `ldr_001` | Active crossing: founder, bottleneck to architect. Dimension: Befriending the Unknown Future. Stance: Buraq. | `thr_001` is `on_the_crossing`, confidence 4, no tensions, one practice with a 3-week streak. |
 | **Elena Voss** `ldr_002` | Stalled: hired CEO frozen by fear of board conflict. Dimensions: Mirror Work and Truth-Seeking. Stance: Pegasus. | `thr_002` is `stalled` and past its target date. One active tension (truth-seeking vs mirror work), intensity 4. Practice paused, streak broken (current 0, longest 2). Her identity record is 168 days old, so the validator warns it is due for refresh. |
 | **Kofi Mensah** `ldr_003` | Dual state: letting go of old identity vs stepping into the dark. Dimensions: Looking into the Dark and Befriending the Future. Stances: Rakhsh with Kanthaka. | `thr_003` holds two primary dimensions and two primary stances, with **two active tensions**: Rakhsh vs Kanthaka (intensity 5) and Soul Direction vs Unknown Future (intensity 3). A second, inferred threshold `thr_004` sits behind it. |
 
