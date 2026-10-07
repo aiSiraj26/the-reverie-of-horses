@@ -65,11 +65,12 @@ A stall is not a failure state. It lowers the weight of the ask and the rhythm o
 
 **Built**
 - Layers 1 to 5 as JSON, with three synthetic leaders and a validator that enforces the spec's rules.
-- Chat UI: pinned threshold banner, sidebar (leader, from → to, tensions, hidden stance), intake editor and leader switch.
-- Per-reply brief built from the layers, with stance notes and a rule never to name the stance.
+- One screen per stage with a stage navigator: the quiet room (1), a six-question intake that produces a threshold card (2), the chat with a pinned banner, practice check-in and end-of-session recap (3), evidence and recalibration (4), and the crossing record with next horizon (5).
+- A coach view that shows which layers each screen touches, and the private binding the leader never sees.
+- A brand-new leader can walk stages 1 to 5 end to end. The per-reply brief is built from the layers, with stance notes and a rule never to name the stance.
 
 **Still to build**
-- No real first-session flow yet: the app opens on a pre-filled leader.
-- Nothing is written back to Layer 5, Layer 4 or Layer 2 after a session. The conversation lives in the browser.
-- Confidence and cadence do not adjust automatically. The rules in Stage 4 are proposals.
-- No session scheduling or reminders, no crossing ceremony or retrospective generation, and no promotion of a secondary threshold.
+- Changes are stored in the browser only. Nothing is written back to the JSON layer files, and there are no accounts.
+- The first-session replies in stage 1 are scripted, even when live replies are on. The silent binding in stage 2 is a keyword guess, not a model judgment.
+- Confidence and cadence do not adjust on their own. The rules in stage 4 are proposals the coach applies.
+- No session scheduling or reminders.

@@ -9,9 +9,10 @@ export async function getJSON(path) {
   return r.json();
 }
 
-export async function getPrompt(leader_id, overrides) {
-  if (HOSTED) return (await hosted()).prompt(leader_id, overrides);
-  const r = await fetch('/api/prompt', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ leader_id, overrides }) });
+export async function getPrompt(body) {
+  if (HOSTED) return (await hosted()).prompt(body);
+  const r = await fetch('/api/prompt', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+  if (!r.ok) throw new Error((await r.json().catch(() => ({}))).error || `Request failed (${r.status})`);
   return (await r.json()).prompt;
 }
 

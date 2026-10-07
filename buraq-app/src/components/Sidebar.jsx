@@ -18,7 +18,7 @@ function Intensity({ n }) {
   );
 }
 
-export default function Sidebar({ ctx, leader, threshold, onSwitch, onEdit, onInspect, showStance, setShowStance }) {
+export default function Sidebar({ ctx, leaders, leader, threshold, onSwitch, onEdit, onInspect, showStance, setShowStance }) {
   const id = leader.identity;
   const tensions = (threshold.tensions ?? []).filter((t) => t.state !== 'resolved');
   const names = (ids) => ids.map((i) => ctx.vocab.archetypes[i]?.name ?? ctx.vocab.dimensions[i]?.name ?? i);
@@ -32,9 +32,9 @@ export default function Sidebar({ ctx, leader, threshold, onSwitch, onEdit, onIn
       </header>
 
       <section aria-label="Switch leader">
-        <div className="label mb-2">Test leaders</div>
-        <div className="grid grid-cols-3 gap-2">
-          {ctx.leaders.map((l) => {
+        <div className="label mb-2">Leaders</div>
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(64px,1fr))] gap-2">
+          {leaders.map((l) => {
             const on = l.leader_id === leader.leader_id;
             return (
               <button key={l.leader_id} onClick={() => onSwitch(l.leader_id)} aria-pressed={on}
@@ -50,8 +50,8 @@ export default function Sidebar({ ctx, leader, threshold, onSwitch, onEdit, onIn
       <section key={leader.leader_id} className="rise">
         <div className="label mb-2">Leader</div>
         <div className="font-serif text-xl">{id.name}</div>
-        <div className="mt-0.5 text-sm text-muted">{id.role.title}</div>
-        <div className="text-sm text-muted">{id.org_context.stage} · {id.org_context.size} people</div>
+        {id.role.title && <div className="mt-0.5 text-sm text-muted">{id.role.title}</div>}
+        <div className="text-sm text-muted">{id.org_context.stage ? `${id.org_context.stage} · ${id.org_context.size} people` : 'New leader'}</div>
         <p className="mt-3 text-sm leading-relaxed text-ink/80">“{id.success_definition}”</p>
       </section>
 

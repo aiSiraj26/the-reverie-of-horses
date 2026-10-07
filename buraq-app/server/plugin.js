@@ -3,6 +3,7 @@
 import Anthropic from '@anthropic-ai/sdk';
 import { loadEnv } from 'vite';
 import { loadContext, buildSystemPrompt, demoReply } from './context.js';
+import { prepareContext } from '../shared/journey.js';
 
 const MODEL_DEFAULT = 'claude-opus-5-5';
 const MAX_HISTORY = 20;
@@ -33,15 +34,16 @@ export default function buraqApi() {
           if (req.method === 'GET' && url.pathname === '/status') return json(res, 200, { mode: live ? 'live' : 'demo', model: live ? model : null });
           if (req.method === 'GET' && url.pathname === '/context') return json(res, 200, loadContext());
           if (req.method === 'POST' && url.pathname === '/prompt') {
-            const { leader_id, overrides } = await readBody(req);
-            return json(res, 200, { prompt: buildSystemPrompt(loadContext(), leader_id, overrides) });
+            const body = await readBody(req);
+            return json(res, 200, { prompt: buildSystemPrompt(prepareContext(loadContext(), body), body.leader_id, body.overrides) });
           }
           if (req.method === 'POST' && url.pathname === '/chat') {
-            const { leader_id, overrides, messages } = await readBody(req);
+            const body = await readBody(req);
+            const { leader_id, overrides, messages } = body;
             if (!Array.isArray(messages) || !messages.length || messages.at(-1).role !== 'user') return json(res, 400, { error: 'messages must end with a user message' });
             const history = messages.slice(-MAX_HISTORY).map((m) => ({ role: m.role === 'assistant' ? 'assistant' : 'user', content: String(m.content) }));
             // Load the five layers fresh for this prompt and build the brief from them.
-            const ctx = loadContext();
+            const ctx = prepareContext(loadContext(), body);
             const system = buildSystemPrompt(ctx, leader_id, overrides);
 
             res.writeHead(200, { 'Content-Type': 'text/event-stream', 'Cache-Control': 'no-cache', Connection: 'keep-alive' });

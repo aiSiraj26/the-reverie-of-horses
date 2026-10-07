@@ -14,7 +14,7 @@ function Message({ m }) {
 }
 const Dots = () => <span className="inline-flex gap-1 align-middle" aria-label="Thinking">{[0, 1, 2].map((i) => <span key={i} className="dot-breathe h-1.5 w-1.5 rounded-full bg-gold" style={{ animationDelay: `${i * 0.2}s` }} />)}</span>;
 
-export default function Chat({ leader, threshold, messages, busy, onSend, starters }) {
+export default function Chat({ leader, threshold, messages, busy, onSend, starters, opener }) {
   const [text, setText] = useState('');
   const end = useRef(null), box = useRef(null);
   useEffect(() => { end.current?.scrollIntoView({ block: 'end', behavior: 'smooth' }); }, [messages]);
@@ -30,6 +30,18 @@ export default function Chat({ leader, threshold, messages, busy, onSend, starte
             <div className="rise pt-10 text-center">
               <h1 className="font-serif text-3xl leading-snug">{leader.identity.preferred_name}, what would you like to bring today?</h1>
               <p className="mx-auto mt-3 max-w-md text-sm text-muted">We are working on <i>{threshold.title}</i> Begin anywhere.</p>
+              {opener && (
+                <section aria-label="Your practice" className="mx-auto mt-8 max-w-md rounded-2xl border border-line bg-panel p-5 text-left">
+                  <div className="label">Last time you agreed to</div>
+                  <p className="mt-1 font-serif text-lg leading-snug">{opener.name}</p>
+                  <p className="mt-1 text-sm text-muted">Done when: {opener.definition_of_done}</p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {[['I did it.', 'I did it'], ['Partly.', 'I did part of it'], ['Not this time.', 'I did not manage it this time']].map(([l, m]) => (
+                      <button key={l} onClick={() => submit(`${m}: ${opener.name}.`)} className="rounded-full border border-line px-4 py-1.5 text-sm text-muted transition hover:border-gold hover:text-ink">{l}</button>
+                    ))}
+                  </div>
+                </section>
+              )}
               <div className="mt-8 flex flex-wrap justify-center gap-2">
                 {starters.map((s) => <button key={s} onClick={() => submit(s)} className="rounded-full border border-line px-4 py-2 text-sm text-muted transition hover:border-gold hover:text-ink">{s}</button>)}
               </div>

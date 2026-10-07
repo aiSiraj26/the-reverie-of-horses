@@ -29,6 +29,16 @@ export function primaryThreshold(leader, overrides = {}) {
   return merged;
 }
 
+// Builds the one-line introduction from whatever is known; a new leader has little yet.
+function identityLine(id) {
+  const org = [id.org_context?.relationship, id.org_context?.stage, id.org_context?.size ? `about ${id.org_context.size} people` : ''].filter(Boolean).join(', ');
+  const parts = [
+    id.role?.title ? `${id.role.title}${id.role.tenure_months ? `, ${id.role.tenure_months} months in seat` : ''}` : '',
+    org, [id.industry, id.business_model].filter(Boolean).join(', '),
+  ].filter(Boolean);
+  return `${id.preferred_name}${id.name && id.name !== id.preferred_name ? ` (${id.name})` : ''}.${parts.length ? ` ${parts.join('. ')}.` : ' Little is known beyond their own words so far; ask rather than assume.'}`;
+}
+
 const names = (ids, table) => ids.map((i) => table[i]?.name ?? i);
 const FEEDBACK_STYLE = {
   framed_as_own_insight: 'Offer observations as open questions so they reach the insight themselves. Avoid blunt statements about them.',
@@ -57,20 +67,20 @@ export function buildSystemPrompt(ctx, leaderId, overrides = {}) {
     '- You are a coach, not a therapist or lawyer. If they raise something outside coaching, say so kindly.',
     '',
     '## The leader',
-    `${id.preferred_name} (${id.name}). ${id.role.title}, ${id.role.tenure_months} months in seat. ${id.org_context.relationship}, ${id.org_context.stage}, about ${id.org_context.size} people. ${id.industry}, ${id.business_model}.`,
-    `Mandate: ${id.mandate}`,
+    identityLine(id),
+    ...(id.mandate ? [`Mandate: ${id.mandate}`] : []),
     `Success, in their words: "${id.success_definition}"`,
-    `Stakeholders: ${id.stakeholders.join('; ')}`,
-    `Constraints: ${id.constraints.join('; ')}`,
-    `Language: ${id.language.map((x) => `"${x}"`).join(', ')}`,
+    ...(id.stakeholders?.length ? [`Stakeholders: ${id.stakeholders.join('; ')}`] : []),
+    ...(id.constraints?.length ? [`Constraints: ${id.constraints.join('; ')}`] : []),
+    ...(id.language?.length ? [`Language: ${id.language.map((x) => `"${x}"`).join(', ')}`] : []),
     '',
     '## The crossing being worked on (primary threshold)',
     `Title: ${t.title}`,
     `From: ${t.from_state}`,
     `To: ${t.to_state}`,
-    `Resistance: ${t.resistance}`,
-    `Stakes of staying: ${t.stakes}`,
-    `Status: ${t.status.replace(/_/g, ' ')}. Evidence the crossing happened: ${t.evidence.join('; ')}`,
+    ...(t.resistance ? [`Resistance: ${t.resistance}`] : ['Resistance: not named yet; ask what pulls them back.']),
+    ...(t.stakes ? [`Stakes of staying: ${t.stakes}`] : []),
+    `Status: ${t.status.replace(/_/g, ' ')}. Signs the crossing happened: ${t.evidence.join('; ')}${t.observed?.length ? `. Observed so far: ${t.observed.map((o) => o.text).join('; ')}` : ''}`,
     `Dimensions of carrying (primary): ${names(t.dimension.primary, vocab.dimensions).join('; ')}`,
   );
   if (t.dimension.secondary.length) add(`Dimensions (secondary): ${names(t.dimension.secondary, vocab.dimensions).join('; ')}`);
@@ -88,12 +98,16 @@ export function buildSystemPrompt(ctx, leaderId, overrides = {}) {
     live.forEach((x) => add(`- (${x.state}, intensity ${x.intensity}/5) ${x.description} One pull: ${x.pull_a} The other: ${x.pull_b}`));
   }
 
-  add(
-    '', '## How this leader takes feedback (hypothesis)',
-    `${FEEDBACK_STYLE[w.feedback_receptivity.form]} ${w.feedback_receptivity.note}`,
-    `Triggers: ${w.triggers.join('; ')}. Avoids: ${w.avoidances.join('; ')}.`,
-    `Motivators: ${w.motivators.join(', ').replace(/_/g, ' ')}. Shadow of their strength: ${w.shadow}`,
-  );
+  if (w) {
+    add(
+      '', '## How this leader takes feedback (hypothesis)',
+      `${FEEDBACK_STYLE[w.feedback_receptivity.form]} ${w.feedback_receptivity.note}`,
+      `Triggers: ${w.triggers.join('; ')}. Avoids: ${w.avoidances.join('; ')}.`,
+      `Motivators: ${w.motivators.join(', ').replace(/_/g, ' ')}. Shadow of their strength: ${w.shadow}`,
+    );
+  } else {
+    add('', '## How this leader takes feedback', 'Not yet observed. Stay gentle and curious, and learn how they like to be challenged from how they respond.');
+  }
 
   const active = leader.practices.filter((p) => p.status !== 'retired');
   if (active.length) {
