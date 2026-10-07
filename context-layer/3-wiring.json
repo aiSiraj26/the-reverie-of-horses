@@ -1,0 +1,142 @@
+{
+  "_meta": {
+    "synthetic": true,
+    "note": "Invented example data for design review. Not client data. Real leader records must never be committed to this repository.",
+    "layer": "wiring"
+  },
+  "records": [
+    {
+      "wiring_id": "wir_001",
+      "leader_id": "ldr_001",
+      "core_values": [
+        "craft",
+        "speed",
+        "loyalty"
+      ],
+      "decision_style": "intuitive",
+      "risk_posture": "action",
+      "drivers": [
+        "mastery",
+        "impact"
+      ],
+      "avoidances": [
+        "Hiring a number two for himself."
+      ],
+      "triggers": [
+        "Being asked 'who else knows how this works?'"
+      ],
+      "feedback_receptivity": {
+        "score": 4,
+        "form": "framed_as_own_insight",
+        "note": "Takes broad invitations well. Prescriptions feel like being managed."
+      },
+      "motivators": [
+        "visible_win",
+        "hard_challenge"
+      ],
+      "energy_profile": {
+        "best_thinking": "Early morning, before email.",
+        "drains_fastest": "Being pulled into small fixes."
+      },
+      "identity_claims": [
+        "I'm the one who builds it."
+      ],
+      "shadow": "Speed becomes doing it himself; the team learns to wait.",
+      "source": {
+        "type": "agent_inference",
+        "date": "2026-09-21",
+        "note": "Agent's read from Tomo's own words; revisit by 2026-12."
+      },
+      "is_hypothesis": true
+    },
+    {
+      "wiring_id": "wir_002",
+      "leader_id": "ldr_002",
+      "core_values": [
+        "competence",
+        "composure",
+        "loyalty"
+      ],
+      "decision_style": "analytical",
+      "risk_posture": "patience",
+      "drivers": [
+        "security",
+        "status"
+      ],
+      "avoidances": [
+        "Any conversation with the board chair that could be read as conflict."
+      ],
+      "triggers": [
+        "Being compared to her predecessor.",
+        "Surprise questions in board meetings."
+      ],
+      "feedback_receptivity": {
+        "score": 3,
+        "form": "direct_blunt",
+        "note": "Soft framing lets her hear what she wants. Direct, specific feedback lands, but slowly."
+      },
+      "motivators": [
+        "peer_respect",
+        "hard_challenge"
+      ],
+      "energy_profile": {
+        "best_thinking": "Mid-morning, with a written draft.",
+        "drains_fastest": "Open-ended board prep."
+      },
+      "identity_claims": [
+        "I'm the one who has it under control."
+      ],
+      "shadow": "Composure becomes concealment; control is protected at the cost of the truth.",
+      "source": {
+        "type": "agent_inference",
+        "date": "2026-05-12",
+        "note": "Agent's read from Elena's own words; flagged for review after the stall on thr_002."
+      },
+      "is_hypothesis": true
+    },
+    {
+      "wiring_id": "wir_003",
+      "leader_id": "ldr_003",
+      "core_values": [
+        "craft",
+        "loyalty",
+        "candor"
+      ],
+      "decision_style": "intuitive",
+      "risk_posture": "patience",
+      "drivers": [
+        "mastery",
+        "security"
+      ],
+      "avoidances": [
+        "Any conversation that ends the firm as he knows it."
+      ],
+      "triggers": [
+        "Hearing the firm is 'ready' without him."
+      ],
+      "feedback_receptivity": {
+        "score": 4,
+        "form": "framed_as_own_insight",
+        "note": "Reflective; works best with questions and silence."
+      },
+      "motivators": [
+        "being_believed_in",
+        "peer_respect"
+      ],
+      "energy_profile": {
+        "best_thinking": "Walking, alone.",
+        "drains_fastest": "Partner meetings about money."
+      },
+      "identity_claims": [
+        "The firm is my eye."
+      ],
+      "shadow": "Craft becomes possession; the firm cannot move without his eye.",
+      "source": {
+        "type": "agent_inference",
+        "date": "2026-09-02",
+        "note": "Agent's read from Kofi's own words; revisit by 2026-12."
+      },
+      "is_hypothesis": true
+    }
+  ]
+}

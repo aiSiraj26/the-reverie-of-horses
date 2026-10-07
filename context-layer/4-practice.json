@@ -1,0 +1,79 @@
+{
+  "_meta": {
+    "synthetic": true,
+    "note": "Invented example data for design review. Not client data. Real leader records must never be committed to this repository.",
+    "layer": "practice"
+  },
+  "records": [
+    {
+      "practice_id": "prc_001",
+      "threshold_id": "thr_001",
+      "name": "Weekly decision-rights map: write who decides what, then hand one decision away",
+      "rhythm": "weekly",
+      "definition_of_done": "One decision moved from Tomo to a named owner, in writing.",
+      "tracking": "artifact",
+      "last_completed": "2026-10-02",
+      "streak": {
+        "current": 3,
+        "longest": 3
+      },
+      "friction": [
+        "He drifts back into the decision when it is urgent."
+      ],
+      "agent_role": "prompt",
+      "status": "active",
+      "source": {
+        "type": "session",
+        "date": "2026-09-21",
+        "note": "Agreed in session."
+      }
+    },
+    {
+      "practice_id": "prc_002",
+      "threshold_id": "thr_002",
+      "name": "Write the one-page gap list for the board",
+      "rhythm": "weekly",
+      "definition_of_done": "A one-page list saved and shared with the agent.",
+      "tracking": "artifact",
+      "last_completed": "2026-07-07",
+      "streak": {
+        "current": 0,
+        "longest": 2
+      },
+      "friction": [
+        "Rewrites until it is unsendable.",
+        "No fixed day or reminder."
+      ],
+      "agent_role": "escalate_to_next_session",
+      "status": "paused",
+      "source": {
+        "type": "session",
+        "date": "2026-05-12",
+        "note": "Agreed in session; paused 2026-08-04 after three missed weeks."
+      }
+    },
+    {
+      "practice_id": "prc_003",
+      "threshold_id": "thr_003",
+      "name": "Thirty minutes of walking alone with one question: who am I when I am not the principal?",
+      "rhythm": "weekly",
+      "definition_of_done": "Walk completed and one sentence written afterward.",
+      "tracking": "self_report",
+      "last_completed": "2026-10-01",
+      "streak": {
+        "current": 2,
+        "longest": 4
+      },
+      "friction": [
+        "Fills the time with work calls."
+      ],
+      "agent_role": "hold_silence",
+      "status": "active",
+      "source": {
+        "type": "session",
+        "date": "2026-09-16",
+        "note": "Agreed in session."
+      }
+    }
+  ]
+}

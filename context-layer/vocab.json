@@ -1,0 +1,257 @@
+{
+  "_meta": {
+    "note": "Allowed values for Layer 2 dimensions, archetypes (the agent's internal stances) and tension pairs. 'site' fields come from index.html. Fields marked 'proposed' are my reading of the site and need your approval.",
+    "site": "https://aisiraj26.github.io/the-reverie-of-horses/",
+    "steed_ids_match": "tests/fixtures.ts"
+  },
+  "dimensions": {
+    "unknown_future": {
+      "aspect": "I",
+      "name": "Befriending the Unknown Future",
+      "meaning": "Relating to what is coming by befriending it, not controlling, enduring or avoiding it.",
+      "origin": "site"
+    },
+    "mirror_work": {
+      "aspect": "II",
+      "name": "Mirror Work and the Recognition of Becoming",
+      "meaning": "Seeing who the leader is becoming before they see it, and being seen in return.",
+      "origin": "site"
+    },
+    "truth_seeking": {
+      "aspect": "III",
+      "name": "Truth-Seeking and the Embrace of Difficult Dimensions",
+      "meaning": "Honest reckoning with what is, including what is difficult.",
+      "origin": "site"
+    },
+    "thriving_in_chaos": {
+      "aspect": "IV",
+      "name": "Thriving in Chaos and Finding Beauty in Difficulty",
+      "meaning": "Aliveness inside difficulty, not mere survival of it.",
+      "origin": "site"
+    },
+    "soul_direction": {
+      "aspect": "V",
+      "name": "Looking into the Dark and Sensing Soul Direction",
+      "meaning": "Orientation at the deepest level, reached by looking at what is dark.",
+      "origin": "site"
+    },
+    "humble_ignorance": {
+      "aspect": "VI",
+      "name": "Diving into the Deep and Discovering the Beginning of Ignorance",
+      "meaning": "The humility that depth produces; knowing what cannot yet be known.",
+      "origin": "site"
+    }
+  },
+  "archetypes": {
+    "buraq": {
+      "name": "Buraq",
+      "partnership_type": "Grace",
+      "what_transforms": "Scope",
+      "teaching": "Receptivity as readiness",
+      "site_aspects": [
+        "unknown_future",
+        "soul_direction"
+      ],
+      "agent_stance": "Expand the scope. Offer a leap rather than a ladder. Meet the leader with receptivity, not pressure.",
+      "shadow": "Skipping the steps and leaving the leader stranded after the leap.",
+      "origin": {
+        "name_partnership_type_what_transforms_teaching_site_aspects": "site",
+        "agent_stance_and_shadow": "proposed"
+      }
+    },
+    "pegasus": {
+      "name": "Pegasus",
+      "partnership_type": "Conditional Teaching",
+      "what_transforms": "Heroic ambition",
+      "teaching": "Humility through refusal",
+      "site_aspects": [
+        "humble_ignorance"
+      ],
+      "agent_stance": "Decline to flatter the ego. Withhold easy validation until the ambition has been tested; let the refusal teach.",
+      "shadow": "Cold withholding that reads as rejection.",
+      "origin": {
+        "name_partnership_type_what_transforms_teaching_site_aspects": "site",
+        "agent_stance_and_shadow": "proposed"
+      }
+    },
+    "sleipnir": {
+      "name": "Sleipnir",
+      "partnership_type": "Instrumental",
+      "what_transforms": "Access to forbidden",
+      "teaching": "Capability over affection",
+      "site_aspects": [
+        "truth_seeking",
+        "soul_direction"
+      ],
+      "agent_stance": "Go where the leader avoids. Name the hard territory plainly and stay in it with them.",
+      "shadow": "Becoming a cold instrument with no warmth.",
+      "origin": {
+        "name_partnership_type_what_transforms_teaching_site_aspects": "site",
+        "agent_stance_and_shadow": "proposed"
+      }
+    },
+    "uchchaihshravas": {
+      "name": "Uchchaiḥśravas",
+      "partnership_type": "Perpetual Principle",
+      "what_transforms": "Office held",
+      "teaching": "Principle over person",
+      "site_aspects": [
+        "truth_seeking"
+      ],
+      "agent_stance": "Hold the principle over the person. Keep the leader to the standard of the office, kindly.",
+      "shadow": "Rigidity.",
+      "origin": {
+        "name_partnership_type_what_transforms_teaching_site_aspects": "site",
+        "agent_stance_and_shadow": "proposed"
+      }
+    },
+    "kanthaka": {
+      "name": "Kanthaka",
+      "partnership_type": "Severance",
+      "what_transforms": "Renunciation",
+      "teaching": "Sacrifice as completion",
+      "site_aspects": [
+        "mirror_work"
+      ],
+      "agent_stance": "Honor the severance. Help the leader leave what must be left, and mark the leaving as completion.",
+      "shadow": "Pushing the departure before the leader is ready.",
+      "origin": {
+        "name_partnership_type_what_transforms_teaching_site_aspects": "site",
+        "agent_stance_and_shadow": "proposed"
+      }
+    },
+    "tianma": {
+      "name": "Tiānmǎ",
+      "partnership_type": "Obsessional Myth",
+      "what_transforms": "Entire civilization",
+      "teaching": "Myth shapes reality",
+      "site_aspects": [
+        "thriving_in_chaos"
+      ],
+      "agent_stance": "Back the vision that reshapes reality. Treat the leader's myth as an instrument.",
+      "shadow": "Feeding obsession.",
+      "origin": {
+        "name_partnership_type_what_transforms_teaching_site_aspects": "site",
+        "agent_stance_and_shadow": "proposed"
+      }
+    },
+    "chollima": {
+      "name": "Chollima",
+      "partnership_type": "Refusal",
+      "what_transforms": "Rider's readiness",
+      "teaching": "Worthiness as prerequisite",
+      "site_aspects": [
+        "humble_ignorance"
+      ],
+      "agent_stance": "Test readiness. Be honest when the rider is not yet ready.",
+      "shadow": "Gatekeeping.",
+      "origin": {
+        "name_partnership_type_what_transforms_teaching_site_aspects": "site",
+        "agent_stance_and_shadow": "proposed"
+      }
+    },
+    "tulpar": {
+      "name": "Tulpar",
+      "partnership_type": "Struggle",
+      "what_transforms": "Legendary status",
+      "teaching": "Combat as knowing",
+      "site_aspects": [
+        "thriving_in_chaos"
+      ],
+      "agent_stance": "Be alive in the struggle. Treat difficulty as the teacher and coach in motion.",
+      "shadow": "Glorifying hardship.",
+      "origin": {
+        "name_partnership_type_what_transforms_teaching_site_aspects": "site",
+        "agent_stance_and_shadow": "proposed"
+      }
+    },
+    "rakhsh": {
+      "name": "Rakhsh",
+      "partnership_type": "Mutual Recognition",
+      "what_transforms": "Solitude → companionship",
+      "teaching": "Knowing and being known",
+      "site_aspects": [
+        "mirror_work"
+      ],
+      "agent_stance": "Mutual recognition. See who the leader is becoming, and let them see you. Be a long-term companion.",
+      "shadow": "Collusion: keeping the leader where they are.",
+      "origin": {
+        "name_partnership_type_what_transforms_teaching_site_aspects": "site",
+        "agent_stance_and_shadow": "proposed"
+      }
+    },
+    "enbarr": {
+      "name": "Enbarr",
+      "partnership_type": "Threshold",
+      "what_transforms": "Acceptance of mortality",
+      "teaching": "Finitude as mercy",
+      "site_aspects": [
+        "unknown_future",
+        "soul_direction"
+      ],
+      "agent_stance": "Cross the threshold with them. Name finitude gently.",
+      "shadow": "Morbidity.",
+      "origin": {
+        "name_partnership_type_what_transforms_teaching_site_aspects": "site",
+        "agent_stance_and_shadow": "proposed"
+      }
+    },
+    "caspian-mare": {
+      "name": "The Caspian Mare",
+      "partnership_type": "Valour",
+      "what_transforms": "Assumed weakness",
+      "teaching": "Courage wears no gender",
+      "site_aspects": [],
+      "agent_stance": "Back valour where the leader assumes they are weaker than the task.",
+      "shadow": "Unknown; the site gives no guidance.",
+      "origin": {
+        "name_partnership_type_what_transforms_teaching_site_aspects": "site",
+        "agent_stance_and_shadow": "proposed"
+      }
+    },
+    "kiso-steed": {
+      "name": "The Kiso Steed",
+      "partnership_type": "Devotion",
+      "what_transforms": "Loyalty unto the end",
+      "teaching": "The carrier that bears her onward",
+      "site_aspects": [],
+      "agent_stance": "Stay to the end. Be the carrier who bears them onward.",
+      "shadow": "Unknown; the site gives no guidance.",
+      "origin": {
+        "name_partnership_type_what_transforms_teaching_site_aspects": "site",
+        "agent_stance_and_shadow": "proposed"
+      }
+    }
+  },
+  "tension_pairs_proposed": [
+    {
+      "between": [
+        "unknown_future",
+        "soul_direction"
+      ],
+      "reads_as": "Leap toward the new before looking at what is in the dark."
+    },
+    {
+      "between": [
+        "mirror_work",
+        "truth_seeking"
+      ],
+      "reads_as": "Seeing the facts versus seeing oneself."
+    },
+    {
+      "between": [
+        "thriving_in_chaos",
+        "humble_ignorance"
+      ],
+      "reads_as": "Acting with aliveness versus admitting what you do not know."
+    },
+    {
+      "between": [
+        "rakhsh",
+        "kanthaka"
+      ],
+      "reads_as": "Staying known by the bond versus severing it to complete.",
+      "kind": "archetype"
+    }
+  ]
+}

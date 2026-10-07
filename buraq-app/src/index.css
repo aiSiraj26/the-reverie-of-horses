@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #faf7f0;
+  --panel: #f3eee1;
+  --ink: #2a2520;
+  --muted: #7d7466;
+  --line: #e6dfcd;
+  --gold: #a47b2c;
+  --gold-soft: #efe4c8;
+  --warn: #9a4a2f;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+  --paper: #17150f;
+  --panel: #1f1c15;
+  --ink: #ece6d6;
+  --muted: #9a917f;
+  --line: #2f2b21;
+  --gold: #d1aa5a;
+  --gold-soft: #2c2616;
+  --warn: #d98466;
+  color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #17150f;
+  --panel: #1f1c15;
+  --ink: #ece6d6;
+  --muted: #9a917f;
+  --line: #2f2b21;
+  --gold: #d1aa5a;
+  --gold-soft: #2c2616;
+  --warn: #d98466;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-panel: var(--panel);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-gold: var(--gold);
+  --color-goldsoft: var(--gold-soft);
+  --color-warn: var(--warn);
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+html, body, #root { height: 100%; }
+body { background: var(--paper); color: var(--ink); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+::selection { background: var(--gold-soft); }
+.label { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+.thin-scroll { scrollbar-width: thin; scrollbar-color: var(--line) transparent; }
+@keyframes rise { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+.rise { animation: rise .35s ease both; }
+@keyframes breathe { 0%,100% { opacity: .25; } 50% { opacity: .9; } }
+.dot-breathe { animation: breathe 1.4s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .rise, .dot-breathe { animation: none; } html { scroll-behavior: auto; } }

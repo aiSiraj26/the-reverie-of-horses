@@ -1,0 +1,320 @@
+{
+  "_meta": {
+    "synthetic": true,
+    "note": "Invented example data for design review. Not client data. Real leader records must never be committed to this repository.",
+    "layer": "relationship"
+  },
+  "records": [
+    {
+      "entry_id": "log_001",
+      "timestamp": "2026-09-21",
+      "leader_id": "ldr_001",
+      "threshold_id": "thr_001",
+      "type": "session",
+      "summary": "Named the crossing: from bottleneck to architect. Tomo described the company as 'a machine that only runs when I turn the key'.",
+      "leader_state": "Energised, open",
+      "commitments_made": [
+        "prc_001"
+      ],
+      "commitments_kept": [
+        {
+          "commitment": "prc_001",
+          "outcome": "kept",
+          "resolved_in": "log_002"
+        }
+      ],
+      "agent_notes": [
+        {
+          "date": "2026-09-21",
+          "note": "He lights up when the scope gets bigger. Keep the frame wide."
+        }
+      ],
+      "source": {
+        "said": [
+          "The company only runs when he turns the key."
+        ],
+        "inferred": [
+          "Responds to scope, not to steps."
+        ]
+      }
+    },
+    {
+      "entry_id": "log_002",
+      "timestamp": "2026-10-05",
+      "leader_id": "ldr_001",
+      "threshold_id": "thr_001",
+      "type": "check_in",
+      "summary": "Moved the Q4 hiring decision to his head of sales. The plan she wrote differed from his, and he let it stand.",
+      "leader_state": "Proud, slightly unsettled",
+      "commitments_made": [
+        "prc_001"
+      ],
+      "commitments_kept": [
+        {
+          "commitment": "prc_001",
+          "outcome": "pending",
+          "resolved_in": null
+        }
+      ],
+      "agent_notes": [
+        {
+          "date": "2026-10-05",
+          "note": "Unease after a win. Watch whether it repeats."
+        }
+      ],
+      "source": {
+        "said": [
+          "Handed away the hiring decision.",
+          "Let her plan stand."
+        ],
+        "inferred": [
+          "Unease follows a win."
+        ]
+      }
+    },
+    {
+      "entry_id": "log_003",
+      "timestamp": "2026-05-12",
+      "leader_id": "ldr_002",
+      "threshold_id": "thr_002",
+      "type": "session",
+      "summary": "Named the crossing: tell the board the truth about the plan. Elena listed three gaps she has not raised.",
+      "leader_state": "Controlled, tense",
+      "commitments_made": [
+        "prc_002"
+      ],
+      "commitments_kept": [
+        {
+          "commitment": "prc_002",
+          "outcome": "kept",
+          "resolved_in": "log_004"
+        }
+      ],
+      "agent_notes": [
+        {
+          "date": "2026-05-12",
+          "note": "She wants reassurance. Stance is to decline it and keep the focus on the gaps."
+        }
+      ],
+      "source": {
+        "said": [
+          "Three gaps she hasn't raised.",
+          "Afraid of the chair's reaction."
+        ],
+        "inferred": [
+          "She is seeking reassurance."
+        ]
+      }
+    },
+    {
+      "entry_id": "log_004",
+      "timestamp": "2026-06-16",
+      "leader_id": "ldr_002",
+      "threshold_id": "thr_002",
+      "type": "check_in",
+      "summary": "Wrote the gap list. Did not share it. Said the chair 'has had a hard quarter'.",
+      "leader_state": "Flat",
+      "commitments_made": [
+        "Send the list to the chair by 06-30"
+      ],
+      "commitments_kept": [
+        {
+          "commitment": "Send the list to the chair by 06-30",
+          "outcome": "missed",
+          "resolved_in": "log_005"
+        }
+      ],
+      "agent_notes": [
+        {
+          "date": "2026-06-16",
+          "note": "She stopped at sending. First use of the chair's mood as a reason."
+        }
+      ],
+      "source": {
+        "said": [
+          "Wrote the list.",
+          "The chair had a hard quarter."
+        ],
+        "inferred": [
+          "Stopped at the sending step."
+        ]
+      }
+    },
+    {
+      "entry_id": "log_005",
+      "timestamp": "2026-07-07",
+      "leader_id": "ldr_002",
+      "threshold_id": "thr_002",
+      "type": "slip",
+      "summary": "No send. Redirected the session to the covenant review.",
+      "leader_state": "Withdrawn, competent",
+      "commitments_made": [],
+      "commitments_kept": [],
+      "agent_notes": [
+        {
+          "date": "2026-07-07",
+          "note": "Changes the subject to a topic she controls. Marked stalled at the next check."
+        }
+      ],
+      "source": {
+        "said": [
+          "Moved to the covenant review."
+        ],
+        "inferred": [
+          "Topic change is avoidance."
+        ]
+      }
+    },
+    {
+      "entry_id": "log_006",
+      "timestamp": "2026-08-04",
+      "leader_id": "ldr_002",
+      "threshold_id": "thr_002",
+      "type": "slip",
+      "summary": "Three missed weeks. Cancelled one session; asked to reschedule.",
+      "leader_state": "Not observed (cancelled)",
+      "commitments_made": [],
+      "commitments_kept": [],
+      "agent_notes": [
+        {
+          "date": "2026-08-04",
+          "note": "Pattern: slips cluster right before board events. Threshold marked stalled; target date later passed without contact."
+        }
+      ],
+      "source": {
+        "said": [
+          "Asked to reschedule."
+        ],
+        "inferred": [
+          "Slips cluster before board events."
+        ]
+      }
+    },
+    {
+      "entry_id": "log_007",
+      "timestamp": "2026-09-22",
+      "leader_id": "ldr_002",
+      "threshold_id": "thr_002",
+      "type": "reframe",
+      "summary": "Reframed from 'tell the board' to 'tell one board member one gap'. Elena said it felt smaller but still frightening.",
+      "leader_state": "Quieter, more honest",
+      "commitments_made": [
+        "Pick the board member and the gap by 10-06"
+      ],
+      "commitments_kept": [
+        {
+          "commitment": "Pick the board member and the gap by 10-06",
+          "outcome": "pending",
+          "resolved_in": null
+        }
+      ],
+      "agent_notes": [
+        {
+          "date": "2026-09-22",
+          "note": "The smaller frame got a real response. Test whether size, not willingness, is the barrier. Still no flattery."
+        }
+      ],
+      "source": {
+        "said": [
+          "The smaller step felt less impossible but still scary."
+        ],
+        "inferred": [
+          "Size of the ask may be the barrier."
+        ]
+      }
+    },
+    {
+      "entry_id": "log_008",
+      "timestamp": "2026-09-02",
+      "leader_id": "ldr_003",
+      "threshold_id": "thr_003",
+      "type": "session",
+      "summary": "Named the crossing. Kofi said the firm is 'my eye' and that he is afraid of who he is without it.",
+      "leader_state": "Reflective, heavy",
+      "commitments_made": [
+        "prc_003"
+      ],
+      "commitments_kept": [
+        {
+          "commitment": "prc_003",
+          "outcome": "kept",
+          "resolved_in": "log_009"
+        }
+      ],
+      "agent_notes": [
+        {
+          "date": "2026-09-02",
+          "note": "Two pulls in one sentence: loyalty to the firm and relief at the idea of leaving. Hold both."
+        }
+      ],
+      "source": {
+        "said": [
+          "The firm is his eye.",
+          "Afraid of who he is without it."
+        ],
+        "inferred": [
+          "Relief mixed with loyalty."
+        ]
+      }
+    },
+    {
+      "entry_id": "log_009",
+      "timestamp": "2026-09-16",
+      "leader_id": "ldr_003",
+      "threshold_id": "thr_003",
+      "type": "check_in",
+      "summary": "Walked twice. Named the two pulls himself: wants to leap, and wants to understand first. Raised telling his partners as a separate crossing.",
+      "leader_state": "Animated, then quiet",
+      "commitments_made": [
+        "Write one sentence on what I'm for next"
+      ],
+      "commitments_kept": [
+        {
+          "commitment": "Write one sentence on what I'm for next",
+          "outcome": "missed",
+          "resolved_in": "log_010"
+        }
+      ],
+      "agent_notes": [
+        {
+          "date": "2026-09-16",
+          "note": "Named the dual pull himself, so confidence in the tension fields rose. Separate partner conversation added as thr_004 (inferred)."
+        }
+      ],
+      "source": {
+        "said": [
+          "Walked twice.",
+          "Wants to leap and wants to understand first."
+        ],
+        "inferred": [
+          "Treating the partner conversation as separate is the agent's inference."
+        ]
+      }
+    },
+    {
+      "entry_id": "log_010",
+      "timestamp": "2026-10-01",
+      "leader_id": "ldr_003",
+      "threshold_id": "thr_003",
+      "type": "slip",
+      "summary": "Did not write the sentence. Spent the session describing the firm's best project.",
+      "leader_state": "Warm, evasive",
+      "commitments_made": [],
+      "commitments_kept": [],
+      "agent_notes": [
+        {
+          "date": "2026-10-01",
+          "note": "Retreats into the firm's work when asked about what's next. Do not push. Mark as a pattern if it repeats."
+        }
+      ],
+      "source": {
+        "said": [
+          "Described the firm's best project."
+        ],
+        "inferred": [
+          "Retreat into the firm when the future is raised."
+        ]
+      }
+    }
+  ]
+}

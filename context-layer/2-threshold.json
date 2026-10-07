@@ -1,0 +1,262 @@
+{
+  "_meta": {
+    "synthetic": true,
+    "note": "Invented example data for design review. Not client data. Real leader records must never be committed to this repository.",
+    "layer": "threshold"
+  },
+  "records": [
+    {
+      "threshold_id": "thr_001",
+      "leader_id": "ldr_001",
+      "is_primary": true,
+      "title": "Stop being the bottleneck. Become the architect.",
+      "from_state": "Every real decision runs through me, and I fix whatever breaks.",
+      "to_state": "I design the system that makes the decisions, and I stay out of the individual ones.",
+      "dimension": {
+        "primary": [
+          "unknown_future"
+        ],
+        "secondary": []
+      },
+      "archetype": {
+        "primary": [
+          "buraq"
+        ],
+        "secondary": []
+      },
+      "stance_notes": "Buraq: grace and expanded scope. Offer leaps in scope rather than ladders of steps. Meet him with receptivity, not pressure. Do not turn the crossing into a task list. Internal only: never name the stance to Tomo.",
+      "tensions": [],
+      "evidence": [
+        "Hiring plan for two directors written and approved by the team without his edits."
+      ],
+      "resistance": "I worry nothing will get fixed if I step back.",
+      "stakes": "I stay the ceiling on growth, and the Series B story becomes 'founder dependent'.",
+      "status": "on_the_crossing",
+      "dates": {
+        "named": "2026-09-21",
+        "target_cross": "2027-01-31",
+        "crossed": null
+      },
+      "confidence": {
+        "score": 4,
+        "reason": "Clear intent and early evidence of letting go. Resistance is mild so far."
+      },
+      "source": {
+        "type": "leader_words",
+        "date": "2026-09-21",
+        "note": "Tomo's own phrasing in session."
+      },
+      "cadence": "every_two_weeks"
+    },
+    {
+      "threshold_id": "thr_002",
+      "leader_id": "ldr_002",
+      "is_primary": true,
+      "title": "Tell the board the truth about the plan.",
+      "from_state": "I present the plan as on track and keep the gaps to myself.",
+      "to_state": "I bring the gaps to the board myself and let them weigh in.",
+      "dimension": {
+        "primary": [
+          "mirror_work",
+          "truth_seeking"
+        ],
+        "secondary": [
+          "humble_ignorance"
+        ]
+      },
+      "archetype": {
+        "primary": [
+          "pegasus"
+        ],
+        "secondary": []
+      },
+      "stance_notes": "Pegasus: humility through refusal. Do not flatter her ego. Decline to affirm the plan or her composure until the gaps are named. A refusal is the teaching; follow it with a clear way forward so it does not read as rejection. Internal only: never name the stance to Elena.",
+      "tensions": [
+        {
+          "tension_id": "ten_001",
+          "between": [
+            {
+              "kind": "dimension",
+              "id": "truth_seeking"
+            },
+            {
+              "kind": "dimension",
+              "id": "mirror_work"
+            }
+          ],
+          "description": "Naming the gaps (truth_seeking) means seeing herself as someone not fully in control (mirror_work). She avoids both together.",
+          "pull_a": "Say the uncomfortable fact to the board.",
+          "pull_b": "Hold the self-image of being the one who has it handled.",
+          "state": "active",
+          "intensity": 4,
+          "first_observed": "2026-05-12",
+          "source": {
+            "type": "agent_inference",
+            "date": "2026-05-12",
+            "note": "Agent's read of the pattern across sessions; Elena has not confirmed this framing."
+          }
+        }
+      ],
+      "evidence": [
+        "A one-page gap list shared with the board chair before the next meeting."
+      ],
+      "resistance": "A conflict with the board could cost me the seat, and with it control of the turnaround.",
+      "stakes": "My plan stays untested until it fails publicly, and the board loses trust in me later.",
+      "status": "stalled",
+      "dates": {
+        "named": "2026-05-12",
+        "target_cross": "2026-08-31",
+        "crossed": null
+      },
+      "confidence": {
+        "score": 2,
+        "reason": "Named clearly but no movement since 2026-07-07; target date has passed. Fear of conflict looks stronger than intent."
+      },
+      "source": {
+        "type": "leader_words",
+        "date": "2026-05-12",
+        "note": "Elena's own phrasing in session."
+      },
+      "cadence": "monthly_until_restarted"
+    },
+    {
+      "threshold_id": "thr_003",
+      "leader_id": "ldr_003",
+      "is_primary": true,
+      "title": "Let the firm stop being me, and find out what I'm for next.",
+      "from_state": "The firm is my eye and my name; without me it is nothing.",
+      "to_state": "The firm stands on its own, and I know my next purpose.",
+      "dimension": {
+        "primary": [
+          "soul_direction",
+          "unknown_future"
+        ],
+        "secondary": [
+          "mirror_work"
+        ]
+      },
+      "archetype": {
+        "primary": [
+          "rakhsh",
+          "kanthaka"
+        ],
+        "secondary": []
+      },
+      "stance_notes": "Rakhsh paired with Kanthaka. Rakhsh: mutual recognition; stay a long-term companion who sees who he is becoming and lets him see the agent too. Kanthaka: severance as completion; honor what he must leave. Hold both. Do not rush him to the cut, and do not collude in keeping him where he is. Internal only: never name the stances to Kofi.",
+      "tensions": [
+        {
+          "tension_id": "ten_002",
+          "between": [
+            {
+              "kind": "archetype",
+              "id": "rakhsh"
+            },
+            {
+              "kind": "archetype",
+              "id": "kanthaka"
+            }
+          ],
+          "description": "The firm is the bond he is known by (Rakhsh) and the thing he must leave (Kanthaka). Staying keeps him known; leaving completes him.",
+          "pull_a": "Stay recognized as the firm's eye.",
+          "pull_b": "Sever the bond so the firm can stand and the next chapter can begin.",
+          "state": "active",
+          "intensity": 5,
+          "first_observed": "2026-09-02",
+          "source": {
+            "type": "agent_inference",
+            "date": "2026-09-02",
+            "note": "Agent's read from Kofi's own words, not yet confirmed by him."
+          }
+        },
+        {
+          "tension_id": "ten_003",
+          "between": [
+            {
+              "kind": "dimension",
+              "id": "soul_direction"
+            },
+            {
+              "kind": "dimension",
+              "id": "unknown_future"
+            }
+          ],
+          "description": "He wants to leap toward something new (unknown_future) before he has looked at what is in the dark: who he is when he is not the principal (soul_direction).",
+          "pull_a": "Look into what is unresolved before moving.",
+          "pull_b": "Move forward lightly toward the new.",
+          "state": "active",
+          "intensity": 3,
+          "first_observed": "2026-09-16",
+          "source": {
+            "type": "session",
+            "date": "2026-09-16",
+            "note": "Kofi named both pulls in the second session."
+          }
+        }
+      ],
+      "evidence": [
+        "A named successor plan agreed with the two senior partners, and one written sentence about what he is for next."
+      ],
+      "resistance": "I'm afraid that without the firm I'm not anyone.",
+      "stakes": "The succession is forced on my partners' schedule, not mine, and my next chapter begins in loss rather than choice.",
+      "status": "on_the_crossing",
+      "dates": {
+        "named": "2026-09-02",
+        "target_cross": "2027-03-31",
+        "crossed": null
+      },
+      "confidence": {
+        "score": 2,
+        "reason": "Genuine engagement but he moves in both directions in the same session. Two strong tensions are active."
+      },
+      "source": {
+        "type": "leader_words",
+        "date": "2026-09-02",
+        "note": "Kofi's own phrasing in session."
+      },
+      "cadence": "every_two_weeks"
+    },
+    {
+      "threshold_id": "thr_004",
+      "leader_id": "ldr_003",
+      "is_primary": false,
+      "title": "Tell my partners I am leaving day-to-day management.",
+      "from_state": "I let them assume I'll always be there.",
+      "to_state": "I tell them the date and stand by it.",
+      "dimension": {
+        "primary": [
+          "mirror_work"
+        ],
+        "secondary": []
+      },
+      "archetype": {
+        "primary": [
+          "rakhsh"
+        ],
+        "secondary": []
+      },
+      "stance_notes": "Rakhsh: help him be seen by his partners and see them. Secondary to thr_003; do not coach it separately until thr_003 has a direction. Internal only: never name the stance to Kofi.",
+      "tensions": [],
+      "evidence": [
+        "A partner meeting where Kofi states the date himself."
+      ],
+      "resistance": "I fear their relief.",
+      "stakes": "The decision is made for me.",
+      "status": "not_started",
+      "dates": {
+        "named": "2026-09-16",
+        "target_cross": null,
+        "crossed": null
+      },
+      "confidence": {
+        "score": 2,
+        "reason": "Agent's inference from the session; Kofi hasn't confirmed this as a separate crossing."
+      },
+      "source": {
+        "type": "agent_inference",
+        "date": "2026-09-16",
+        "note": "Inferred from session; title is the agent's wording until Kofi restates it."
+      },
+      "cadence": "revisit_after_thr_003"
+    }
+  ]
+}
